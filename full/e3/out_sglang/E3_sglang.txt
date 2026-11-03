@@ -1,0 +1,6 @@
+sglang/FA/SG1@fit/S0                 cell   NOT_REJECTED N 200000 p 0.742 mde 0.00302734375 acc 0.294 | Stage A null p 0.503
+sglang/FA/SG1@fit/S1                 cell   NOT_REJECTED N 200000 p 0.994 mde 0.0015625 acc 0.378 | Stage A null p 0.677
+sglang/FA/SG1@fit/S2                 cell   REFERENCE_UNRESOLVED (gate)
+sglang/FA/SG1@fit/S3                 cell   REFERENCE_UNRESOLVED (gate)
+sglang/FA/SG1@fit/G                  greedy PASS 1000/1000 on chain (5, 6, 3, 6) (margin 0.0282)
+Holm at 0.01 over 8 E3 cells; vLLM verdicts changed: none

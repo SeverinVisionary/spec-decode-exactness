@@ -1,0 +1,124 @@
+vllm/FA/NULL@V1/S0           null    N=200000 p=0.341 chi2=614.7/601 tv=0.0145 zero=0 oos=0 mde=0.0030 reject=False 
+vllm/FA/NULL@V1/S1           null    N=200000 p=0.217 chi2=266.1/249 tv=0.0079 zero=0 oos=0 mde=0.0016 reject=False 
+vllm/FA/NULL@V1/S2           null    N=200000 p=0.379 chi2=61.7/59 tv=0.0052 zero=0 oos=0 mde=0.0017 reject=False 
+vllm/FA/NULL@V1/S3           null    N=200000 p=0.198 chi2=40.7/34 tv=0.0046 zero=0 oos=0 mde=0.0091 reject=False 
+vllm/FA/NULL@V1/S5           null    N=200000 p=0.0561 chi2=649.8/594 tv=0.0153 zero=0 oos=0 mde=0.0031 reject=False 
+vllm/FB/NULL@V1/S0           null    N=200000 p=0.355 prefixes=504 informative=504 missing=0 oos=0 mde=0.0010 reject=False 
+vllm/FB/NULL@V1/S2           null    N=200000 p=0.348 prefixes=204 informative=204 missing=0 oos=0 mde=0.0098 reject=False 
+vllm/FA/P7/S2                control N=200000 p=0 chi2=3182368256.2/59 tv=0.3792 zero=75831 oos=0 mde=0.0017 reject=True 
+vllm/FA/P8/S0                control N=200000 p=0 chi2=221740.9/601 tv=0.3723 zero=0 oos=0 mde=0.0030 reject=True 
+vllm/FA/VG1/S0               cell    N=200000 p=0.22 chi2=627.5/601 tv=0.0149 zero=0 oos=0 mde=0.0030 reject=False NOT_REJECTED
+vllm/FA/VG1/S1               cell    N=200000 p=0.545 chi2=245.8/249 tv=0.0071 zero=0 oos=0 mde=0.0016 reject=False NOT_REJECTED
+vllm/FA/VG1/S2               cell    N=200000 p=0.458 chi2=59.5/59 tv=0.0041 zero=0 oos=0 mde=0.0017 reject=False NOT_REJECTED
+vllm/FA/VG1/S3               cell    N=200000 p=0.242 chi2=39.4/34 tv=0.0050 zero=0 oos=0 mde=0.0091 reject=False NOT_REJECTED
+vllm/FA/VG1/S5               cell    N=200000 p=0.906 chi2=549.2/594 tv=0.0136 zero=0 oos=0 mde=0.0031 reject=False NOT_REJECTED
+vllm/FA/VG2/S0               cell    N=200000 p=0.424 chi2=607.0/601 tv=0.0143 zero=0 oos=0 mde=0.0030 reject=False NOT_REJECTED
+vllm/FA/VG2/S1               cell    N=200000 p=0.422 chi2=252.7/249 tv=0.0076 zero=0 oos=0 mde=0.0016 reject=False NOT_REJECTED
+vllm/FA/VG2/S2               cell    N=200000 p=0.975 chi2=39.6/59 tv=0.0034 zero=0 oos=0 mde=0.0017 reject=False NOT_REJECTED
+vllm/FA/VG2/S3               cell    N=200000 p=0.885 chi2=24.5/34 tv=0.0040 zero=0 oos=0 mde=0.0091 reject=False NOT_REJECTED
+vllm/FA/VG2/S5               cell    N=200000 p=0.367 chi2=605.1/594 tv=0.0147 zero=0 oos=0 mde=0.0031 reject=False NOT_REJECTED
+vllm/FA/VG3/S0               cell    N=200000 p=0.473 chi2=602.7/601 tv=0.0142 zero=0 oos=0 mde=0.0030 reject=False NOT_REJECTED
+vllm/FA/VG3/S1               cell    N=200000 p=0.343 chi2=257.4/249 tv=0.0082 zero=0 oos=0 mde=0.0016 reject=False NOT_REJECTED
+vllm/FA/VG3/S2               cell    N=200000 p=0.768 chi2=50.8/59 tv=0.0039 zero=0 oos=0 mde=0.0017 reject=False NOT_REJECTED
+vllm/FA/VG3/S3               cell    N=200000 p=0.249 chi2=39.2/34 tv=0.0047 zero=0 oos=0 mde=0.0091 reject=False NOT_REJECTED
+vllm/FA/VG3/S5               cell    N=200000 p=0.0754 chi2=644.2/594 tv=0.0146 zero=0 oos=0 mde=0.0031 reject=False NOT_REJECTED
+vllm/FB/VG1/S0               cell    N=200000 p=0.925 prefixes=504 informative=504 missing=0 oos=0 mde=0.0010 reject=False NOT_REJECTED
+vllm/FB/VG1/S2               cell    N=200000 p=0.439 prefixes=204 informative=204 missing=0 oos=0 mde=0.0098 reject=False NOT_REJECTED
+vllm/FB/VG2/S0               cell    N=200000 p=0.405 prefixes=504 informative=504 missing=0 oos=0 mde=0.0010 reject=False NOT_REJECTED
+vllm/FB/VG2/S2               cell    N=200000 p=0.895 prefixes=204 informative=204 missing=0 oos=0 mde=0.0098 reject=False NOT_REJECTED
+vllm/FA/VG1/G                greedy N=1000 PASS 1000/1000 chain=(5, 6, 3, 6) margin=0.0282
+vllm/FA/VG2/G                greedy N=1000 PASS 1000/1000 chain=(5, 6, 3, 6) margin=0.0282
+vllm/FA/VG3/G                greedy N=1000 PASS 1000/1000 chain=(5, 6, 3, 6) margin=0.0282
+vllm/FB/VG1/G                greedy N=1000 PASS 1000/1000 chain=(11, 11, 14, 14, 17, 28) margin=0.00234
+vllm/FB/VG2/G                greedy N=1000 PASS 1000/1000 chain=(11, 11, 14, 14, 17, 28) margin=0.00234
+sglang/FA/NULL/S0            null    N=200000 p=0.503 chi2=600.1/601 tv=0.0137 zero=0 oos=0 mde=0.0030 reject=False 
+sglang/FA/NULL/S1            null    N=200000 p=0.677 chi2=238.2/249 tv=0.0083 zero=0 oos=0 mde=0.0016 reject=False 
+sglang/FA/SG3s/S0            cell    N=200000 p=0.524 chi2=598.2/601 tv=0.0143 zero=0 oos=0 mde=0.0030 reject=False NOT_REJECTED
+sglang/FA/SG3s/S1            cell    N=200000 p=0.567 chi2=244.6/249 tv=0.0078 zero=0 oos=0 mde=0.0016 reject=False NOT_REJECTED
+sglang/FA/SG3n/S0            cell    N=200000 p=0.531 chi2=597.7/601 tv=0.0148 zero=0 oos=0 mde=0.0030 reject=False NOT_REJECTED
+sglang/FA/SG3n/S1            cell    N=200000 p=0.25 chi2=263.7/249 tv=0.0088 zero=0 oos=0 mde=0.0016 reject=False NOT_REJECTED
+sglang/FA/SG3s/G             greedy N=1000 PASS 1000/1000 chain=(5, 6, 3, 6) margin=0.0282
+sglang/FA/SG3n/G             greedy N=1000 PASS 1000/1000 chain=(5, 6, 3, 6) margin=0.0282
+trtllm/FA/NULL/S0            null    N=200000 p=0.246 chi2=624.5/601 tv=0.0134 zero=0 oos=0 mde=0.0030 reject=False 
+trtllm/FA/NULL/S1            null    N=200000 p=0.13 chi2=274.2/249 tv=0.0081 zero=0 oos=0 mde=0.0016 reject=False 
+trtllm/FA/NULL/S2            null    N=200000 p=0.584 chi2=56.1/59 tv=0.0031 zero=0 oos=0 mde=0.0017 reject=False 
+trtllm/FA/NULL/S3            null    N=200000 p=0.764 chi2=27.8/34 tv=0.0044 zero=0 oos=0 mde=0.0091 reject=False 
+trtllm/FB/NULL/S0            null    N=200000 p=0.735 prefixes=509 informative=509 missing=0 oos=0 mde=0.0010 reject=False 
+trtllm/FB/NULL/S2            null    N=200000 p=0.704 prefixes=202 informative=202 missing=0 oos=0 mde=0.0098 reject=False 
+trtllm/FA/TG1v/S0            cell    N=200000 p=0 chi2=3888963.9/601 tv=0.4972 zero=0 oos=0 mde=0.0030 reject=True REJECTED
+trtllm/FA/TG1v/S1            cell    N=200000 p=0 chi2=25419080.6/249 tv=0.5827 zero=0 oos=0 mde=0.0016 reject=True REJECTED
+trtllm/FA/TG1v/S2            cell    N=200000 p=0 chi2=4426770612.0/59 tv=0.5725 zero=89438 oos=0 mde=0.0017 reject=True REJECTED
+trtllm/FA/TG1v/S3            cell    N=200000 p=0 chi2=inf/34 tv=0.4740 zero=74924 oos=0 mde=0.0091 reject=True REJECTED
+trtllm/FB/TG1v/S0            cell    N=200000 p=0 prefixes=509 informative=491 missing=0 oos=0 mde=0.0010 reject=True REJECTED
+trtllm/FB/TG1v/S2            cell    N=200000 p=0 prefixes=202 informative=191 missing=0 oos=0 mde=0.0098 reject=True REJECTED
+trtllm/FA/TG1v/G             greedy N=1000 PASS 1000/1000 chain=(5, 6, 3, 6) margin=0.0282
+trtllm/FB/TG1v/G             greedy N=1000 PASS 1000/1000 chain=(11, 11, 14, 14, 17, 28) margin=0.00234
+llamacpp/FA/NULL/S0          null    N=200000 p=0.312 chi2=617.4/601 tv=0.0134 zero=0 oos=0 mde=0.0030 reject=False 
+llamacpp/FA/NULL/S1          null    N=200000 p=0.451 chi2=251.1/249 tv=0.0072 zero=0 oos=0 mde=0.0016 reject=False 
+llamacpp/FA/NULL/S2          null    N=200000 p=0.338 chi2=63.0/59 tv=0.0049 zero=0 oos=0 mde=0.0017 reject=False 
+llamacpp/FA/NULL/S3          null    N=200000 p=0.604 chi2=31.2/34 tv=0.0036 zero=0 oos=0 mde=0.0091 reject=False 
+llamacpp/FA/NULL/S4          null    N=200000 p=0.885 chi2=67.9/83 tv=0.0049 zero=0 oos=0 mde=0.0049 reject=False 
+llamacpp/FA/NULL/S5          null    N=200000 p=0.433 chi2=599.2/594 tv=0.0129 zero=0 oos=0 mde=0.0031 reject=False 
+llamacpp/FA/NULL/S6          null    N=200000 p=0.253 chi2=42.3/37 tv=0.0045 zero=0 oos=0 mde=0.0047 reject=False 
+llamacpp/FB/NULL/S0          null    N=200000 p=0.182 prefixes=503 informative=503 missing=0 oos=0 mde=0.0010 reject=False 
+llamacpp/FB/NULL/S2          null    N=200000 p=0.0131 prefixes=203 informative=203 missing=0 oos=0 mde=0.0098 reject=False 
+llamacpp/FB/NULL/S6          null    N=200000 p=0.705 prefixes=257 informative=250 missing=0 oos=0 mde=0.0088 reject=False 
+llamacpp/FA/LG1/S0           cell    N=200000 p=0.676 chi2=584.7/601 tv=0.0143 zero=0 oos=0 mde=0.0030 reject=False NOT_REJECTED
+llamacpp/FA/LG1/S1           cell    N=200000 p=0.906 chi2=220.2/249 tv=0.0089 zero=0 oos=0 mde=0.0016 reject=False NOT_REJECTED
+llamacpp/FA/LG1/S2           cell    N=200000 p=0.997 chi2=33.2/59 tv=0.0041 zero=0 oos=0 mde=0.0017 reject=False NOT_REJECTED
+llamacpp/FA/LG1/S3           cell    N=200000 p=0.829 chi2=26.2/34 tv=0.0037 zero=0 oos=0 mde=0.0091 reject=False NOT_REJECTED
+llamacpp/FA/LG1/S4           cell    N=200000 p=0.614 chi2=78.7/83 tv=0.0061 zero=0 oos=0 mde=0.0049 reject=False NOT_REJECTED
+llamacpp/FA/LG1/S5           cell    N=200000 p=0.818 chi2=562.6/594 tv=0.0135 zero=0 oos=0 mde=0.0031 reject=False NOT_REJECTED
+llamacpp/FA/LG1/S6           cell    N=200000 p=0.804 chi2=29.5/37 tv=0.0036 zero=0 oos=0 mde=0.0047 reject=False NOT_REJECTED
+llamacpp/FA/LG2/S0           cell    N=200000 p=0.201 chi2=629.8/601 tv=0.0139 zero=0 oos=0 mde=0.0030 reject=False NOT_REJECTED
+llamacpp/FA/LG2/S1           cell    N=200000 p=0.407 chi2=253.6/249 tv=0.0077 zero=0 oos=0 mde=0.0016 reject=False NOT_REJECTED
+llamacpp/FA/LG2/S2           cell    N=200000 p=0.581 chi2=56.1/59 tv=0.0055 zero=0 oos=0 mde=0.0017 reject=False NOT_REJECTED
+llamacpp/FA/LG2/S3           cell    N=200000 p=0.859 chi2=25.3/34 tv=0.0036 zero=0 oos=0 mde=0.0091 reject=False NOT_REJECTED
+llamacpp/FA/LG2/S4           cell    N=200000 p=0.977 chi2=59.3/83 tv=0.0054 zero=0 oos=0 mde=0.0049 reject=False NOT_REJECTED
+llamacpp/FA/LG2/S5           cell    N=200000 p=0.93 chi2=543.9/594 tv=0.0128 zero=0 oos=0 mde=0.0031 reject=False NOT_REJECTED
+llamacpp/FA/LG2/S6           cell    N=200000 p=0.12 chi2=47.3/37 tv=0.0047 zero=0 oos=0 mde=0.0047 reject=False NOT_REJECTED
+llamacpp/FB/LG2/S0           cell    N=200000 p=0.0617 prefixes=503 informative=503 missing=0 oos=0 mde=0.0010 reject=False NOT_REJECTED
+llamacpp/FB/LG2/S2           cell    N=200000 p=0.261 prefixes=203 informative=203 missing=0 oos=0 mde=0.0098 reject=False NOT_REJECTED
+llamacpp/FB/LG2/S6           cell    N=200000 p=0.289 prefixes=257 informative=250 missing=0 oos=0 mde=0.0088 reject=False NOT_REJECTED
+llamacpp/FA/LG1/G            greedy N=1000 PASS 1000/1000 chain=(5, 6, 3, 6) margin=0.0282
+llamacpp/FA/LG2/G            greedy N=1000 PASS 1000/1000 chain=(5, 6, 3, 6) margin=0.0282
+llamacpp/FB/LG2/G            greedy N=1000 PASS 1000/1000 chain=(11, 11, 14, 14, 17, 28) margin=0.00234
+hf/FA/NULL/S0                null    N=200000 p=0.308 chi2=617.9/601 tv=0.0136 zero=0 oos=0 mde=0.0030 reject=False 
+hf/FA/NULL/S1                null    N=200000 p=0.888 chi2=222.2/249 tv=0.0075 zero=0 oos=0 mde=0.0016 reject=False 
+hf/FA/NULL/S2                null    N=200000 p=0.954 chi2=42.0/59 tv=0.0037 zero=0 oos=0 mde=0.0017 reject=False 
+hf/FA/NULL/S3                null    N=200000 p=0.783 chi2=27.4/34 tv=0.0040 zero=0 oos=0 mde=0.0091 reject=False 
+hf/FA/NULL/S4                null    N=200000 p=0.3 chi2=89.2/83 tv=0.0058 zero=0 oos=0 mde=0.0049 reject=False 
+hf/FA/NULL/S5                null    N=200000 p=0.849 chi2=558.5/594 tv=0.0139 zero=0 oos=0 mde=0.0031 reject=False 
+hf/FA/NULL/S6                null    N=200000 p=0.926 chi2=7.2/14 tv=0.0024 zero=0 oos=0 mde=0.0075 reject=False 
+hf/FA/P1/S2                  control N=200000 p=0 chi2=25422.3/59 tv=0.1337 zero=0 oos=0 mde=0.0017 reject=True 
+hf/FA/P2/S2                  control N=200000 p=0 chi2=185100.0/59 tv=0.3987 zero=0 oos=0 mde=0.0017 reject=True 
+hf/FA/P3/S2                  control N=200000 p=0 chi2=2525419697.5/59 tv=0.3378 zero=67552 oos=0 mde=0.0017 reject=True 
+hf/FA/P3/S4                  control N=200000 p=0 chi2=inf/83 tv=0.1892 zero=37842 oos=0 mde=0.0049 reject=True 
+hf/FA/P4/S6                  control N=200000 p=0 chi2=inf/14 tv=0.0716 zero=14314 oos=0 mde=0.0075 reject=True 
+hf/FA/P5/S2                  control N=200000 p=0 chi2=2402290.4/59 tv=0.0179 zero=2085 oos=0 mde=0.0017 reject=True 
+hf/FA/P6/S0                  control N=200000 p=0 chi2=492763.7/601 tv=0.2911 zero=0 oos=0 mde=0.0030 reject=True 
+hf/FA/HG1/S0                 cell    N=200000 p=0.269 chi2=621.9/601 tv=0.0141 zero=0 oos=0 mde=0.0030 reject=False NOT_REJECTED
+hf/FA/HG1/S1                 cell    N=200000 p=0.969 chi2=209.0/249 tv=0.0082 zero=0 oos=0 mde=0.0016 reject=False NOT_REJECTED
+hf/FA/HG1/S2                 cell    N=200000 p=0.126 chi2=71.6/59 tv=0.0051 zero=0 oos=0 mde=0.0017 reject=False NOT_REJECTED
+hf/FA/HG1/S3                 cell    N=200000 p=0.673 chi2=29.8/34 tv=0.0040 zero=0 oos=0 mde=0.0091 reject=False NOT_REJECTED
+hf/FA/HG1/S4                 cell    N=200000 p=0.00434 chi2=120.7/83 tv=0.0065 zero=0 oos=0 mde=0.0049 reject=False NOT_REJECTED
+hf/FA/HG1/S5                 cell    N=200000 p=0.61 chi2=583.8/594 tv=0.0137 zero=0 oos=0 mde=0.0031 reject=False NOT_REJECTED
+hf/FA/HG1/S6                 cell    N=200000 p=0.794 chi2=9.6/14 tv=0.0027 zero=0 oos=0 mde=0.0075 reject=False NOT_REJECTED
+hf/FA/HG1/G                  greedy N=1000 PASS 1000/1000 chain=(5, 6, 3, 6) margin=0.0282
+m_grid: 118
+m_null: 47
+control_level: 8.474576271186441e-05
+grid_cells_run: 53
+nulls_run: 32
+controls_run: 9
+greedy_run: 13
+incomplete: []
+harness_valid: True
+controls_failing: []
+nulls_rejected: []
+nulls_rejected_running_only: []
+grid_rejected: ['trtllm/FA/TG1v/S0', 'trtllm/FA/TG1v/S1', 'trtllm/FA/TG1v/S2', 'trtllm/FA/TG1v/S3', 'trtllm/FB/TG1v/S0', 'trtllm/FB/TG1v/S2']
+greedy_failed: []
+underpowered: []
+stageB_cells: ['trtllm/FA/TG1v/S0', 'trtllm/FA/TG1v/S1', 'trtllm/FA/TG1v/S2', 'trtllm/FA/TG1v/S3', 'trtllm/FB/TG1v/S0', 'trtllm/FB/TG1v/S2']
+stageB_nulls: ['trtllm/FA/NULL/S0', 'trtllm/FA/NULL/S1', 'trtllm/FA/NULL/S2', 'trtllm/FA/NULL/S3', 'trtllm/FB/NULL/S0', 'trtllm/FB/NULL/S2']

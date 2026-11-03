@@ -1,0 +1,733 @@
+{
+ "phase": "0b",
+ "engine": "trtllm",
+ "started": "2026-10-19T16:02:36Z",
+ "environment": {
+  "python": "3.12.3",
+  "platform": "Linux-6.6.122+-x86_64-with-glibc2.39",
+  "gpu": "NVIDIA L4, 580.82.07, 23034 MiB",
+  "compute_cap": "8.9",
+  "cuda": "Build cuda_13.0.r13.0/compiler.36424714_0",
+  "harness_git": "4857af1e60fcbb35e2f16a2c65bb5916dd2eb3d5",
+  "torch": "2.9.1+cu130",
+  "transformers": "4.57.3",
+  "vllm": "not installed",
+  "sglang": "not installed",
+  "tensorrt_llm": "1.2.1",
+  "numpy": "1.26.4",
+  "pyarrow": "25.0.1"
+ },
+ "probe_timeout_s": 1800,
+ "complete": true,
+ "n_smoke": 100,
+ "chunk": 10000,
+ "prompt_throughput": [
+  4,
+  5,
+  6,
+  4,
+  5
+ ],
+ "tables_dir": "out/d40_full/phase0b_trtllm_NVIDIA_L4_1792425756_tables",
+ "fixture_sha256": {
+  "target/model.safetensors": "061fcbb7a885ee83d09ecff985bd39c94e2100f05d1f18875908ff774bf4bc93",
+  "draft/model.safetensors": "bd6c546cb880bc5cd7149bd31dc214370a70d843c084541d92ac0eabbbfebe7e",
+  "fb_target/model.safetensors": "f625aff75aebfc4df07796fd2f52c8a37727e7f4451b0e750a577bfafaeb9148",
+  "fb_draft/model.safetensors": "2d7a1a58bfb4b8b4db6f6e704189b595a9c472c554de2809fc85f0549f2221be",
+  "target.gguf": "c3c681e6fe013dfb3e11bb319a6b54af1a4cd2727b3fa051099a44631311f7a1",
+  "draft.gguf": "d929d3ad9e359db34d92d1a03b727f446f98fa0ec29cf4fe9d7b5d1e63a50e08",
+  "fb_target.gguf": "15dd7d58ecacdee8414b029a01450d122a138c79b8d06c1eea62fdda59a0596f",
+  "fb_draft.gguf": "28e091b0e2b4410235a0c28f1a5f7341e4abc1fe02b01ed4733ed104d8c61736",
+  "eagle3_FA_tgt/model.safetensors": "551df3adf01bbe0838a6e0c5ddfa2d7bf82ff0ab5ed24690b2b8ea4e9d9b5af4",
+  "eagle3_FA_flat/model.safetensors": "7898d010656ebf96ed4471d4cbd8c66f572a9c4f637ff02f458defc5401677a2",
+  "eagle3_FB_tgt/model.safetensors": "e2f90d5b34e13618a9b0d9d9e9e576fe681dbe757f4700ae7803033b3f9064ac",
+  "eagle3_FB_flat/model.safetensors": "2d4e9d8563195fae26e662d114d3f1d380ebd0273f59223501cdca0f83aff46a",
+  "mimo_FA/model.safetensors": "baa869b24e10c1dd82cd312ea0d2c526d1bad4ed92fba4d11c2ad2cc1c22e305",
+  "mimo_FA/config.json": "32a868dfcc84668de744a4b4a26ec37a901447f566d1721483f99181bb3887fe",
+  "target_vllm/model.safetensors": "da24c0a8107b6baff66948814c102aaed1b98568825d3818f403d0bd953e6b8c",
+  "target_vllm/config.json": "75070dc2a28ae7a4f1b01e6625a2436af46c6fe6713768124d3afdd6639a82c2",
+  "draft_vllm/model.safetensors": "c00a88c8319796e110c838cc27368e2f2d6f841300ac03610af29dc9b48fdaab",
+  "draft_vllm/config.json": "75070dc2a28ae7a4f1b01e6625a2436af46c6fe6713768124d3afdd6639a82c2"
+ },
+ "probe_selection": null,
+ "probes": [
+  {
+   "arm": "smoke_FA_NULL",
+   "status": "RUNS",
+   "wall_s": 25.19,
+   "smoke": {
+    "FA/NULL/S0": {
+     "seq_per_s": 250.6,
+     "strategy": "('temperature', 1.0)",
+     "stream_seed": 153016108,
+     "sampler": "TorchSampler",
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "draft_tokens": 0,
+      "accepted_tokens": 0,
+      "stat_iterations": 5,
+      "fallback_requests": 0,
+      "acceptance_available": true
+     }
+    },
+    "FA/NULL/S1": {
+     "seq_per_s": 388.0,
+     "strategy": "('temperature', 0.7)",
+     "stream_seed": 851719284,
+     "sampler": "TorchSampler",
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "draft_tokens": 0,
+      "accepted_tokens": 0,
+      "stat_iterations": 5,
+      "fallback_requests": 0,
+      "acceptance_available": true
+     }
+    },
+    "FA/NULL/S2": {
+     "seq_per_s": 350.7,
+     "strategy": "('top_k', 3, 1.0)",
+     "stream_seed": 703643258,
+     "sampler": "TorchSampler",
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "draft_tokens": 0,
+      "accepted_tokens": 0,
+      "stat_iterations": 5,
+      "fallback_requests": 0,
+      "acceptance_available": true
+     }
+    },
+    "FA/NULL/S3": {
+     "seq_per_s": 393.1,
+     "strategy": "('top_p', 0.8, 1.0)",
+     "stream_seed": 901785317,
+     "sampler": "TorchSampler",
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "draft_tokens": 0,
+      "accepted_tokens": 0,
+      "stat_iterations": 5,
+      "fallback_requests": 0,
+      "acceptance_available": true
+     }
+    },
+    "FA/NULL/G": {
+     "seq_per_s": 368.2,
+     "strategy": "('greedy', None)",
+     "stream_seed": 778970115,
+     "sampler": "TorchSampler",
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "draft_tokens": 0,
+      "accepted_tokens": 0,
+      "stat_iterations": 5,
+      "fallback_requests": 0,
+      "acceptance_available": true
+     }
+    },
+    "FA/NULL/S4": {
+     "seq_per_s": 402.9,
+     "strategy": "('temperature', 1.0)",
+     "stream_seed": 467849002,
+     "sampler": "TorchSampler",
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "draft_tokens": 0,
+      "accepted_tokens": 0,
+      "stat_iterations": 5,
+      "fallback_requests": 0,
+      "acceptance_available": true
+     }
+    },
+    "FA/NULL/S5": {
+     "seq_per_s": 407.9,
+     "strategy": "('temperature', 1.0)",
+     "stream_seed": 36177377,
+     "sampler": "TorchSampler",
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "draft_tokens": 0,
+      "accepted_tokens": 0,
+      "stat_iterations": 5,
+      "fallback_requests": 0,
+      "acceptance_available": true
+     }
+    },
+    "FA/NULL/S6": {
+     "seq_per_s": 397.7,
+     "strategy": "('top_k_top_p', 5, 0.9, 0.7)",
+     "stream_seed": 792245321,
+     "sampler": "TorchSampler",
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "draft_tokens": 0,
+      "accepted_tokens": 0,
+      "stat_iterations": 5,
+      "fallback_requests": 0,
+      "acceptance_available": true
+     }
+    }
+   },
+   "hooks": {
+    "flashinfer_rmsnorm": false,
+    "flashinfer_rope": false,
+    "drafter_inference_mode": true,
+    "fp32_hook_patched": [
+     "tensorrt_llm._torch.modules.rms_norm",
+     "tensorrt_llm._torch.modules.rotary_embedding",
+     "tensorrt_llm._torch.speculative.model_drafter"
+    ]
+   }
+  },
+  {
+   "arm": "smoke_FA_TG1v",
+   "status": "RUNS",
+   "wall_s": 26.13,
+   "smoke": {
+    "FA/TG1v/S0": {
+     "seq_per_s": 137.9,
+     "strategy": "('temperature', 1.0)",
+     "stream_seed": 15028648,
+     "sampler": "TorchSampler",
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "draft_tokens": 351,
+      "accepted_tokens": 201,
+      "stat_iterations": 5,
+      "fallback_requests": 0,
+      "acceptance_available": true
+     }
+    },
+    "FA/TG1v/S1": {
+     "seq_per_s": 176.7,
+     "strategy": "('temperature', 0.7)",
+     "stream_seed": 15816044,
+     "sampler": "TorchSampler",
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "draft_tokens": 372,
+      "accepted_tokens": 222,
+      "stat_iterations": 5,
+      "fallback_requests": 0,
+      "acceptance_available": true
+     }
+    },
+    "FA/TG1v/S2": {
+     "seq_per_s": 158.7,
+     "strategy": "('top_k', 3, 1.0)",
+     "stream_seed": 188253659,
+     "sampler": "TorchSampler",
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "draft_tokens": 384,
+      "accepted_tokens": 193,
+      "stat_iterations": 5,
+      "fallback_requests": 0,
+      "acceptance_available": true
+     }
+    },
+    "FA/TG1v/S3": {
+     "seq_per_s": 141.2,
+     "strategy": "('top_p', 0.8, 1.0)",
+     "stream_seed": 916520837,
+     "sampler": "TorchSampler",
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "draft_tokens": 441,
+      "accepted_tokens": 167,
+      "stat_iterations": 5,
+      "fallback_requests": 0,
+      "acceptance_available": true
+     }
+    },
+    "FA/TG1v/G": {
+     "seq_per_s": 167.7,
+     "strategy": "('greedy', None)",
+     "stream_seed": 812961610,
+     "sampler": "TorchSampler",
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "draft_tokens": 600,
+      "accepted_tokens": 100,
+      "stat_iterations": 4,
+      "fallback_requests": 0,
+      "acceptance_available": true
+     }
+    },
+    "FA/TG1v/S4": {
+     "seq_per_s": 186.7,
+     "strategy": "('temperature', 1.0)",
+     "stream_seed": 874123513,
+     "sampler": "TorchSampler",
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "draft_tokens": 342,
+      "accepted_tokens": 227,
+      "stat_iterations": 5,
+      "fallback_requests": 0,
+      "acceptance_available": true
+     }
+    },
+    "FA/TG1v/S5": {
+     "seq_per_s": 185.0,
+     "strategy": "('temperature', 1.0)",
+     "stream_seed": 494599090,
+     "sampler": "TorchSampler",
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "draft_tokens": 369,
+      "accepted_tokens": 198,
+      "stat_iterations": 4,
+      "fallback_requests": 0,
+      "acceptance_available": true
+     }
+    },
+    "FA/TG1v/S6": {
+     "seq_per_s": 172.1,
+     "strategy": "('top_k_top_p', 5, 0.9, 0.7)",
+     "stream_seed": 184061698,
+     "sampler": "TorchSampler",
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "draft_tokens": 333,
+      "accepted_tokens": 239,
+      "stat_iterations": 5,
+      "fallback_requests": 0,
+      "acceptance_available": true
+     }
+    }
+   },
+   "hooks": {
+    "flashinfer_rmsnorm": false,
+    "flashinfer_rope": false,
+    "drafter_inference_mode": true,
+    "fp32_hook_patched": [
+     "tensorrt_llm._torch.modules.rms_norm",
+     "tensorrt_llm._torch.modules.rotary_embedding",
+     "tensorrt_llm._torch.speculative.model_drafter"
+    ]
+   }
+  },
+  {
+   "arm": "smoke_FA_TG2@tgt",
+   "status": "ERROR",
+   "error": "engine logged a fatal error ('[TRT-LLM] [E] Error in event loop') and did not exit within 30 s; process group killed",
+   "settings_done": {},
+   "log_tail": " \"ResponseFormat\" shadows an attribute in parent \"OpenAIBaseModel\"\n  class ResponseFormat(OpenAIBaseModel):\n\nLoading safetensors weights in parallel:   0%|          | 0/1 [00:00<?, ?it/s]\nLoading safetensors weights in parallel: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 1/1 [00:00<00:00, 703.98it/s]\n\nLoading weights concurrently:   0%|          | 0/52 [00:00<?, ?it/s]\nLoading weights concurrently: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 52/52 [00:00<00:00, 5277.13it/s]\nModel init total -- 0.02s\n\nLoading safetensors weights in parallel:   0%|          | 0/1 [00:00<?, ?it/s]\nLoading safetensors weights in parallel: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 1/1 [00:00<00:00, 1055.44it/s]\n\nLoading weights concurrently:   0%|          | 0/27 [00:00<?, ?it/s]\nLoading weights concurrently: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 27/27 [00:00<00:00, 5630.50it/s]\n[TensorRT-LLM][INFO] Max KV cache blocks per sequence: 1 [window size=67], tokens per block=1024, primary blocks=128, secondary blocks=0, max sequence length=67\n[TensorRT-LLM][INFO] Number of tokens per block: 1024.\n[TensorRT-LLM][INFO] [MemUsageChange] Allocated 0.12 GiB for max tokens in paged KV cache (131072).\n[TensorRT-LLM][INFO] Max KV cache blocks per sequence: 1 [window size=67], tokens per block=1024, primary blocks=128, secondary blocks=0, max sequence length=67\n[TensorRT-LLM][INFO] Number of tokens per block: 1024.\n[TensorRT-LLM][INFO] [MemUsageChange] Allocated 0.06 GiB for max tokens in paged KV cache (131072).\nModel init total -- 0.01s\n\nProcessed requests:   0%|          | 0/100 [00:00<?, ?it/s][10/19/2026-16:04:01] [TRT-LLM] [E] Error in event loop: No free slots\n[10/19/2026-16:04:01] [TRT-LLM] [E] Traceback (most recent call last):\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/py_executor.py\", line 390, in _event_loop_wrapper\n    self.event_loop()\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/py_executor.py\", line 1413, in _executor_loop\n    self.resource_manager.prepare_resources(scheduled_batch)\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/resource_manager.py\", line 1504, in prepare_resources\n    resource_manager.prepare_resources(scheduled_batch)\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/speculative/eagle3.py\", line 83, in prepare_resources\n    slot_id = self.slot_manager.add_slot(req.request_id)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/resource_manager.py\", line 1392, in add_slot\n    raise ValueError(\"No free slots\")\nValueError: No free slots\n\nException in thread Thread-1 (_event_loop_wrapper):\nTraceback (most recent call last):\n  File \"/usr/lib/python3.12/threading.py\", line 1073, in _bootstrap_inner\n    self.run()\n  File \"/usr/lib/python3.12/threading.py\", line 1010, in run\n    self._target(*self._args, **self._kwargs)\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/py_executor.py\", line 394, in _event_loop_wrapper\n    raise e\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/py_executor.py\", line 390, in _event_loop_wrapper\n    self.event_loop()\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/py_executor.py\", line 1413, in _executor_loop\n    self.resource_manager.prepare_resources(scheduled_batch)\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/resource_manager.py\", line 1504, in prepare_resources\n    resource_manager.prepare_resources(scheduled_batch)\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/speculative/eagle3.py\", line 83, in prepare_resources\n    slot_id = self.slot_manager.add_slot(req.request_id)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/resource_manager.py\", line 1392, in add_slot\n    raise ValueError(\"No free slots\")\nValueError: No free slots\n",
+   "wall_s": 50.13
+  },
+  {
+   "arm": "smoke_FA_TG2@flat",
+   "status": "ERROR",
+   "error": "engine logged a fatal error ('[TRT-LLM] [E] Error in event loop') and did not exit within 30 s; process group killed",
+   "settings_done": {},
+   "log_tail": " \"ResponseFormat\" shadows an attribute in parent \"OpenAIBaseModel\"\n  class ResponseFormat(OpenAIBaseModel):\n\nLoading safetensors weights in parallel:   0%|          | 0/1 [00:00<?, ?it/s]\nLoading safetensors weights in parallel: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 1/1 [00:00<00:00, 647.27it/s]\n\nLoading weights concurrently:   0%|          | 0/52 [00:00<?, ?it/s]\nLoading weights concurrently: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 52/52 [00:00<00:00, 5227.55it/s]\nModel init total -- 0.02s\n\nLoading safetensors weights in parallel:   0%|          | 0/1 [00:00<?, ?it/s]\nLoading safetensors weights in parallel: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 1/1 [00:00<00:00, 1020.02it/s]\n\nLoading weights concurrently:   0%|          | 0/27 [00:00<?, ?it/s]\nLoading weights concurrently: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 27/27 [00:00<00:00, 5904.70it/s]\n[TensorRT-LLM][INFO] Max KV cache blocks per sequence: 1 [window size=67], tokens per block=1024, primary blocks=128, secondary blocks=0, max sequence length=67\n[TensorRT-LLM][INFO] Number of tokens per block: 1024.\n[TensorRT-LLM][INFO] [MemUsageChange] Allocated 0.12 GiB for max tokens in paged KV cache (131072).\n[TensorRT-LLM][INFO] Max KV cache blocks per sequence: 1 [window size=67], tokens per block=1024, primary blocks=128, secondary blocks=0, max sequence length=67\n[TensorRT-LLM][INFO] Number of tokens per block: 1024.\n[TensorRT-LLM][INFO] [MemUsageChange] Allocated 0.06 GiB for max tokens in paged KV cache (131072).\nModel init total -- 0.01s\n\nProcessed requests:   0%|          | 0/100 [00:00<?, ?it/s][10/19/2026-16:04:51] [TRT-LLM] [E] Error in event loop: No free slots\n[10/19/2026-16:04:51] [TRT-LLM] [E] Traceback (most recent call last):\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/py_executor.py\", line 390, in _event_loop_wrapper\n    self.event_loop()\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/py_executor.py\", line 1413, in _executor_loop\n    self.resource_manager.prepare_resources(scheduled_batch)\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/resource_manager.py\", line 1504, in prepare_resources\n    resource_manager.prepare_resources(scheduled_batch)\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/speculative/eagle3.py\", line 83, in prepare_resources\n    slot_id = self.slot_manager.add_slot(req.request_id)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/resource_manager.py\", line 1392, in add_slot\n    raise ValueError(\"No free slots\")\nValueError: No free slots\n\nException in thread Thread-1 (_event_loop_wrapper):\nTraceback (most recent call last):\n  File \"/usr/lib/python3.12/threading.py\", line 1073, in _bootstrap_inner\n    self.run()\n  File \"/usr/lib/python3.12/threading.py\", line 1010, in run\n    self._target(*self._args, **self._kwargs)\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/py_executor.py\", line 394, in _event_loop_wrapper\n    raise e\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/py_executor.py\", line 390, in _event_loop_wrapper\n    self.event_loop()\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/py_executor.py\", line 1413, in _executor_loop\n    self.resource_manager.prepare_resources(scheduled_batch)\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/resource_manager.py\", line 1504, in prepare_resources\n    resource_manager.prepare_resources(scheduled_batch)\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/speculative/eagle3.py\", line 83, in prepare_resources\n    slot_id = self.slot_manager.add_slot(req.request_id)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/resource_manager.py\", line 1392, in add_slot\n    raise ValueError(\"No free slots\")\nValueError: No free slots\n",
+   "wall_s": 50.13
+  },
+  {
+   "arm": "smoke_FB_NULL",
+   "status": "RUNS",
+   "wall_s": 20.53,
+   "smoke": {
+    "FB/NULL/S0": {
+     "seq_per_s": 122.8,
+     "strategy": "('temperature', 1.0)",
+     "stream_seed": 328586204,
+     "sampler": "TorchSampler",
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "draft_tokens": 0,
+      "accepted_tokens": 0,
+      "stat_iterations": 7,
+      "fallback_requests": 0,
+      "acceptance_available": true
+     }
+    },
+    "FB/NULL/S2": {
+     "seq_per_s": 139.0,
+     "strategy": "('top_k', 3, 1.0)",
+     "stream_seed": 423440421,
+     "sampler": "TorchSampler",
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "draft_tokens": 0,
+      "accepted_tokens": 0,
+      "stat_iterations": 7,
+      "fallback_requests": 0,
+      "acceptance_available": true
+     }
+    },
+    "FB/NULL/G": {
+     "seq_per_s": 150.9,
+     "strategy": "('greedy', None)",
+     "stream_seed": 7173567,
+     "sampler": "TorchSampler",
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "draft_tokens": 0,
+      "accepted_tokens": 0,
+      "stat_iterations": 7,
+      "fallback_requests": 0,
+      "acceptance_available": true
+     }
+    },
+    "FB/NULL/S6": {
+     "seq_per_s": 147.1,
+     "strategy": "('top_k_top_p', 5, 0.9, 0.7)",
+     "stream_seed": 320811226,
+     "sampler": "TorchSampler",
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "draft_tokens": 0,
+      "accepted_tokens": 0,
+      "stat_iterations": 7,
+      "fallback_requests": 0,
+      "acceptance_available": true
+     }
+    }
+   },
+   "hooks": {
+    "flashinfer_rmsnorm": false,
+    "flashinfer_rope": false,
+    "drafter_inference_mode": true,
+    "fp32_hook_patched": [
+     "tensorrt_llm._torch.modules.rms_norm",
+     "tensorrt_llm._torch.modules.rotary_embedding",
+     "tensorrt_llm._torch.speculative.model_drafter"
+    ]
+   }
+  },
+  {
+   "arm": "smoke_FB_TG1v",
+   "status": "RUNS",
+   "wall_s": 23.73,
+   "smoke": {
+    "FB/TG1v/S0": {
+     "seq_per_s": 61.2,
+     "strategy": "('temperature', 1.0)",
+     "stream_seed": 884834288,
+     "sampler": "TorchSampler",
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "draft_tokens": 633,
+      "accepted_tokens": 339,
+      "stat_iterations": 7,
+      "fallback_requests": 0,
+      "acceptance_available": true
+     }
+    },
+    "FB/TG1v/S2": {
+     "seq_per_s": 68.6,
+     "strategy": "('top_k', 3, 1.0)",
+     "stream_seed": 752444454,
+     "sampler": "TorchSampler",
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "draft_tokens": 624,
+      "accepted_tokens": 341,
+      "stat_iterations": 6,
+      "fallback_requests": 0,
+      "acceptance_available": true
+     }
+    },
+    "FB/TG1v/G": {
+     "seq_per_s": 63.6,
+     "strategy": "('greedy', None)",
+     "stream_seed": 336477814,
+     "sampler": "TorchSampler",
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "draft_tokens": 900,
+      "accepted_tokens": 200,
+      "stat_iterations": 5,
+      "fallback_requests": 0,
+      "acceptance_available": true
+     }
+    },
+    "FB/TG1v/S6": {
+     "seq_per_s": 72.0,
+     "strategy": "('top_k_top_p', 5, 0.9, 0.7)",
+     "stream_seed": 669998883,
+     "sampler": "TorchSampler",
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "draft_tokens": 600,
+      "accepted_tokens": 352,
+      "stat_iterations": 4,
+      "fallback_requests": 0,
+      "acceptance_available": true
+     }
+    }
+   },
+   "hooks": {
+    "flashinfer_rmsnorm": false,
+    "flashinfer_rope": false,
+    "drafter_inference_mode": true,
+    "fp32_hook_patched": [
+     "tensorrt_llm._torch.modules.rms_norm",
+     "tensorrt_llm._torch.modules.rotary_embedding",
+     "tensorrt_llm._torch.speculative.model_drafter"
+    ]
+   }
+  },
+  {
+   "arm": "smoke_FA_NULL_TRTLLMSampler",
+   "status": "RUNS",
+   "wall_s": 14.62,
+   "smoke": {
+    "TRTLLMSampler:FA/NULL/S4": {
+     "error": "seed hook failed: AttributeError: 'TRTLLMSampler' object has no attribute '_generator'"
+    },
+    "TRTLLMSampler:FA/NULL/S5": {
+     "error": "seed hook failed: AttributeError: 'TRTLLMSampler' object has no attribute '_generator'"
+    },
+    "TRTLLMSampler:FA/NULL/S6": {
+     "error": "seed hook failed: AttributeError: 'TRTLLMSampler' object has no attribute '_generator'"
+    }
+   },
+   "hooks": {
+    "flashinfer_rmsnorm": false,
+    "flashinfer_rope": false,
+    "drafter_inference_mode": true,
+    "fp32_hook_patched": [
+     "tensorrt_llm._torch.modules.rms_norm",
+     "tensorrt_llm._torch.modules.rotary_embedding",
+     "tensorrt_llm._torch.speculative.model_drafter"
+    ]
+   }
+  },
+  {
+   "arm": "smoke_FA_TG1v_TRTLLMSampler",
+   "status": "RUNS",
+   "wall_s": 14.54,
+   "smoke": {
+    "TRTLLMSampler:FA/TG1v/S4": {
+     "error": "seed hook failed: AttributeError: 'TRTLLMSampler' object has no attribute '_generator'"
+    },
+    "TRTLLMSampler:FA/TG1v/S5": {
+     "error": "seed hook failed: AttributeError: 'TRTLLMSampler' object has no attribute '_generator'"
+    },
+    "TRTLLMSampler:FA/TG1v/S6": {
+     "error": "seed hook failed: AttributeError: 'TRTLLMSampler' object has no attribute '_generator'"
+    }
+   },
+   "hooks": {
+    "flashinfer_rmsnorm": false,
+    "flashinfer_rope": false,
+    "drafter_inference_mode": true,
+    "fp32_hook_patched": [
+     "tensorrt_llm._torch.modules.rms_norm",
+     "tensorrt_llm._torch.modules.rotary_embedding",
+     "tensorrt_llm._torch.speculative.model_drafter"
+    ]
+   }
+  },
+  {
+   "arm": "seed_check",
+   "status": "RUNS",
+   "wall_s": 14.58,
+   "seed_check": {
+    "FA/NULL/S0": {
+     "same_seed_repeats": true,
+     "other_seed_differs": true
+    },
+    "FA/TG1v/S0": {
+     "same_seed_repeats": false,
+     "other_seed_differs": true
+    }
+   }
+  },
+  {
+   "arm": "reference",
+   "status": "RUNS",
+   "wall_s": 390.39,
+   "reference": {
+    "FA/S0": {
+     "delta_num": 2.1436530692875823e-07,
+     "finite": true,
+     "argmax_prefix": 395,
+     "support_mismatch": 0,
+     "row_sum_dev": 1.3213139027357101e-07,
+     "rows": 51200,
+     "prefixes": 400,
+     "copy_dev": 1.1920928955078125e-07,
+     "strategies": [
+      "('temperature', 1.0)"
+     ],
+     "sampler_batch_rows": [
+      1,
+      128
+     ]
+    },
+    "FA/S1": {
+     "delta_num": 2.2063040976731077e-07,
+     "finite": true,
+     "argmax_prefix": 395,
+     "support_mismatch": 0,
+     "row_sum_dev": 1.3861426850780845e-07,
+     "rows": 51200,
+     "prefixes": 400,
+     "copy_dev": 1.7881393432617188e-07,
+     "strategies": [
+      "('temperature', 0.699999988079071)"
+     ],
+     "sampler_batch_rows": [
+      1,
+      128
+     ]
+    },
+    "FA/S2": {
+     "delta_num": 1.9009138514658463e-07,
+     "finite": true,
+     "argmax_prefix": 395,
+     "support_mismatch": 0,
+     "row_sum_dev": 1.210719347000122e-07,
+     "rows": 51200,
+     "prefixes": 400,
+     "copy_dev": 1.7881393432617188e-07,
+     "strategies": [
+      "('top_k', 3, 1.0)"
+     ],
+     "sampler_batch_rows": [
+      1,
+      128
+     ]
+    },
+    "FA/S3": {
+     "delta_num": 1.6775235456290005e-07,
+     "finite": true,
+     "argmax_prefix": 395,
+     "support_mismatch": 0,
+     "row_sum_dev": 8.940696716308594e-08,
+     "rows": 51200,
+     "prefixes": 400,
+     "copy_dev": 1.7881393432617188e-07,
+     "strategies": [
+      "('top_p', 0.800000011920929, 1.0)"
+     ],
+     "sampler_batch_rows": [
+      1,
+      128
+     ]
+    },
+    "FB/S0": {
+     "delta_num": 1.159599131742151e-06,
+     "finite": true,
+     "argmax_prefix": 487,
+     "support_mismatch": 0,
+     "row_sum_dev": 2.2641822106095333e-07,
+     "rows": 105984,
+     "prefixes": 828,
+     "copy_dev": 1.3113021850585938e-06,
+     "strategies": [
+      "('temperature', 1.0)"
+     ],
+     "sampler_batch_rows": [
+      1,
+      128
+     ]
+    },
+    "FB/S2": {
+     "delta_num": 1.0537729736581625e-06,
+     "finite": true,
+     "argmax_prefix": 10,
+     "support_mismatch": 0,
+     "row_sum_dev": 1.043081283569336e-07,
+     "rows": 29696,
+     "prefixes": 232,
+     "copy_dev": 1.0728836059570312e-06,
+     "strategies": [
+      "('top_k', 3, 1.0)"
+     ],
+     "sampler_batch_rows": [
+      1,
+      128
+     ]
+    }
+   },
+   "note": "R_eng captured from the live TorchSampler (sampling_utils.sample); S4-S6 BLOCKED (FR12); G is checked by argmax in Stage A"
+  },
+  {
+   "arm": "throughput",
+   "status": "ERROR",
+   "error": "engine logged a fatal error ('[TRT-LLM] [E] Error in event loop') and did not exit within 30 s; process group killed",
+   "settings_done": {},
+   "log_tail": "nstantiate a model of type . This is not supported for all configurations of models and can yield errors.\n\nLoading safetensors weights in parallel:   0%|          | 0/1 [00:00<?, ?it/s]\nLoading safetensors weights in parallel: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 1/1 [00:00<00:00, 702.80it/s]\n\nLoading weights concurrently:   0%|          | 0/52 [00:00<?, ?it/s]\nLoading weights concurrently: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 52/52 [00:00<00:00, 6676.99it/s]\nModel init total -- 0.02s\n\nLoading safetensors weights in parallel:   0%|          | 0/1 [00:00<?, ?it/s]\nLoading safetensors weights in parallel: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 1/1 [00:00<00:00, 1097.99it/s]\n\nLoading weights concurrently:   0%|          | 0/27 [00:00<?, ?it/s]\nLoading weights concurrently: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 27/27 [00:00<00:00, 5670.25it/s]\n[TensorRT-LLM][INFO] Max KV cache blocks per sequence: 1 [window size=67], tokens per block=1024, primary blocks=128, secondary blocks=0, max sequence length=67\n[TensorRT-LLM][INFO] Number of tokens per block: 1024.\n[TensorRT-LLM][INFO] [MemUsageChange] Allocated 0.12 GiB for max tokens in paged KV cache (131072).\n[TensorRT-LLM][INFO] Max KV cache blocks per sequence: 1 [window size=67], tokens per block=1024, primary blocks=128, secondary blocks=0, max sequence length=67\n[TensorRT-LLM][INFO] Number of tokens per block: 1024.\n[TensorRT-LLM][INFO] [MemUsageChange] Allocated 0.06 GiB for max tokens in paged KV cache (131072).\nModel init total -- 0.01s\n\nProcessed requests:   0%|          | 0/10000 [00:00<?, ?it/s][10/19/2026-16:15:47] [TRT-LLM] [E] Error in event loop: No free slots\n[10/19/2026-16:15:47] [TRT-LLM] [E] Traceback (most recent call last):\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/py_executor.py\", line 390, in _event_loop_wrapper\n    self.event_loop()\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/py_executor.py\", line 1413, in _executor_loop\n    self.resource_manager.prepare_resources(scheduled_batch)\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/resource_manager.py\", line 1504, in prepare_resources\n    resource_manager.prepare_resources(scheduled_batch)\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/speculative/eagle3.py\", line 83, in prepare_resources\n    slot_id = self.slot_manager.add_slot(req.request_id)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/resource_manager.py\", line 1392, in add_slot\n    raise ValueError(\"No free slots\")\nValueError: No free slots\n\nException in thread Thread-3 (_event_loop_wrapper):\nTraceback (most recent call last):\n  File \"/usr/lib/python3.12/threading.py\", line 1073, in _bootstrap_inner\n    self.run()\n  File \"/usr/lib/python3.12/threading.py\", line 1010, in run\n    self._target(*self._args, **self._kwargs)\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/py_executor.py\", line 394, in _event_loop_wrapper\n    raise e\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/py_executor.py\", line 390, in _event_loop_wrapper\n    self.event_loop()\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/py_executor.py\", line 1413, in _executor_loop\n    self.resource_manager.prepare_resources(scheduled_batch)\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/resource_manager.py\", line 1504, in prepare_resources\n    resource_manager.prepare_resources(scheduled_batch)\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/speculative/eagle3.py\", line 83, in prepare_resources\n    slot_id = self.slot_manager.add_slot(req.request_id)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/resource_manager.py\", line 1392, in add_slot\n    raise ValueError(\"No free slots\")\nValueError: No free slots\n",
+   "wall_s": 135.16
+  }
+ ],
+ "finished": "2026-10-19T16:16:19Z"
+}

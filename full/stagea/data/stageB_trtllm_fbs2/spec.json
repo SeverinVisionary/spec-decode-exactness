@@ -1,0 +1,10 @@
+{
+ "n_a": 1000000,
+ "chunk": 10000,
+ "gpu": "NVIDIA L4",
+ "stage": "B",
+ "keys": [
+  "trtllm/FB/NULL/S2",
+  "trtllm/FB/TG1v/S2"
+ ]
+}

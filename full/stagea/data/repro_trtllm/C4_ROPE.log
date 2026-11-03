@@ -1,0 +1,18 @@
+A1/S0/u0 events=197
+  row0: median 1.09e-01 max 1.50e-01 best {'none<=1e-3': 197}
+A1/S0/u1 events=278
+  row0: median 1.11e-01 max 3.23e-01 best {'none<=1e-3': 278}
+  row1: median 9.78e-02 max 2.64e-01 best {'none<=1e-3': 82}
+A1/S2/u0 events=200
+  row0: median 1.09e-01 max 1.41e-01 best {'none<=1e-3': 200}
+A1/S2/u1 events=251
+  row0: median 1.09e-01 max 2.65e-01 best {'none<=1e-3': 251}
+  row1: median 8.85e-02 max 2.58e-01 best {'none<=1e-3': 51}
+A2/S2/u1 events=278
+  row0: median 1.11e-01 max 1.94e-01 best {'none<=1e-3': 278}
+  row1: median 9.33e-02 max 2.58e-01 best {'none<=1e-3': 78}
+A3/S2/u1 events=266
+  row0: median 1.09e-01 max 2.65e-01 best {'none<=1e-3': 266}
+  row1: median 7.96e-02 max 2.58e-01 best {'none<=1e-3': 266}
+  row2: median 9.15e-02 max 1.47e-01 best {'none<=1e-3': 66}
+exit 0

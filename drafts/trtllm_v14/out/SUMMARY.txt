@@ -1,0 +1,11 @@
+versions: {"tensorrt_llm": "1.4.0rc1", "torch": "2.14.0+cu130", "gpu": "NVIDIA L4"}
+[T1] base half vs half, 20000 vs 20000 (noise floor; each speculative arm is 20000 vs all 40000 base draws, so its noise is smaller): {"tv": 0.011249999999999991, "chi2": 17.0556529505614, "dof": 20, "p": 0.6493569711503183}
+[T1] spec vs base: {"tv": 0.04732499999999999, "chi2": 201.2995498588442, "dof": 19, "p": 1.8773617238832577e-32}
+[T1] spec verifications: 58716, with fewer draft-logits rows than draft tokens: 0, K/R: {"K3/R-1": 58716}, drafts accepted with no draft-logits row: 0 (in 0 verifications), accepted draft tokens with target probability 0: 0 (in 0 verifications)
+[T1] spec_rs vs base: {"tv": 0.045275000000000024, "chi2": 185.99102250096138, "dof": 21, "p": 2.0176111425327727e-28}
+[T1] spec_rs verifications: 54987, with fewer draft-logits rows than draft tokens: 0, K/R: {"K3/R3": 54987}, drafts accepted with no draft-logits row: 0 (in 0 verifications), accepted draft tokens with target probability 0: 0 (in 0 verifications)
+[topk3] base half vs half, 20000 vs 20000 (noise floor; each speculative arm is 20000 vs all 40000 base draws, so its noise is smaller): {"tv": 0.011150000000000018, "chi2": 19.252559889786582, "dof": 15, "p": 0.20251640904118337}
+[topk3] spec vs base: {"tv": 0.05237500000000001, "chi2": 236.9562619436797, "dof": 16, "p": 2.425754268146551e-41}
+[topk3] spec verifications: 58677, with fewer draft-logits rows than draft tokens: 0, K/R: {"K3/R-1": 58677}, drafts accepted with no draft-logits row: 0 (in 0 verifications), accepted draft tokens with target probability 0: 0 (in 0 verifications)
+[topk3] spec_rs vs base: {"tv": 0.05085000000000001, "chi2": 221.9318096254997, "dof": 15, "p": 7.172667040195674e-39}
+[topk3] spec_rs verifications: 54933, with fewer draft-logits rows than draft tokens: 0, K/R: {"K3/R3": 54933}, drafts accepted with no draft-logits row: 0 (in 0 verifications), accepted draft tokens with target probability 0: 0 (in 0 verifications)

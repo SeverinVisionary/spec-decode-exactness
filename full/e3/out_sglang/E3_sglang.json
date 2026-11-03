@@ -1,0 +1,177 @@
+{
+ "alpha": 0.01,
+ "gate": {
+  "FA/S0": {
+   "passed": true,
+   "delta_num": 1.9109821371328384e-07,
+   "mde": 0.0026910819133657633,
+   "bound": 4.485136522276272e-05,
+   "reports": 1,
+   "failed_reports": 0
+  },
+  "FA/S1": {
+   "passed": true,
+   "delta_num": 2.1282207736213394e-07,
+   "mde": 0.001480457163932594,
+   "bound": 2.4674286065543234e-05,
+   "reports": 1,
+   "failed_reports": 0
+  },
+  "FA/S2": {
+   "passed": false,
+   "delta_num": null,
+   "mde": 0.0011055487622132077,
+   "bound": 1.8425812703553462e-05,
+   "reports": 0,
+   "failed_reports": 0
+  },
+  "FA/S3": {
+   "passed": false,
+   "delta_num": null,
+   "mde": 0.004340160939456664,
+   "bound": 7.233601565761108e-05,
+   "reports": 0,
+   "failed_reports": 0
+  }
+ },
+ "rows": [
+  {
+   "key": "sglang/FA/SG1@fit/S0",
+   "kind": "cell",
+   "fixture": "FA",
+   "setting": "S0",
+   "N": 200000,
+   "spec_counters": {
+    "spec_verify_ct": 335565,
+    "spec_num_correct_drafts": 296137,
+    "spec_num_proposed_drafts": 1006695
+   },
+   "null": {
+    "key": "sglang/FA/NULL/S0",
+    "kind": "null",
+    "engine": "sglang",
+    "fixture": "FA",
+    "method": "NULL",
+    "setting": "S0",
+    "N": 200000,
+    "chunks": 20,
+    "draw_seconds": 215.0,
+    "spec_counters": {
+     "spec_verify_ct": 0,
+     "spec_num_correct_drafts": 0,
+     "spec_num_proposed_drafts": 0
+    },
+    "distinct": 1134,
+    "chi2": 600.0701678542976,
+    "dof": 601,
+    "p": 0.5030321062158923,
+    "out_of_space": 0,
+    "zero_prob_hits": 0,
+    "tv_empirical": 0.013745422285958856,
+    "mde_eps": 0.00302734375,
+    "underpowered": false,
+    "holm_reject": false,
+    "holm_reject_running_only": false
+   },
+   "chi2": 578.1134203574011,
+   "dof": 601,
+   "p": 0.7419623734865041,
+   "out_of_space": 0,
+   "zero_prob_hits": 0,
+   "tv_empirical": 0.014388078567424448,
+   "mde_eps": 0.00302734375,
+   "holm_reject": false,
+   "status": "NOT_REJECTED"
+  },
+  {
+   "key": "sglang/FA/SG1@fit/S1",
+   "kind": "cell",
+   "fixture": "FA",
+   "setting": "S1",
+   "N": 200000,
+   "spec_counters": {
+    "spec_verify_ct": 309806,
+    "spec_num_correct_drafts": 351767,
+    "spec_num_proposed_drafts": 929418
+   },
+   "null": {
+    "key": "sglang/FA/NULL/S1",
+    "kind": "null",
+    "engine": "sglang",
+    "fixture": "FA",
+    "method": "NULL",
+    "setting": "S1",
+    "N": 200000,
+    "chunks": 20,
+    "draw_seconds": 204.5,
+    "spec_counters": {
+     "spec_verify_ct": 0,
+     "spec_num_correct_drafts": 0,
+     "spec_num_proposed_drafts": 0
+    },
+    "distinct": 522,
+    "chi2": 238.24331121526626,
+    "dof": 249,
+    "p": 0.6769372647493904,
+    "out_of_space": 0,
+    "zero_prob_hits": 0,
+    "tv_empirical": 0.008251129645830649,
+    "mde_eps": 0.0015625,
+    "underpowered": false,
+    "holm_reject": false,
+    "holm_reject_running_only": false
+   },
+   "chi2": 196.97569621288807,
+   "dof": 249,
+   "p": 0.9935478310833945,
+   "out_of_space": 0,
+   "zero_prob_hits": 0,
+   "tv_empirical": 0.006942077846188379,
+   "mde_eps": 0.0015625,
+   "holm_reject": false,
+   "status": "NOT_REJECTED"
+  },
+  {
+   "key": "sglang/FA/SG1@fit/S2",
+   "kind": "cell",
+   "status": "REFERENCE_UNRESOLVED (gate)",
+   "gate": {
+    "passed": false,
+    "delta_num": null,
+    "mde": 0.0011055487622132077,
+    "bound": 1.8425812703553462e-05,
+    "reports": 0,
+    "failed_reports": 0
+   }
+  },
+  {
+   "key": "sglang/FA/SG1@fit/S3",
+   "kind": "cell",
+   "status": "REFERENCE_UNRESOLVED (gate)",
+   "gate": {
+    "passed": false,
+    "delta_num": null,
+    "mde": 0.004340160939456664,
+    "bound": 7.233601565761108e-05,
+    "reports": 0,
+    "failed_reports": 0
+   }
+  },
+  {
+   "key": "sglang/FA/SG1@fit/G",
+   "kind": "greedy",
+   "N": 1000,
+   "argmax_chain": [
+    5,
+    6,
+    3,
+    6
+   ],
+   "min_top2_margin": 0.028196374031783128,
+   "matches": 1000,
+   "status": "PASS"
+  }
+ ],
+ "holm_m": 8,
+ "vllm_changed": []
+}

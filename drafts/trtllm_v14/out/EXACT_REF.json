@@ -1,0 +1,48 @@
+{
+ "T1": {
+  "base": {
+   "n": 40000,
+   "tv_vs_exact": 0.0372,
+   "floor_mean": 0.0055,
+   "floor_p99": 0.0092,
+   "draws_outside_support": 0
+  },
+  "spec": {
+   "n": 20000,
+   "tv_vs_exact": 0.0622,
+   "floor_mean": 0.0081,
+   "floor_p99": 0.0133,
+   "draws_outside_support": 0
+  },
+  "spec_rs": {
+   "n": 20000,
+   "tv_vs_exact": 0.0571,
+   "floor_mean": 0.0079,
+   "floor_p99": 0.0135,
+   "draws_outside_support": 0
+  }
+ },
+ "topk3": {
+  "base": {
+   "n": 40000,
+   "tv_vs_exact": 0.0368,
+   "floor_mean": 0.0052,
+   "floor_p99": 0.0092,
+   "draws_outside_support": 0
+  },
+  "spec": {
+   "n": 20000,
+   "tv_vs_exact": 0.0616,
+   "floor_mean": 0.0076,
+   "floor_p99": 0.0131,
+   "draws_outside_support": 0
+  },
+  "spec_rs": {
+   "n": 20000,
+   "tv_vs_exact": 0.0643,
+   "floor_mean": 0.0074,
+   "floor_p99": 0.0129,
+   "draws_outside_support": 0
+  }
+ }
+}

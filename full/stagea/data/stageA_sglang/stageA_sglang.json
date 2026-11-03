@@ -1,0 +1,225 @@
+{
+ "stage": "A",
+ "engine": "sglang",
+ "runs": [
+  {
+   "started": "2026-10-19T23:44:08Z",
+   "environment": {
+    "python": "3.13.15",
+    "platform": "Linux-6.6.122+-x86_64-with-glibc2.39",
+    "gpu": "NVIDIA L4, 580.82.07, 23034 MiB",
+    "compute_cap": "8.9",
+    "cuda": "Build cuda_13.0.r13.0/compiler.36424714_0",
+    "harness_git": "91c5ee111f8f8c428b55da3696b7c01014778584",
+    "torch": "2.13.0",
+    "transformers": "5.12.1",
+    "vllm": "not installed",
+    "sglang": "0.5.21",
+    "tensorrt_llm": "not installed",
+    "numpy": "2.1.3",
+    "pyarrow": "23.0.1",
+    "TRITON_F32_DEFAULT": "ieee"
+   },
+   "n_a": 200000,
+   "chunk": 10000,
+   "jobs": [
+    {
+     "arm": "gate_FA_S0",
+     "status": "RUNS",
+     "wall_s": 63.26,
+     "reference": {
+      "FA/S0/default": {
+       "delta_num": 1.9109821371328384e-07,
+       "finite": true,
+       "argmax_prefix": 23,
+       "support_mismatch": 0,
+       "row_sum_dev": 1.639085522864292e-07,
+       "rows": 10000,
+       "prefixes": 400,
+       "copy_dev": 2.2611901639990606e-07,
+       "path": "logprob"
+      }
+     },
+     "log_tail": ""
+    },
+    {
+     "arm": "gate_FA_S1",
+     "status": "RUNS",
+     "wall_s": 40.27,
+     "reference": {
+      "FA/S1/default": {
+       "delta_num": 2.1282207736213394e-07,
+       "finite": true,
+       "argmax_prefix": 369,
+       "support_mismatch": 0,
+       "row_sum_dev": 1.484309244403903e-07,
+       "rows": 10000,
+       "prefixes": 400,
+       "copy_dev": 2.908253355915491e-07,
+       "path": "logprob"
+      }
+     },
+     "log_tail": ""
+    },
+    {
+     "arm": "gate_FA_S2",
+     "status": "ERROR",
+     "error": "child exited with code -9 and no result",
+     "settings_done": {},
+     "log_tail": "robs\n    return get_sampling_module().top_k_renorm_probs(\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^\n        probs, *_to_tensor_scalar_tuple(top_k), row_states_buffer\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/sampling.py\", line 531, in top_k_renorm_probs\n    module.top_k_renorm_probs(\n    ~~~~~~~~~~~~~~~~~~~~~~~~~^\n        probs,\n        ^^^^^^\n    ...<3 lines>...\n        row_states_buffer,\n        ^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"python/tvm_ffi/cython/function.pxi\", line 968, in tvm_ffi.core.Function.__call__\n  File \"<unknown>\", line 0, in __tvm_ffi_top_k_renorm_probs\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/data/csrc/renorm.cu\", line 64, in void top_k_renorm_probs(tvm::ffi::TensorView, tvm::ffi::TensorView, tvm::ffi::Optional<tvm::ffi::TensorView>, int64_t, tvm::ffi::TensorView)\n    CHECK_INPUT(probs);\n    \nRuntimeError: Check failed: (probs.IsContiguous()) is false: probs must be contiguous\n\n[2026-10-19 23:48:39] SIGQUIT received. signum=None, frame=None. It usually means one child failed.\n[rank0]:[W1019 23:48:41.911849992 ProcessGroupNCCL.cpp:1624] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())\n[2026-10-19 23:48:44] No live scheduler processes found; skipping py-spy and CUDA coredump.\n",
+     "wall_s": 151.42
+    },
+    {
+     "arm": "gate_FA_S3",
+     "status": "ERROR",
+     "error": "child exited with code -9 and no result",
+     "settings_done": {},
+     "log_tail": "robs\n    return get_sampling_module().top_k_renorm_probs(\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^\n        probs, *_to_tensor_scalar_tuple(top_k), row_states_buffer\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/sampling.py\", line 531, in top_k_renorm_probs\n    module.top_k_renorm_probs(\n    ~~~~~~~~~~~~~~~~~~~~~~~~~^\n        probs,\n        ^^^^^^\n    ...<3 lines>...\n        row_states_buffer,\n        ^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"python/tvm_ffi/cython/function.pxi\", line 968, in tvm_ffi.core.Function.__call__\n  File \"<unknown>\", line 0, in __tvm_ffi_top_k_renorm_probs\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/data/csrc/renorm.cu\", line 64, in void top_k_renorm_probs(tvm::ffi::TensorView, tvm::ffi::TensorView, tvm::ffi::Optional<tvm::ffi::TensorView>, int64_t, tvm::ffi::TensorView)\n    CHECK_INPUT(probs);\n    \nRuntimeError: Check failed: (probs.IsContiguous()) is false: probs must be contiguous\n\n[2026-10-19 23:49:28] SIGQUIT received. signum=None, frame=None. It usually means one child failed.\n[rank0]:[W1019 23:49:29.756961138 ProcessGroupNCCL.cpp:1624] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())\n[2026-10-19 23:49:33] No live scheduler processes found; skipping py-spy and CUDA coredump.\n",
+     "wall_s": 48.83
+    },
+    {
+     "arm": "draw_FA_NULL_S0",
+     "status": "RUNS",
+     "error": null,
+     "wall_s": 244.25,
+     "log_tail": ""
+    },
+    {
+     "arm": "draw_FA_NULL_S1",
+     "status": "RUNS",
+     "error": null,
+     "wall_s": 233.71,
+     "log_tail": ""
+    },
+    {
+     "arm": "draw_FA_SG3s_S0",
+     "status": "RUNS",
+     "error": null,
+     "wall_s": 763.38,
+     "log_tail": ""
+    },
+    {
+     "arm": "draw_FA_SG3s_S1",
+     "status": "RUNS",
+     "error": null,
+     "wall_s": 662.35,
+     "log_tail": ""
+    },
+    {
+     "arm": "draw_FA_SG3n_S0",
+     "status": "RUNS",
+     "error": null,
+     "wall_s": 526.93,
+     "log_tail": ""
+    },
+    {
+     "arm": "draw_FA_SG3n_S1",
+     "status": "RUNS",
+     "error": null,
+     "wall_s": 500.69,
+     "log_tail": ""
+    },
+    {
+     "arm": "draw_FA_SG3s_G",
+     "status": "RUNS",
+     "error": null,
+     "wall_s": 33.6,
+     "log_tail": ""
+    },
+    {
+     "arm": "draw_FA_SG3n_G",
+     "status": "RUNS",
+     "error": null,
+     "wall_s": 33.09,
+     "log_tail": ""
+    }
+   ],
+   "gate": {
+    "FA/S0": {
+     "passed": true,
+     "delta_num": 1.9109821371328384e-07,
+     "mde": 0.0026910819133657633,
+     "bound": 4.485136522276272e-05,
+     "reports": 1,
+     "failed_reports": 0
+    },
+    "FA/S1": {
+     "passed": true,
+     "delta_num": 2.1282207736213394e-07,
+     "mde": 0.001480457163932594,
+     "bound": 2.4674286065543234e-05,
+     "reports": 1,
+     "failed_reports": 0
+    },
+    "FA/S2": {
+     "passed": false,
+     "delta_num": null,
+     "mde": 0.0011055487622132077,
+     "bound": 1.8425812703553462e-05,
+     "reports": 0,
+     "failed_reports": 0
+    },
+    "FA/S3": {
+     "passed": false,
+     "delta_num": null,
+     "mde": 0.004340160939456664,
+     "bound": 7.233601565761108e-05,
+     "reports": 0,
+     "failed_reports": 0
+    }
+   },
+   "cells": {
+    "sglang/FA/NULL/S0": {
+     "kind": "null",
+     "chunks_done": 20,
+     "chunks": 20,
+     "complete": true
+    },
+    "sglang/FA/NULL/S1": {
+     "kind": "null",
+     "chunks_done": 20,
+     "chunks": 20,
+     "complete": true
+    },
+    "sglang/FA/SG3s/S0": {
+     "kind": "cell",
+     "chunks_done": 20,
+     "chunks": 20,
+     "complete": true
+    },
+    "sglang/FA/SG3s/S1": {
+     "kind": "cell",
+     "chunks_done": 20,
+     "chunks": 20,
+     "complete": true
+    },
+    "sglang/FA/SG3n/S0": {
+     "kind": "cell",
+     "chunks_done": 20,
+     "chunks": 20,
+     "complete": true
+    },
+    "sglang/FA/SG3n/S1": {
+     "kind": "cell",
+     "chunks_done": 20,
+     "chunks": 20,
+     "complete": true
+    },
+    "sglang/FA/SG3s/G": {
+     "kind": "greedy",
+     "chunks_done": 1,
+     "chunks": 1,
+     "complete": true
+    },
+    "sglang/FA/SG3n/G": {
+     "kind": "greedy",
+     "chunks_done": 1,
+     "chunks": 1,
+     "complete": true
+    }
+   },
+   "finished": "2026-10-20T00:40:55Z",
+   "complete": true
+  }
+ ]
+}

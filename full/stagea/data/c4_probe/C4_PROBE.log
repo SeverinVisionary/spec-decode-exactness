@@ -1,0 +1,4 @@
+Q1 draft load: {"prefixes": 100, "complete": true, "finite": true, "max_abs": 1.4446128293599259e-07, "median_abs": 4.5159118465532e-08, "copy_dev": 8.940696716308594e-08, "copies_ok": true, "strategies": ["('temperature', 1.0)"], "clean": true}
+Q2 forward fidelity: {"counts": {"unclean": 690}, "by_kind": {"first:context": {"n": 192, "median": 0.5679686805913984, "max": 0.6826391619562681, "clean": 0}, "later": {"n": 460, "median": 0.020624565774772452, "max": 0.06288740047447905, "clean": 0}, "first:generation": {"n": 38, "median": 0.012417323381902268, "max": 0.03637284439573574, "clean": 0}}}
+Q3 alignment: {"counts": {"no-draft-round": 690, "row0:shifted+1": 192, "row0:aligned": 38, "row1:aligned": 38}, "KR": {"K3/R1": 192, "K3/R2": 38}}
+exit 0

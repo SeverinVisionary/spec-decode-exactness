@@ -1,0 +1,38 @@
+<runtime>/py312/lib/python3.12/site-packages/modelopt/torch/__init__.py:36: UserWarning: transformers version 4.57.3 is incompatible with nvidia-modelopt and may cause issues. Please install recommended version with `pip install nvidia-modelopt[hf]` if working with HF models.
+  _warnings.warn(
+[TensorRT-LLM] TensorRT LLM version: 1.2.1
+[10/21/2026-20:47:31] [TRT-LLM] [I] Using LLM with PyTorch backend
+[10/21/2026-20:47:31] [TRT-LLM] [W] Using default gpus_per_node: 1
+[10/21/2026-20:47:31] [TRT-LLM] [I] neither checkpoint_format nor checkpoint_loader were provided, checkpoint_format will be set to HF.
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+You are using a model of type llama to instantiate a model of type . This is not supported for all configurations of models and can yield errors.
+`torch_dtype` is deprecated! Use `dtype` instead!
+<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/serve/openai_protocol.py:104: UserWarning: Field name "schema" in "ResponseFormat" shadows an attribute in parent "OpenAIBaseModel"
+  class ResponseFormat(OpenAIBaseModel):
+
+Loading safetensors weights in parallel:   0%|          | 0/1 [00:00<?, ?it/s]
+Loading safetensors weights in parallel: 100%|██████████| 1/1 [00:00<00:00, 750.46it/s]
+
+Loading weights concurrently:   0%|          | 0/52 [00:00<?, ?it/s]
+Loading weights concurrently: 100%|██████████| 52/52 [00:00<00:00, 5310.02it/s]
+Model init total -- 0.02s
+
+Loading safetensors weights in parallel:   0%|          | 0/1 [00:00<?, ?it/s]
+Loading safetensors weights in parallel: 100%|██████████| 1/1 [00:00<00:00, 942.54it/s]
+
+Loading weights concurrently:   0%|          | 0/52 [00:00<?, ?it/s]
+Loading weights concurrently: 100%|██████████| 52/52 [00:00<00:00, 7663.25it/s]
+[TensorRT-LLM][INFO] Max KV cache blocks per sequence: 1 [window size=67], tokens per block=1024, primary blocks=128, secondary blocks=0, max sequence length=67
+[TensorRT-LLM][INFO] Number of tokens per block: 1024.
+[TensorRT-LLM][INFO] [MemUsageChange] Allocated 0.12 GiB for max tokens in paged KV cache (131072).
+[TensorRT-LLM][INFO] Max KV cache blocks per sequence: 1 [window size=67], tokens per block=1024, primary blocks=128, secondary blocks=0, max sequence length=67
+[TensorRT-LLM][INFO] Number of tokens per block: 1024.
+[TensorRT-LLM][INFO] [MemUsageChange] Allocated 0.12 GiB for max tokens in paged KV cache (131072).
+Model init total -- 0.02s
+
+Processed requests:   0%|          | 0/200 [00:00<?, ?it/s]
+Processed requests:   0%|          | 1/200 [00:00<03:01,  1.10it/s]
+Processed requests:   1%|          | 2/200 [00:01<01:50,  1.79it/s]
+Processed requests:  64%|██████▍   | 129/200 [00:01<00:00, 150.38it/s]
+Processed requests: 100%|██████████| 200/200 [00:01<00:00, 141.54it/s]
+A2 events ['S2', 1, 206947723] done 14s

@@ -1,0 +1,25 @@
+{
+ "fixture": "FB",
+ "steps": 300,
+ "lr": 0.003,
+ "variants": {
+  "fit": {
+   "lm_head_scale": 1.0,
+   "cpu_acceptance_per_step": [
+    0.9100033383899265,
+    0.8811221934689416,
+    0.845864544947942
+   ],
+   "cpu_chain_rate_estimate": 0.7966873617479128
+  },
+  "fitflat": {
+   "lm_head_scale": 0.4,
+   "cpu_acceptance_per_step": [
+    0.5970826816558837,
+    0.5917985538310475,
+    0.5635218501091004
+   ],
+   "cpu_chain_rate_estimate": 0.3831857660400366
+  }
+ }
+}

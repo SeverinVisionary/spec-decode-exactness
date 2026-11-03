@@ -1,0 +1,34 @@
+{
+ "deep": {
+  "verdict": "calibrated",
+  "emissions_by_position": {
+   "spec/T1/0": 35593,
+   "spec/T1/1": 23632,
+   "spec/T1/2": 8421,
+   "spec/T1/3": 5551,
+   "spec/topk3/0": 35715,
+   "spec/topk3/1": 23625,
+   "spec/topk3/2": 8283,
+   "spec/topk3/3": 5469,
+   "spec_rs/T1/0": 31579,
+   "spec_rs/T1/1": 23387,
+   "spec_rs/T1/2": 13980,
+   "spec_rs/T1/3": 8888,
+   "spec_rs/topk3/0": 31713,
+   "spec_rs/topk3/1": 23290,
+   "spec_rs/topk3/2": 13823,
+   "spec_rs/topk3/3": 8684
+  },
+  "min_p_holm": 0.507351592963217
+ },
+ "drift": {
+  "prefixes": 27,
+  "verification_mismatch": 0,
+  "tv_spec_decode_median": 0.004005619955569143,
+  "tv_spec_decode_max": 0.04357795076702905,
+  "tv_spec_fp64_max": 0.09809265580001565,
+  "tv_decode_fp64_max": 0.0997703398724628,
+  "over_bf16_spread": [],
+  "bf16_spread": 0.068
+ }
+}

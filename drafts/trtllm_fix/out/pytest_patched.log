@@ -1,0 +1,8 @@
+......                                                                   [100%]
+=============================== warnings summary ===============================
+py312/lib/python3.12/site-packages/modelopt/torch/__init__.py:36
+  <runtime>/py312/lib/python3.12/site-packages/modelopt/torch/__init__.py:36: UserWarning: transformers version 4.57.3 is incompatible with nvidia-modelopt and may cause issues. Please install recommended version with `pip install nvidia-modelopt[hf]` if working with HF models.
+    _warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+6 passed, 1 warning in 32.69s

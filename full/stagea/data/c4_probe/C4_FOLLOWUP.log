@@ -1,0 +1,7 @@
+context-round/forward0: n=192 best {'drop/m1': 192} dev median 3.74e-08 max 1.06e-07
+context-round/forward1: n=192 best {'zero/m1': 192} dev median 2.79e-08 max 5.18e-08
+context-round/forward2: n=192 best {'zero/m1': 192} dev median 3.91e-08 max 1.13e-07
+generation-round/forward0: n=38 best {'none': 38} dev median 1.24e-02 max 3.39e-02
+generation-round/forward1: n=38 best {'none': 38} dev median 3.69e-03 max 2.97e-02
+generation-round/forward2: n=38 best {'none': 38} dev median 1.12e-02 max 2.95e-02
+exit 0

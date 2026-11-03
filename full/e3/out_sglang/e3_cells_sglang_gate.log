@@ -1,0 +1,38 @@
+gate S0 {"reference": {"FA/S0/default": {"delta_num": 1.9109821371328384e-07, "finite": true, "argmax_prefix": 23, "support_mismatch": 0, "row_sum_dev": 1.639085522864292e-07, "rows": 10000, "prefixes": 400, "copy_dev": 2.2611901639990606e-07, "path": "logprob"}}}
+gate S1 {"reference": {"FA/S1/default": {"delta_num": 2.1282207736213394e-07, "finite": true, "argmax_prefix": 369, "support_mismatch": 0, "row_sum_dev": 1.484309244403903e-07, "rows": 10000, "prefixes": 400, "copy_dev": 2.908253355915491e-07, "path": "logprob"}}}
+gate S2 {"error": "e 2017, in sample\n    next_token_ids = self.sampler(\n        logits_output,\n    ...<9 lines>...\n        ),\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1778, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1789, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/layers/sampler.py\", line 269, in forward\n    batch_next_to
+gate S3 {"error": "e 2017, in sample\n    next_token_ids = self.sampler(\n        logits_output,\n    ...<9 lines>...\n        ),\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1778, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1789, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/layers/sampler.py\", line 269, in forward\n    batch_next_to
+{
+ "FA/S0": {
+  "passed": true,
+  "delta_num": 1.9109821371328384e-07,
+  "mde": 0.0026910819133657633,
+  "bound": 4.485136522276272e-05,
+  "reports": 1,
+  "failed_reports": 0
+ },
+ "FA/S1": {
+  "passed": true,
+  "delta_num": 2.1282207736213394e-07,
+  "mde": 0.001480457163932594,
+  "bound": 2.4674286065543234e-05,
+  "reports": 1,
+  "failed_reports": 0
+ },
+ "FA/S2": {
+  "passed": false,
+  "delta_num": null,
+  "mde": 0.0011055487622132077,
+  "bound": 1.8425812703553462e-05,
+  "reports": 0,
+  "failed_reports": 0
+ },
+ "FA/S3": {
+  "passed": false,
+  "delta_num": null,
+  "mde": 0.004340160939456664,
+  "bound": 7.233601565761108e-05,
+  "reports": 0,
+  "failed_reports": 0
+ }
+}

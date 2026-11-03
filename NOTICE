@@ -1,0 +1,10 @@
+This repository contains files derived from TensorRT-LLM (https://github.com/NVIDIA/TensorRT-LLM),
+Copyright NVIDIA CORPORATION & AFFILIATES, licensed under the Apache License, Version 2.0 (LICENSE-APACHE):
+
+- full/e4/F1.patch, full/e4/F2.patch, full/e4/F3.patch and drafts/trtllm_fix/fix.patch: changes to TensorRT-LLM
+  source files (release/1.2), including unchanged context lines from those files.
+- drafts/trtllm_fix/test_torch_rejection_sampling.py: a modified copy of
+  tests/unittest/_torch/speculative/test_torch_rejection_sampling.py, changed by Hanyu Yang in 2026; the
+  changes are the test hunks of drafts/trtllm_fix/fix.patch.
+
+These files are offered under the Apache License, Version 2.0.

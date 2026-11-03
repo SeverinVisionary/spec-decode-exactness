@@ -1,0 +1,1175 @@
+{
+ "phase": "0b",
+ "engine": "sglang",
+ "started": "2026-10-19T15:48:53Z",
+ "environment": {
+  "python": "3.13.15",
+  "platform": "Linux-6.6.122+-x86_64-with-glibc2.39",
+  "gpu": "NVIDIA L4, 580.82.07, 23034 MiB",
+  "compute_cap": "8.9",
+  "cuda": "Build cuda_13.0.r13.0/compiler.36424714_0",
+  "harness_git": "4857af1e60fcbb35e2f16a2c65bb5916dd2eb3d5",
+  "torch": "2.13.0",
+  "transformers": "5.12.1",
+  "vllm": "not installed",
+  "sglang": "0.5.21",
+  "tensorrt_llm": "not installed",
+  "numpy": "2.1.3",
+  "pyarrow": "23.0.1"
+ },
+ "probe_timeout_s": 2400,
+ "complete": true,
+ "n_smoke": 100,
+ "chunk": 10000,
+ "prompt_throughput": [
+  4,
+  5,
+  6,
+  4,
+  5
+ ],
+ "tables_dir": "out/d40_full/phase0b_sglang_NVIDIA_L4_1792424933_tables",
+ "fixture_sha256": {
+  "target/model.safetensors": "061fcbb7a885ee83d09ecff985bd39c94e2100f05d1f18875908ff774bf4bc93",
+  "draft/model.safetensors": "bd6c546cb880bc5cd7149bd31dc214370a70d843c084541d92ac0eabbbfebe7e",
+  "fb_target/model.safetensors": "f625aff75aebfc4df07796fd2f52c8a37727e7f4451b0e750a577bfafaeb9148",
+  "fb_draft/model.safetensors": "2d7a1a58bfb4b8b4db6f6e704189b595a9c472c554de2809fc85f0549f2221be",
+  "target.gguf": "c3c681e6fe013dfb3e11bb319a6b54af1a4cd2727b3fa051099a44631311f7a1",
+  "draft.gguf": "d929d3ad9e359db34d92d1a03b727f446f98fa0ec29cf4fe9d7b5d1e63a50e08",
+  "fb_target.gguf": "15dd7d58ecacdee8414b029a01450d122a138c79b8d06c1eea62fdda59a0596f",
+  "fb_draft.gguf": "28e091b0e2b4410235a0c28f1a5f7341e4abc1fe02b01ed4733ed104d8c61736",
+  "eagle3_FA_tgt/model.safetensors": "551df3adf01bbe0838a6e0c5ddfa2d7bf82ff0ab5ed24690b2b8ea4e9d9b5af4",
+  "eagle3_FA_flat/model.safetensors": "7898d010656ebf96ed4471d4cbd8c66f572a9c4f637ff02f458defc5401677a2",
+  "eagle3_FB_tgt/model.safetensors": "e2f90d5b34e13618a9b0d9d9e9e576fe681dbe757f4700ae7803033b3f9064ac",
+  "eagle3_FB_flat/model.safetensors": "2d4e9d8563195fae26e662d114d3f1d380ebd0273f59223501cdca0f83aff46a",
+  "mimo_FA/model.safetensors": "baa869b24e10c1dd82cd312ea0d2c526d1bad4ed92fba4d11c2ad2cc1c22e305",
+  "mimo_FA/config.json": "32a868dfcc84668de744a4b4a26ec37a901447f566d1721483f99181bb3887fe",
+  "target_vllm/model.safetensors": "da24c0a8107b6baff66948814c102aaed1b98568825d3818f403d0bd953e6b8c",
+  "target_vllm/config.json": "75070dc2a28ae7a4f1b01e6625a2436af46c6fe6713768124d3afdd6639a82c2",
+  "draft_vllm/model.safetensors": "c00a88c8319796e110c838cc27368e2f2d6f841300ac03610af29dc9b48fdaab",
+  "draft_vllm/config.json": "75070dc2a28ae7a4f1b01e6625a2436af46c6fe6713768124d3afdd6639a82c2"
+ },
+ "probe_selection": null,
+ "probes": [
+  {
+   "arm": "smoke_FA_NULL",
+   "status": "RUNS",
+   "wall_s": 260.65,
+   "smoke": {
+    "FA/NULL/S0": {
+     "seq_per_s": 7.1,
+     "spec": {
+      "spec_verify_ct": 0,
+      "spec_num_correct_drafts": 0,
+      "spec_num_proposed_drafts": 0
+     },
+     "random_seed": 153016108,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    },
+    "FA/NULL/S1": {
+     "seq_per_s": 57.0,
+     "spec": {
+      "spec_verify_ct": 0,
+      "spec_num_correct_drafts": 0,
+      "spec_num_proposed_drafts": 0
+     },
+     "random_seed": 851719284,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    },
+    "FA/NULL/S2": {
+     "seq_per_s": 1.0,
+     "spec": {
+      "spec_verify_ct": 0,
+      "spec_num_correct_drafts": 0,
+      "spec_num_proposed_drafts": 0
+     },
+     "random_seed": 703643258,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    },
+    "FA/NULL/S3": {
+     "seq_per_s": 56.5,
+     "spec": {
+      "spec_verify_ct": 0,
+      "spec_num_correct_drafts": 0,
+      "spec_num_proposed_drafts": 0
+     },
+     "random_seed": 901785317,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    },
+    "FA/NULL/S5": {
+     "seq_per_s": 27.1,
+     "spec": {
+      "spec_verify_ct": 0,
+      "spec_num_correct_drafts": 0,
+      "spec_num_proposed_drafts": 0
+     },
+     "random_seed": 36177377,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    },
+    "FA/NULL/G": {
+     "seq_per_s": 58.5,
+     "spec": {
+      "spec_verify_ct": 0,
+      "spec_num_correct_drafts": 0,
+      "spec_num_proposed_drafts": 0
+     },
+     "random_seed": 778970115,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    }
+   },
+   "engine_options": {
+    "attention_backend": "triton",
+    "cuda_graphs": "disabled",
+    "fused_op_backend": "torch"
+   }
+  },
+  {
+   "arm": "smoke_FA_SG1@tgt",
+   "status": "RUNS",
+   "wall_s": 198.42,
+   "smoke": {
+    "FA/SG1@tgt/S0": {
+     "seq_per_s": 2.3,
+     "spec": {
+      "spec_verify_ct": 253,
+      "spec_num_correct_drafts": 15,
+      "spec_num_proposed_drafts": 759
+     },
+     "random_seed": 304591730,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    },
+    "FA/SG1@tgt/S1": {
+     "seq_per_s": 72.3,
+     "spec": {
+      "spec_verify_ct": 247,
+      "spec_num_correct_drafts": 8,
+      "spec_num_proposed_drafts": 741
+     },
+     "random_seed": 34970381,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    },
+    "FA/SG1@tgt/S2": {
+     "seq_per_s": 83.8,
+     "spec": {
+      "spec_verify_ct": 254,
+      "spec_num_correct_drafts": 11,
+      "spec_num_proposed_drafts": 762
+     },
+     "random_seed": 757867560,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    },
+    "FA/SG1@tgt/S3": {
+     "seq_per_s": 24.2,
+     "spec": {
+      "spec_verify_ct": 247,
+      "spec_num_correct_drafts": 8,
+      "spec_num_proposed_drafts": 741
+     },
+     "random_seed": 347735360,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    },
+    "FA/SG1@tgt/S5": {
+     "seq_per_s": 37.5,
+     "spec": {
+      "spec_verify_ct": 257,
+      "spec_num_correct_drafts": 16,
+      "spec_num_proposed_drafts": 771
+     },
+     "random_seed": 557575404,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    },
+    "FA/SG1@tgt/G": {
+     "seq_per_s": 132.5,
+     "spec": {
+      "spec_verify_ct": 300,
+      "spec_num_correct_drafts": 0,
+      "spec_num_proposed_drafts": 900
+     },
+     "random_seed": 545342626,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    }
+   },
+   "engine_options": {
+    "attention_backend": "triton",
+    "cuda_graphs": "disabled",
+    "fused_op_backend": "torch"
+   }
+  },
+  {
+   "arm": "smoke_FA_SG1@flat",
+   "status": "RUNS",
+   "wall_s": 149.47,
+   "smoke": {
+    "FA/SG1@flat/S0": {
+     "seq_per_s": 67.2,
+     "spec": {
+      "spec_verify_ct": 247,
+      "spec_num_correct_drafts": 17,
+      "spec_num_proposed_drafts": 741
+     },
+     "random_seed": 495265642,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    },
+    "FA/SG1@flat/S1": {
+     "seq_per_s": 91.2,
+     "spec": {
+      "spec_verify_ct": 273,
+      "spec_num_correct_drafts": 4,
+      "spec_num_proposed_drafts": 819
+     },
+     "random_seed": 988018973,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    },
+    "FA/SG1@flat/S2": {
+     "seq_per_s": 89.1,
+     "spec": {
+      "spec_verify_ct": 254,
+      "spec_num_correct_drafts": 10,
+      "spec_num_proposed_drafts": 762
+     },
+     "random_seed": 249819911,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    },
+    "FA/SG1@flat/S3": {
+     "seq_per_s": 110.8,
+     "spec": {
+      "spec_verify_ct": 250,
+      "spec_num_correct_drafts": 4,
+      "spec_num_proposed_drafts": 750
+     },
+     "random_seed": 998130338,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    },
+    "FA/SG1@flat/S5": {
+     "seq_per_s": 49.6,
+     "spec": {
+      "spec_verify_ct": 256,
+      "spec_num_correct_drafts": 10,
+      "spec_num_proposed_drafts": 768
+     },
+     "random_seed": 843630840,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    },
+    "FA/SG1@flat/G": {
+     "seq_per_s": 131.1,
+     "spec": {
+      "spec_verify_ct": 300,
+      "spec_num_correct_drafts": 0,
+      "spec_num_proposed_drafts": 900
+     },
+     "random_seed": 231691539,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    }
+   },
+   "engine_options": {
+    "attention_backend": "triton",
+    "cuda_graphs": "disabled",
+    "fused_op_backend": "torch"
+   }
+  },
+  {
+   "arm": "smoke_FA_SG2@tgt",
+   "status": "RUNS",
+   "wall_s": 180.05,
+   "smoke": {
+    "FA/SG2@tgt/S0": {
+     "seq_per_s": 5.6,
+     "spec": {
+      "spec_verify_ct": 232,
+      "spec_num_correct_drafts": 30,
+      "spec_num_proposed_drafts": 1160
+     },
+     "random_seed": 1065877250,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    },
+    "FA/SG2@tgt/S1": {
+     "seq_per_s": 14.0,
+     "spec": {
+      "spec_verify_ct": 256,
+      "spec_num_correct_drafts": 17,
+      "spec_num_proposed_drafts": 1280
+     },
+     "random_seed": 519644184,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    },
+    "FA/SG2@tgt/S2": {
+     "seq_per_s": 32.5,
+     "spec": {
+      "spec_verify_ct": 236,
+      "spec_num_correct_drafts": 14,
+      "spec_num_proposed_drafts": 1180
+     },
+     "random_seed": 165448749,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    },
+    "FA/SG2@tgt/S3": {
+     "seq_per_s": 32.8,
+     "spec": {
+      "spec_verify_ct": 267,
+      "spec_num_correct_drafts": 13,
+      "spec_num_proposed_drafts": 1335
+     },
+     "random_seed": 921193326,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    },
+    "FA/SG2@tgt/S5": {
+     "seq_per_s": 24.5,
+     "spec": {
+      "spec_verify_ct": 229,
+      "spec_num_correct_drafts": 34,
+      "spec_num_proposed_drafts": 1145
+     },
+     "random_seed": 349970260,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    },
+    "FA/SG2@tgt/G": {
+     "seq_per_s": 41.8,
+     "spec": {
+      "spec_verify_ct": 300,
+      "spec_num_correct_drafts": 0,
+      "spec_num_proposed_drafts": 1500
+     },
+     "random_seed": 316591582,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    }
+   },
+   "engine_options": {
+    "attention_backend": "triton",
+    "cuda_graphs": "disabled",
+    "fused_op_backend": "torch"
+   }
+  },
+  {
+   "arm": "smoke_FA_SG2@flat",
+   "status": "RUNS",
+   "wall_s": 159.86,
+   "smoke": {
+    "FA/SG2@flat/S0": {
+     "seq_per_s": 31.4,
+     "spec": {
+      "spec_verify_ct": 256,
+      "spec_num_correct_drafts": 34,
+      "spec_num_proposed_drafts": 1280
+     },
+     "random_seed": 98565308,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    },
+    "FA/SG2@flat/S1": {
+     "seq_per_s": 37.0,
+     "spec": {
+      "spec_verify_ct": 260,
+      "spec_num_correct_drafts": 22,
+      "spec_num_proposed_drafts": 1300
+     },
+     "random_seed": 716866843,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    },
+    "FA/SG2@flat/S2": {
+     "seq_per_s": 27.7,
+     "spec": {
+      "spec_verify_ct": 245,
+      "spec_num_correct_drafts": 18,
+      "spec_num_proposed_drafts": 1225
+     },
+     "random_seed": 178455234,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    },
+    "FA/SG2@flat/S3": {
+     "seq_per_s": 34.1,
+     "spec": {
+      "spec_verify_ct": 232,
+      "spec_num_correct_drafts": 9,
+      "spec_num_proposed_drafts": 1160
+     },
+     "random_seed": 427246691,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    },
+    "FA/SG2@flat/S5": {
+     "seq_per_s": 33.9,
+     "spec": {
+      "spec_verify_ct": 230,
+      "spec_num_correct_drafts": 37,
+      "spec_num_proposed_drafts": 1150
+     },
+     "random_seed": 757706462,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    },
+    "FA/SG2@flat/G": {
+     "seq_per_s": 41.4,
+     "spec": {
+      "spec_verify_ct": 300,
+      "spec_num_correct_drafts": 0,
+      "spec_num_proposed_drafts": 1500
+     },
+     "random_seed": 123780847,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    }
+   },
+   "engine_options": {
+    "attention_backend": "triton",
+    "cuda_graphs": "disabled",
+    "fused_op_backend": "torch"
+   }
+  },
+  {
+   "arm": "smoke_FA_SG3s",
+   "status": "RUNS",
+   "wall_s": 148.89,
+   "smoke": {
+    "FA/SG3s/S0": {
+     "seq_per_s": 112.8,
+     "spec": {
+      "spec_verify_ct": 174,
+      "spec_num_correct_drafts": 85,
+      "spec_num_proposed_drafts": 522
+     },
+     "random_seed": 632525408,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    },
+    "FA/SG3s/S1": {
+     "seq_per_s": 116.7,
+     "spec": {
+      "spec_verify_ct": 162,
+      "spec_num_correct_drafts": 127,
+      "spec_num_proposed_drafts": 486
+     },
+     "random_seed": 34594141,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    },
+    "FA/SG3s/S2": {
+     "seq_per_s": 88.0,
+     "spec": {
+      "spec_verify_ct": 162,
+      "spec_num_correct_drafts": 121,
+      "spec_num_proposed_drafts": 486
+     },
+     "random_seed": 755412390,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    },
+    "FA/SG3s/S3": {
+     "seq_per_s": 96.8,
+     "spec": {
+      "spec_verify_ct": 189,
+      "spec_num_correct_drafts": 126,
+      "spec_num_proposed_drafts": 567
+     },
+     "random_seed": 394051617,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    },
+    "FA/SG3s/S5": {
+     "seq_per_s": 46.4,
+     "spec": {
+      "spec_verify_ct": 187,
+      "spec_num_correct_drafts": 113,
+      "spec_num_proposed_drafts": 561
+     },
+     "random_seed": 182250482,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    },
+    "FA/SG3s/G": {
+     "seq_per_s": 138.8,
+     "spec": {
+      "spec_verify_ct": 200,
+      "spec_num_correct_drafts": 100,
+      "spec_num_proposed_drafts": 600
+     },
+     "random_seed": 28558428,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    }
+   },
+   "engine_options": {
+    "attention_backend": "triton",
+    "cuda_graphs": "disabled",
+    "fused_op_backend": "torch"
+   }
+  },
+  {
+   "arm": "smoke_FA_SG3n",
+   "status": "RUNS",
+   "wall_s": 155.55,
+   "smoke": {
+    "FA/SG3n/S0": {
+     "seq_per_s": 109.5,
+     "spec": {
+      "spec_verify_ct": 206,
+      "spec_num_correct_drafts": 94,
+      "spec_num_proposed_drafts": 618
+     },
+     "random_seed": 520511212,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    },
+    "FA/SG3n/S1": {
+     "seq_per_s": 131.5,
+     "spec": {
+      "spec_verify_ct": 206,
+      "spec_num_correct_drafts": 95,
+      "spec_num_proposed_drafts": 618
+     },
+     "random_seed": 41129898,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    },
+    "FA/SG3n/S2": {
+     "seq_per_s": 140.9,
+     "spec": {
+      "spec_verify_ct": 217,
+      "spec_num_correct_drafts": 112,
+      "spec_num_proposed_drafts": 651
+     },
+     "random_seed": 1056873268,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    },
+    "FA/SG3n/S3": {
+     "seq_per_s": 128.1,
+     "spec": {
+      "spec_verify_ct": 209,
+      "spec_num_correct_drafts": 99,
+      "spec_num_proposed_drafts": 627
+     },
+     "random_seed": 29894113,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    },
+    "FA/SG3n/S5": {
+     "seq_per_s": 63.6,
+     "spec": {
+      "spec_verify_ct": 193,
+      "spec_num_correct_drafts": 95,
+      "spec_num_proposed_drafts": 579
+     },
+     "random_seed": 1063224127,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    },
+    "FA/SG3n/G": {
+     "seq_per_s": 194.9,
+     "spec": {
+      "spec_verify_ct": 196,
+      "spec_num_correct_drafts": 156,
+      "spec_num_proposed_drafts": 588
+     },
+     "random_seed": 240659006,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    }
+   },
+   "engine_options": {
+    "attention_backend": "triton",
+    "cuda_graphs": "disabled",
+    "fused_op_backend": "torch"
+   }
+  },
+  {
+   "arm": "smoke_FA_NULL_S4",
+   "status": "ERROR",
+   "error": "child exited with code -9 and no result",
+   "settings_done": {},
+   "log_tail": "ers/scheduler.py\", line 1988, in event_loop_overlap\n    batch_result = self.run_batch(batch)\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/observability/scheduler_stage_metrics.py\", line 155, in wrapper\n    return profiled_func(self, *args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/utils/nvtx_utils.py\", line 109, in wrapper\n    return func(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/managers/scheduler.py\", line 4415, in run_batch\n    batch_result = self.model_worker.forward_batch_generation(\n        batch, **fwd_kwargs\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/managers/tp_worker.py\", line 686, in forward_batch_generation\n    batch_result.next_token_ids = self.model_runner.sample(\n                                  ~~~~~~~~~~~~~~~~~~~~~~~~^\n        logits_output, forward_batch\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/model_executor/model_runner.py\", line 2017, in sample\n    next_token_ids = self.sampler(\n        logits_output,\n    ...<9 lines>...\n        ),\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1778, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1789, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/layers/sampler.py\", line 269, in forward\n    batch_next_token_ids, sampling_mask_capture = self._sample_from_probs(\n                                                  ~~~~~~~~~~~~~~~~~~~~~~~^\n        probs,\n        ^^^^^^\n    ...<2 lines>...\n        simple_sampling_case,\n        ^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/layers/sampler.py\", line 370, in _sample_from_probs\n    probs = top_k_renorm_prob(probs, sampling_info.top_ks)\n  File \"/usr/local/lib/python3.13/dist-packages/sgl_kernel/sampling.py\", line 59, in top_k_renorm_probs\n    return _flashinfer_sampling.top_k_renorm_probs(probs, top_k)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/api_logging.py\", line 2333, in _auto_dump_wrapper\n    return _inner(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/sampling.py\", line 1899, in top_k_renorm_probs\n    return get_sampling_module().top_k_renorm_probs(\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^\n        probs, *_to_tensor_scalar_tuple(top_k), row_states_buffer\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/sampling.py\", line 531, in top_k_renorm_probs\n    module.top_k_renorm_probs(\n    ~~~~~~~~~~~~~~~~~~~~~~~~~^\n        probs,\n        ^^^^^^\n    ...<3 lines>...\n        row_states_buffer,\n        ^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"python/tvm_ffi/cython/function.pxi\", line 968, in tvm_ffi.core.Function.__call__\n  File \"<unknown>\", line 0, in __tvm_ffi_top_k_renorm_probs\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/data/csrc/renorm.cu\", line 64, in void top_k_renorm_probs(tvm::ffi::TensorView, tvm::ffi::TensorView, tvm::ffi::Optional<tvm::ffi::TensorView>, int64_t, tvm::ffi::TensorView)\n    CHECK_INPUT(probs);\n    \nRuntimeError: Check failed: (probs.IsContiguous()) is false: probs must be contiguous\n\n[2026-10-19 16:11:39] SIGQUIT received. signum=None, frame=None. It usually means one child failed.\n[rank0]:[W1019 16:11:40.916041483 ProcessGroupNCCL.cpp:1624] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())\n[2026-10-19 16:11:44] No live scheduler processes found; skipping py-spy and CUDA coredump.\n",
+   "wall_s": 46.37
+  },
+  {
+   "arm": "smoke_FA_NULL_S6",
+   "status": "ERROR",
+   "error": "child exited with code -9 and no result",
+   "settings_done": {},
+   "log_tail": "ers/scheduler.py\", line 1988, in event_loop_overlap\n    batch_result = self.run_batch(batch)\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/observability/scheduler_stage_metrics.py\", line 155, in wrapper\n    return profiled_func(self, *args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/utils/nvtx_utils.py\", line 109, in wrapper\n    return func(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/managers/scheduler.py\", line 4415, in run_batch\n    batch_result = self.model_worker.forward_batch_generation(\n        batch, **fwd_kwargs\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/managers/tp_worker.py\", line 686, in forward_batch_generation\n    batch_result.next_token_ids = self.model_runner.sample(\n                                  ~~~~~~~~~~~~~~~~~~~~~~~~^\n        logits_output, forward_batch\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/model_executor/model_runner.py\", line 2017, in sample\n    next_token_ids = self.sampler(\n        logits_output,\n    ...<9 lines>...\n        ),\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1778, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1789, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/layers/sampler.py\", line 269, in forward\n    batch_next_token_ids, sampling_mask_capture = self._sample_from_probs(\n                                                  ~~~~~~~~~~~~~~~~~~~~~~~^\n        probs,\n        ^^^^^^\n    ...<2 lines>...\n        simple_sampling_case,\n        ^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/layers/sampler.py\", line 370, in _sample_from_probs\n    probs = top_k_renorm_prob(probs, sampling_info.top_ks)\n  File \"/usr/local/lib/python3.13/dist-packages/sgl_kernel/sampling.py\", line 59, in top_k_renorm_probs\n    return _flashinfer_sampling.top_k_renorm_probs(probs, top_k)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/api_logging.py\", line 2333, in _auto_dump_wrapper\n    return _inner(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/sampling.py\", line 1899, in top_k_renorm_probs\n    return get_sampling_module().top_k_renorm_probs(\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^\n        probs, *_to_tensor_scalar_tuple(top_k), row_states_buffer\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/sampling.py\", line 531, in top_k_renorm_probs\n    module.top_k_renorm_probs(\n    ~~~~~~~~~~~~~~~~~~~~~~~~~^\n        probs,\n        ^^^^^^\n    ...<3 lines>...\n        row_states_buffer,\n        ^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"python/tvm_ffi/cython/function.pxi\", line 968, in tvm_ffi.core.Function.__call__\n  File \"<unknown>\", line 0, in __tvm_ffi_top_k_renorm_probs\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/data/csrc/renorm.cu\", line 64, in void top_k_renorm_probs(tvm::ffi::TensorView, tvm::ffi::TensorView, tvm::ffi::Optional<tvm::ffi::TensorView>, int64_t, tvm::ffi::TensorView)\n    CHECK_INPUT(probs);\n    \nRuntimeError: Check failed: (probs.IsContiguous()) is false: probs must be contiguous\n\n[2026-10-19 16:12:25] SIGQUIT received. signum=None, frame=None. It usually means one child failed.\n[rank0]:[W1019 16:12:26.943140260 ProcessGroupNCCL.cpp:1624] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())\n[2026-10-19 16:12:30] No live scheduler processes found; skipping py-spy and CUDA coredump.\n",
+   "wall_s": 46.02
+  },
+  {
+   "arm": "smoke_FA_SG1@tgt_S4",
+   "status": "ERROR",
+   "error": "child exited with code -9 and no result",
+   "settings_done": {},
+   "log_tail": " )\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/speculative/eagle_worker_v2.py\", line 1324, in forward_batch_generation\n    return self._forward_prefill_batch(batch, on_publish, pp_proxy_tensors)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/speculative/eagle_worker_v2.py\", line 1461, in _forward_prefill_batch\n    batch_output = self.target_worker.forward_batch_generation(\n        batch,\n        pp_proxy_tensors=pp_proxy_tensors,\n        capture_hidden_mode=target_capture_mode,\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/managers/tp_worker.py\", line 686, in forward_batch_generation\n    batch_result.next_token_ids = self.model_runner.sample(\n                                  ~~~~~~~~~~~~~~~~~~~~~~~~^\n        logits_output, forward_batch\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/model_executor/model_runner.py\", line 2017, in sample\n    next_token_ids = self.sampler(\n        logits_output,\n    ...<9 lines>...\n        ),\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1778, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1789, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/layers/sampler.py\", line 269, in forward\n    batch_next_token_ids, sampling_mask_capture = self._sample_from_probs(\n                                                  ~~~~~~~~~~~~~~~~~~~~~~~^\n        probs,\n        ^^^^^^\n    ...<2 lines>...\n        simple_sampling_case,\n        ^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/layers/sampler.py\", line 370, in _sample_from_probs\n    probs = top_k_renorm_prob(probs, sampling_info.top_ks)\n  File \"/usr/local/lib/python3.13/dist-packages/sgl_kernel/sampling.py\", line 59, in top_k_renorm_probs\n    return _flashinfer_sampling.top_k_renorm_probs(probs, top_k)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/api_logging.py\", line 2333, in _auto_dump_wrapper\n    return _inner(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/sampling.py\", line 1899, in top_k_renorm_probs\n    return get_sampling_module().top_k_renorm_probs(\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^\n        probs, *_to_tensor_scalar_tuple(top_k), row_states_buffer\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/sampling.py\", line 531, in top_k_renorm_probs\n    module.top_k_renorm_probs(\n    ~~~~~~~~~~~~~~~~~~~~~~~~~^\n        probs,\n        ^^^^^^\n    ...<3 lines>...\n        row_states_buffer,\n        ^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"python/tvm_ffi/cython/function.pxi\", line 968, in tvm_ffi.core.Function.__call__\n  File \"<unknown>\", line 0, in __tvm_ffi_top_k_renorm_probs\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/data/csrc/renorm.cu\", line 64, in void top_k_renorm_probs(tvm::ffi::TensorView, tvm::ffi::TensorView, tvm::ffi::Optional<tvm::ffi::TensorView>, int64_t, tvm::ffi::TensorView)\n    CHECK_INPUT(probs);\n    \ntvm.error.InternalError: Check failed: (probs.IsContiguous()) is false: probs must be contiguous\n\n[2026-10-19 16:13:12] SIGQUIT received. signum=None, frame=None. It usually means one child failed.\n[rank0]:[W1019 16:13:13.870636332 ProcessGroupNCCL.cpp:1624] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())\n[2026-10-19 16:13:17] No live scheduler processes found; skipping py-spy and CUDA coredump.\n",
+   "wall_s": 46.87
+  },
+  {
+   "arm": "smoke_FA_SG1@tgt_S6",
+   "status": "ERROR",
+   "error": "child exited with code -9 and no result",
+   "settings_done": {},
+   "log_tail": " )\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/speculative/eagle_worker_v2.py\", line 1324, in forward_batch_generation\n    return self._forward_prefill_batch(batch, on_publish, pp_proxy_tensors)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/speculative/eagle_worker_v2.py\", line 1461, in _forward_prefill_batch\n    batch_output = self.target_worker.forward_batch_generation(\n        batch,\n        pp_proxy_tensors=pp_proxy_tensors,\n        capture_hidden_mode=target_capture_mode,\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/managers/tp_worker.py\", line 686, in forward_batch_generation\n    batch_result.next_token_ids = self.model_runner.sample(\n                                  ~~~~~~~~~~~~~~~~~~~~~~~~^\n        logits_output, forward_batch\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/model_executor/model_runner.py\", line 2017, in sample\n    next_token_ids = self.sampler(\n        logits_output,\n    ...<9 lines>...\n        ),\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1778, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1789, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/layers/sampler.py\", line 269, in forward\n    batch_next_token_ids, sampling_mask_capture = self._sample_from_probs(\n                                                  ~~~~~~~~~~~~~~~~~~~~~~~^\n        probs,\n        ^^^^^^\n    ...<2 lines>...\n        simple_sampling_case,\n        ^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/layers/sampler.py\", line 370, in _sample_from_probs\n    probs = top_k_renorm_prob(probs, sampling_info.top_ks)\n  File \"/usr/local/lib/python3.13/dist-packages/sgl_kernel/sampling.py\", line 59, in top_k_renorm_probs\n    return _flashinfer_sampling.top_k_renorm_probs(probs, top_k)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/api_logging.py\", line 2333, in _auto_dump_wrapper\n    return _inner(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/sampling.py\", line 1899, in top_k_renorm_probs\n    return get_sampling_module().top_k_renorm_probs(\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^\n        probs, *_to_tensor_scalar_tuple(top_k), row_states_buffer\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/sampling.py\", line 531, in top_k_renorm_probs\n    module.top_k_renorm_probs(\n    ~~~~~~~~~~~~~~~~~~~~~~~~~^\n        probs,\n        ^^^^^^\n    ...<3 lines>...\n        row_states_buffer,\n        ^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"python/tvm_ffi/cython/function.pxi\", line 968, in tvm_ffi.core.Function.__call__\n  File \"<unknown>\", line 0, in __tvm_ffi_top_k_renorm_probs\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/data/csrc/renorm.cu\", line 64, in void top_k_renorm_probs(tvm::ffi::TensorView, tvm::ffi::TensorView, tvm::ffi::Optional<tvm::ffi::TensorView>, int64_t, tvm::ffi::TensorView)\n    CHECK_INPUT(probs);\n    \ntvm.error.InternalError: Check failed: (probs.IsContiguous()) is false: probs must be contiguous\n\n[2026-10-19 16:13:59] SIGQUIT received. signum=None, frame=None. It usually means one child failed.\n[rank0]:[W1019 16:14:00.959412208 ProcessGroupNCCL.cpp:1624] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())\n[2026-10-19 16:14:04] No live scheduler processes found; skipping py-spy and CUDA coredump.\n",
+   "wall_s": 47.07
+  },
+  {
+   "arm": "smoke_FA_SG1@flat_S4",
+   "status": "ERROR",
+   "error": "child exited with code -9 and no result",
+   "settings_done": {},
+   "log_tail": " )\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/speculative/eagle_worker_v2.py\", line 1324, in forward_batch_generation\n    return self._forward_prefill_batch(batch, on_publish, pp_proxy_tensors)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/speculative/eagle_worker_v2.py\", line 1461, in _forward_prefill_batch\n    batch_output = self.target_worker.forward_batch_generation(\n        batch,\n        pp_proxy_tensors=pp_proxy_tensors,\n        capture_hidden_mode=target_capture_mode,\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/managers/tp_worker.py\", line 686, in forward_batch_generation\n    batch_result.next_token_ids = self.model_runner.sample(\n                                  ~~~~~~~~~~~~~~~~~~~~~~~~^\n        logits_output, forward_batch\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/model_executor/model_runner.py\", line 2017, in sample\n    next_token_ids = self.sampler(\n        logits_output,\n    ...<9 lines>...\n        ),\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1778, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1789, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/layers/sampler.py\", line 269, in forward\n    batch_next_token_ids, sampling_mask_capture = self._sample_from_probs(\n                                                  ~~~~~~~~~~~~~~~~~~~~~~~^\n        probs,\n        ^^^^^^\n    ...<2 lines>...\n        simple_sampling_case,\n        ^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/layers/sampler.py\", line 370, in _sample_from_probs\n    probs = top_k_renorm_prob(probs, sampling_info.top_ks)\n  File \"/usr/local/lib/python3.13/dist-packages/sgl_kernel/sampling.py\", line 59, in top_k_renorm_probs\n    return _flashinfer_sampling.top_k_renorm_probs(probs, top_k)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/api_logging.py\", line 2333, in _auto_dump_wrapper\n    return _inner(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/sampling.py\", line 1899, in top_k_renorm_probs\n    return get_sampling_module().top_k_renorm_probs(\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^\n        probs, *_to_tensor_scalar_tuple(top_k), row_states_buffer\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/sampling.py\", line 531, in top_k_renorm_probs\n    module.top_k_renorm_probs(\n    ~~~~~~~~~~~~~~~~~~~~~~~~~^\n        probs,\n        ^^^^^^\n    ...<3 lines>...\n        row_states_buffer,\n        ^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"python/tvm_ffi/cython/function.pxi\", line 968, in tvm_ffi.core.Function.__call__\n  File \"<unknown>\", line 0, in __tvm_ffi_top_k_renorm_probs\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/data/csrc/renorm.cu\", line 64, in void top_k_renorm_probs(tvm::ffi::TensorView, tvm::ffi::TensorView, tvm::ffi::Optional<tvm::ffi::TensorView>, int64_t, tvm::ffi::TensorView)\n    CHECK_INPUT(probs);\n    \ntvm.error.InternalError: Check failed: (probs.IsContiguous()) is false: probs must be contiguous\n\n[2026-10-19 16:14:46] SIGQUIT received. signum=None, frame=None. It usually means one child failed.\n[rank0]:[W1019 16:14:47.677754077 ProcessGroupNCCL.cpp:1624] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())\n[2026-10-19 16:14:51] No live scheduler processes found; skipping py-spy and CUDA coredump.\n",
+   "wall_s": 46.72
+  },
+  {
+   "arm": "smoke_FA_SG1@flat_S6",
+   "status": "ERROR",
+   "error": "child exited with code -9 and no result",
+   "settings_done": {},
+   "log_tail": " )\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/speculative/eagle_worker_v2.py\", line 1324, in forward_batch_generation\n    return self._forward_prefill_batch(batch, on_publish, pp_proxy_tensors)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/speculative/eagle_worker_v2.py\", line 1461, in _forward_prefill_batch\n    batch_output = self.target_worker.forward_batch_generation(\n        batch,\n        pp_proxy_tensors=pp_proxy_tensors,\n        capture_hidden_mode=target_capture_mode,\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/managers/tp_worker.py\", line 686, in forward_batch_generation\n    batch_result.next_token_ids = self.model_runner.sample(\n                                  ~~~~~~~~~~~~~~~~~~~~~~~~^\n        logits_output, forward_batch\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/model_executor/model_runner.py\", line 2017, in sample\n    next_token_ids = self.sampler(\n        logits_output,\n    ...<9 lines>...\n        ),\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1778, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1789, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/layers/sampler.py\", line 269, in forward\n    batch_next_token_ids, sampling_mask_capture = self._sample_from_probs(\n                                                  ~~~~~~~~~~~~~~~~~~~~~~~^\n        probs,\n        ^^^^^^\n    ...<2 lines>...\n        simple_sampling_case,\n        ^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/layers/sampler.py\", line 370, in _sample_from_probs\n    probs = top_k_renorm_prob(probs, sampling_info.top_ks)\n  File \"/usr/local/lib/python3.13/dist-packages/sgl_kernel/sampling.py\", line 59, in top_k_renorm_probs\n    return _flashinfer_sampling.top_k_renorm_probs(probs, top_k)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/api_logging.py\", line 2333, in _auto_dump_wrapper\n    return _inner(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/sampling.py\", line 1899, in top_k_renorm_probs\n    return get_sampling_module().top_k_renorm_probs(\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^\n        probs, *_to_tensor_scalar_tuple(top_k), row_states_buffer\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/sampling.py\", line 531, in top_k_renorm_probs\n    module.top_k_renorm_probs(\n    ~~~~~~~~~~~~~~~~~~~~~~~~~^\n        probs,\n        ^^^^^^\n    ...<3 lines>...\n        row_states_buffer,\n        ^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"python/tvm_ffi/cython/function.pxi\", line 968, in tvm_ffi.core.Function.__call__\n  File \"<unknown>\", line 0, in __tvm_ffi_top_k_renorm_probs\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/data/csrc/renorm.cu\", line 64, in void top_k_renorm_probs(tvm::ffi::TensorView, tvm::ffi::TensorView, tvm::ffi::Optional<tvm::ffi::TensorView>, int64_t, tvm::ffi::TensorView)\n    CHECK_INPUT(probs);\n    \ntvm.error.InternalError: Check failed: (probs.IsContiguous()) is false: probs must be contiguous\n\n[2026-10-19 16:15:33] SIGQUIT received. signum=None, frame=None. It usually means one child failed.\n[rank0]:[W1019 16:15:34.574440363 ProcessGroupNCCL.cpp:1624] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())\n[2026-10-19 16:15:38] No live scheduler processes found; skipping py-spy and CUDA coredump.\n",
+   "wall_s": 46.87
+  },
+  {
+   "arm": "smoke_FA_SG2@tgt_S4",
+   "status": "ERROR",
+   "error": "child exited with code -9 and no result",
+   "settings_done": {},
+   "log_tail": " )\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/speculative/eagle_worker_v2.py\", line 1324, in forward_batch_generation\n    return self._forward_prefill_batch(batch, on_publish, pp_proxy_tensors)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/speculative/eagle_worker_v2.py\", line 1461, in _forward_prefill_batch\n    batch_output = self.target_worker.forward_batch_generation(\n        batch,\n        pp_proxy_tensors=pp_proxy_tensors,\n        capture_hidden_mode=target_capture_mode,\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/managers/tp_worker.py\", line 686, in forward_batch_generation\n    batch_result.next_token_ids = self.model_runner.sample(\n                                  ~~~~~~~~~~~~~~~~~~~~~~~~^\n        logits_output, forward_batch\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/model_executor/model_runner.py\", line 2017, in sample\n    next_token_ids = self.sampler(\n        logits_output,\n    ...<9 lines>...\n        ),\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1778, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1789, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/layers/sampler.py\", line 269, in forward\n    batch_next_token_ids, sampling_mask_capture = self._sample_from_probs(\n                                                  ~~~~~~~~~~~~~~~~~~~~~~~^\n        probs,\n        ^^^^^^\n    ...<2 lines>...\n        simple_sampling_case,\n        ^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/layers/sampler.py\", line 370, in _sample_from_probs\n    probs = top_k_renorm_prob(probs, sampling_info.top_ks)\n  File \"/usr/local/lib/python3.13/dist-packages/sgl_kernel/sampling.py\", line 59, in top_k_renorm_probs\n    return _flashinfer_sampling.top_k_renorm_probs(probs, top_k)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/api_logging.py\", line 2333, in _auto_dump_wrapper\n    return _inner(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/sampling.py\", line 1899, in top_k_renorm_probs\n    return get_sampling_module().top_k_renorm_probs(\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^\n        probs, *_to_tensor_scalar_tuple(top_k), row_states_buffer\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/sampling.py\", line 531, in top_k_renorm_probs\n    module.top_k_renorm_probs(\n    ~~~~~~~~~~~~~~~~~~~~~~~~~^\n        probs,\n        ^^^^^^\n    ...<3 lines>...\n        row_states_buffer,\n        ^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"python/tvm_ffi/cython/function.pxi\", line 968, in tvm_ffi.core.Function.__call__\n  File \"<unknown>\", line 0, in __tvm_ffi_top_k_renorm_probs\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/data/csrc/renorm.cu\", line 64, in void top_k_renorm_probs(tvm::ffi::TensorView, tvm::ffi::TensorView, tvm::ffi::Optional<tvm::ffi::TensorView>, int64_t, tvm::ffi::TensorView)\n    CHECK_INPUT(probs);\n    \ntvm.error.InternalError: Check failed: (probs.IsContiguous()) is false: probs must be contiguous\n\n[2026-10-19 16:16:20] SIGQUIT received. signum=None, frame=None. It usually means one child failed.\n[rank0]:[W1019 16:16:21.539055191 ProcessGroupNCCL.cpp:1624] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())\n[2026-10-19 16:16:25] No live scheduler processes found; skipping py-spy and CUDA coredump.\n",
+   "wall_s": 46.97
+  },
+  {
+   "arm": "smoke_FA_SG2@tgt_S6",
+   "status": "ERROR",
+   "error": "child exited with code -9 and no result",
+   "settings_done": {},
+   "log_tail": " )\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/speculative/eagle_worker_v2.py\", line 1324, in forward_batch_generation\n    return self._forward_prefill_batch(batch, on_publish, pp_proxy_tensors)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/speculative/eagle_worker_v2.py\", line 1461, in _forward_prefill_batch\n    batch_output = self.target_worker.forward_batch_generation(\n        batch,\n        pp_proxy_tensors=pp_proxy_tensors,\n        capture_hidden_mode=target_capture_mode,\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/managers/tp_worker.py\", line 686, in forward_batch_generation\n    batch_result.next_token_ids = self.model_runner.sample(\n                                  ~~~~~~~~~~~~~~~~~~~~~~~~^\n        logits_output, forward_batch\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/model_executor/model_runner.py\", line 2017, in sample\n    next_token_ids = self.sampler(\n        logits_output,\n    ...<9 lines>...\n        ),\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1778, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1789, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/layers/sampler.py\", line 269, in forward\n    batch_next_token_ids, sampling_mask_capture = self._sample_from_probs(\n                                                  ~~~~~~~~~~~~~~~~~~~~~~~^\n        probs,\n        ^^^^^^\n    ...<2 lines>...\n        simple_sampling_case,\n        ^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/layers/sampler.py\", line 370, in _sample_from_probs\n    probs = top_k_renorm_prob(probs, sampling_info.top_ks)\n  File \"/usr/local/lib/python3.13/dist-packages/sgl_kernel/sampling.py\", line 59, in top_k_renorm_probs\n    return _flashinfer_sampling.top_k_renorm_probs(probs, top_k)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/api_logging.py\", line 2333, in _auto_dump_wrapper\n    return _inner(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/sampling.py\", line 1899, in top_k_renorm_probs\n    return get_sampling_module().top_k_renorm_probs(\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^\n        probs, *_to_tensor_scalar_tuple(top_k), row_states_buffer\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/sampling.py\", line 531, in top_k_renorm_probs\n    module.top_k_renorm_probs(\n    ~~~~~~~~~~~~~~~~~~~~~~~~~^\n        probs,\n        ^^^^^^\n    ...<3 lines>...\n        row_states_buffer,\n        ^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"python/tvm_ffi/cython/function.pxi\", line 968, in tvm_ffi.core.Function.__call__\n  File \"<unknown>\", line 0, in __tvm_ffi_top_k_renorm_probs\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/data/csrc/renorm.cu\", line 64, in void top_k_renorm_probs(tvm::ffi::TensorView, tvm::ffi::TensorView, tvm::ffi::Optional<tvm::ffi::TensorView>, int64_t, tvm::ffi::TensorView)\n    CHECK_INPUT(probs);\n    \ntvm.error.InternalError: Check failed: (probs.IsContiguous()) is false: probs must be contiguous\n\n[2026-10-19 16:17:07] SIGQUIT received. signum=None, frame=None. It usually means one child failed.\n[rank0]:[W1019 16:17:08.513592919 ProcessGroupNCCL.cpp:1624] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())\n[2026-10-19 16:17:12] No live scheduler processes found; skipping py-spy and CUDA coredump.\n",
+   "wall_s": 46.97
+  },
+  {
+   "arm": "smoke_FA_SG2@flat_S4",
+   "status": "ERROR",
+   "error": "child exited with code -9 and no result",
+   "settings_done": {},
+   "log_tail": " )\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/speculative/eagle_worker_v2.py\", line 1324, in forward_batch_generation\n    return self._forward_prefill_batch(batch, on_publish, pp_proxy_tensors)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/speculative/eagle_worker_v2.py\", line 1461, in _forward_prefill_batch\n    batch_output = self.target_worker.forward_batch_generation(\n        batch,\n        pp_proxy_tensors=pp_proxy_tensors,\n        capture_hidden_mode=target_capture_mode,\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/managers/tp_worker.py\", line 686, in forward_batch_generation\n    batch_result.next_token_ids = self.model_runner.sample(\n                                  ~~~~~~~~~~~~~~~~~~~~~~~~^\n        logits_output, forward_batch\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/model_executor/model_runner.py\", line 2017, in sample\n    next_token_ids = self.sampler(\n        logits_output,\n    ...<9 lines>...\n        ),\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1778, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1789, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/layers/sampler.py\", line 269, in forward\n    batch_next_token_ids, sampling_mask_capture = self._sample_from_probs(\n                                                  ~~~~~~~~~~~~~~~~~~~~~~~^\n        probs,\n        ^^^^^^\n    ...<2 lines>...\n        simple_sampling_case,\n        ^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/layers/sampler.py\", line 370, in _sample_from_probs\n    probs = top_k_renorm_prob(probs, sampling_info.top_ks)\n  File \"/usr/local/lib/python3.13/dist-packages/sgl_kernel/sampling.py\", line 59, in top_k_renorm_probs\n    return _flashinfer_sampling.top_k_renorm_probs(probs, top_k)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/api_logging.py\", line 2333, in _auto_dump_wrapper\n    return _inner(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/sampling.py\", line 1899, in top_k_renorm_probs\n    return get_sampling_module().top_k_renorm_probs(\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^\n        probs, *_to_tensor_scalar_tuple(top_k), row_states_buffer\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/sampling.py\", line 531, in top_k_renorm_probs\n    module.top_k_renorm_probs(\n    ~~~~~~~~~~~~~~~~~~~~~~~~~^\n        probs,\n        ^^^^^^\n    ...<3 lines>...\n        row_states_buffer,\n        ^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"python/tvm_ffi/cython/function.pxi\", line 968, in tvm_ffi.core.Function.__call__\n  File \"<unknown>\", line 0, in __tvm_ffi_top_k_renorm_probs\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/data/csrc/renorm.cu\", line 64, in void top_k_renorm_probs(tvm::ffi::TensorView, tvm::ffi::TensorView, tvm::ffi::Optional<tvm::ffi::TensorView>, int64_t, tvm::ffi::TensorView)\n    CHECK_INPUT(probs);\n    \ntvm.error.InternalError: Check failed: (probs.IsContiguous()) is false: probs must be contiguous\n\n[2026-10-19 16:17:54] SIGQUIT received. signum=None, frame=None. It usually means one child failed.\n[rank0]:[W1019 16:17:55.442389970 ProcessGroupNCCL.cpp:1624] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())\n[2026-10-19 16:17:59] No live scheduler processes found; skipping py-spy and CUDA coredump.\n",
+   "wall_s": 46.97
+  },
+  {
+   "arm": "smoke_FA_SG2@flat_S6",
+   "status": "ERROR",
+   "error": "child exited with code -9 and no result",
+   "settings_done": {},
+   "log_tail": " )\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/speculative/eagle_worker_v2.py\", line 1324, in forward_batch_generation\n    return self._forward_prefill_batch(batch, on_publish, pp_proxy_tensors)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/speculative/eagle_worker_v2.py\", line 1461, in _forward_prefill_batch\n    batch_output = self.target_worker.forward_batch_generation(\n        batch,\n        pp_proxy_tensors=pp_proxy_tensors,\n        capture_hidden_mode=target_capture_mode,\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/managers/tp_worker.py\", line 686, in forward_batch_generation\n    batch_result.next_token_ids = self.model_runner.sample(\n                                  ~~~~~~~~~~~~~~~~~~~~~~~~^\n        logits_output, forward_batch\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/model_executor/model_runner.py\", line 2017, in sample\n    next_token_ids = self.sampler(\n        logits_output,\n    ...<9 lines>...\n        ),\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1778, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1789, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/layers/sampler.py\", line 269, in forward\n    batch_next_token_ids, sampling_mask_capture = self._sample_from_probs(\n                                                  ~~~~~~~~~~~~~~~~~~~~~~~^\n        probs,\n        ^^^^^^\n    ...<2 lines>...\n        simple_sampling_case,\n        ^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/layers/sampler.py\", line 370, in _sample_from_probs\n    probs = top_k_renorm_prob(probs, sampling_info.top_ks)\n  File \"/usr/local/lib/python3.13/dist-packages/sgl_kernel/sampling.py\", line 59, in top_k_renorm_probs\n    return _flashinfer_sampling.top_k_renorm_probs(probs, top_k)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/api_logging.py\", line 2333, in _auto_dump_wrapper\n    return _inner(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/sampling.py\", line 1899, in top_k_renorm_probs\n    return get_sampling_module().top_k_renorm_probs(\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^\n        probs, *_to_tensor_scalar_tuple(top_k), row_states_buffer\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/sampling.py\", line 531, in top_k_renorm_probs\n    module.top_k_renorm_probs(\n    ~~~~~~~~~~~~~~~~~~~~~~~~~^\n        probs,\n        ^^^^^^\n    ...<3 lines>...\n        row_states_buffer,\n        ^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"python/tvm_ffi/cython/function.pxi\", line 968, in tvm_ffi.core.Function.__call__\n  File \"<unknown>\", line 0, in __tvm_ffi_top_k_renorm_probs\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/data/csrc/renorm.cu\", line 64, in void top_k_renorm_probs(tvm::ffi::TensorView, tvm::ffi::TensorView, tvm::ffi::Optional<tvm::ffi::TensorView>, int64_t, tvm::ffi::TensorView)\n    CHECK_INPUT(probs);\n    \ntvm.error.InternalError: Check failed: (probs.IsContiguous()) is false: probs must be contiguous\n\n[2026-10-19 16:18:40] SIGQUIT received. signum=None, frame=None. It usually means one child failed.\n[rank0]:[W1019 16:18:42.265603658 ProcessGroupNCCL.cpp:1624] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())\n[2026-10-19 16:18:45] No live scheduler processes found; skipping py-spy and CUDA coredump.\n",
+   "wall_s": 46.77
+  },
+  {
+   "arm": "smoke_FA_SG3s_S4",
+   "status": "ERROR",
+   "error": "child exited with code -9 and no result",
+   "settings_done": {},
+   "log_tail": " )\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/speculative/eagle_worker_v2.py\", line 1324, in forward_batch_generation\n    return self._forward_prefill_batch(batch, on_publish, pp_proxy_tensors)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/speculative/eagle_worker_v2.py\", line 1461, in _forward_prefill_batch\n    batch_output = self.target_worker.forward_batch_generation(\n        batch,\n        pp_proxy_tensors=pp_proxy_tensors,\n        capture_hidden_mode=target_capture_mode,\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/managers/tp_worker.py\", line 686, in forward_batch_generation\n    batch_result.next_token_ids = self.model_runner.sample(\n                                  ~~~~~~~~~~~~~~~~~~~~~~~~^\n        logits_output, forward_batch\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/model_executor/model_runner.py\", line 2017, in sample\n    next_token_ids = self.sampler(\n        logits_output,\n    ...<9 lines>...\n        ),\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1778, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1789, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/layers/sampler.py\", line 269, in forward\n    batch_next_token_ids, sampling_mask_capture = self._sample_from_probs(\n                                                  ~~~~~~~~~~~~~~~~~~~~~~~^\n        probs,\n        ^^^^^^\n    ...<2 lines>...\n        simple_sampling_case,\n        ^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/layers/sampler.py\", line 370, in _sample_from_probs\n    probs = top_k_renorm_prob(probs, sampling_info.top_ks)\n  File \"/usr/local/lib/python3.13/dist-packages/sgl_kernel/sampling.py\", line 59, in top_k_renorm_probs\n    return _flashinfer_sampling.top_k_renorm_probs(probs, top_k)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/api_logging.py\", line 2333, in _auto_dump_wrapper\n    return _inner(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/sampling.py\", line 1899, in top_k_renorm_probs\n    return get_sampling_module().top_k_renorm_probs(\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^\n        probs, *_to_tensor_scalar_tuple(top_k), row_states_buffer\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/sampling.py\", line 531, in top_k_renorm_probs\n    module.top_k_renorm_probs(\n    ~~~~~~~~~~~~~~~~~~~~~~~~~^\n        probs,\n        ^^^^^^\n    ...<3 lines>...\n        row_states_buffer,\n        ^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"python/tvm_ffi/cython/function.pxi\", line 968, in tvm_ffi.core.Function.__call__\n  File \"<unknown>\", line 0, in __tvm_ffi_top_k_renorm_probs\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/data/csrc/renorm.cu\", line 64, in void top_k_renorm_probs(tvm::ffi::TensorView, tvm::ffi::TensorView, tvm::ffi::Optional<tvm::ffi::TensorView>, int64_t, tvm::ffi::TensorView)\n    CHECK_INPUT(probs);\n    \ntvm.error.InternalError: Check failed: (probs.IsContiguous()) is false: probs must be contiguous\n\n[2026-10-19 16:19:28] SIGQUIT received. signum=None, frame=None. It usually means one child failed.\n[rank0]:[W1019 16:19:29.406435627 ProcessGroupNCCL.cpp:1624] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())\n[2026-10-19 16:19:33] No live scheduler processes found; skipping py-spy and CUDA coredump.\n",
+   "wall_s": 47.17
+  },
+  {
+   "arm": "smoke_FA_SG3s_S6",
+   "status": "ERROR",
+   "error": "child exited with code -9 and no result",
+   "settings_done": {},
+   "log_tail": " )\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/speculative/eagle_worker_v2.py\", line 1324, in forward_batch_generation\n    return self._forward_prefill_batch(batch, on_publish, pp_proxy_tensors)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/speculative/eagle_worker_v2.py\", line 1461, in _forward_prefill_batch\n    batch_output = self.target_worker.forward_batch_generation(\n        batch,\n        pp_proxy_tensors=pp_proxy_tensors,\n        capture_hidden_mode=target_capture_mode,\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/managers/tp_worker.py\", line 686, in forward_batch_generation\n    batch_result.next_token_ids = self.model_runner.sample(\n                                  ~~~~~~~~~~~~~~~~~~~~~~~~^\n        logits_output, forward_batch\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/model_executor/model_runner.py\", line 2017, in sample\n    next_token_ids = self.sampler(\n        logits_output,\n    ...<9 lines>...\n        ),\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1778, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1789, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/layers/sampler.py\", line 269, in forward\n    batch_next_token_ids, sampling_mask_capture = self._sample_from_probs(\n                                                  ~~~~~~~~~~~~~~~~~~~~~~~^\n        probs,\n        ^^^^^^\n    ...<2 lines>...\n        simple_sampling_case,\n        ^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/layers/sampler.py\", line 370, in _sample_from_probs\n    probs = top_k_renorm_prob(probs, sampling_info.top_ks)\n  File \"/usr/local/lib/python3.13/dist-packages/sgl_kernel/sampling.py\", line 59, in top_k_renorm_probs\n    return _flashinfer_sampling.top_k_renorm_probs(probs, top_k)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/api_logging.py\", line 2333, in _auto_dump_wrapper\n    return _inner(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/sampling.py\", line 1899, in top_k_renorm_probs\n    return get_sampling_module().top_k_renorm_probs(\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^\n        probs, *_to_tensor_scalar_tuple(top_k), row_states_buffer\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/sampling.py\", line 531, in top_k_renorm_probs\n    module.top_k_renorm_probs(\n    ~~~~~~~~~~~~~~~~~~~~~~~~~^\n        probs,\n        ^^^^^^\n    ...<3 lines>...\n        row_states_buffer,\n        ^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"python/tvm_ffi/cython/function.pxi\", line 968, in tvm_ffi.core.Function.__call__\n  File \"<unknown>\", line 0, in __tvm_ffi_top_k_renorm_probs\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/data/csrc/renorm.cu\", line 64, in void top_k_renorm_probs(tvm::ffi::TensorView, tvm::ffi::TensorView, tvm::ffi::Optional<tvm::ffi::TensorView>, int64_t, tvm::ffi::TensorView)\n    CHECK_INPUT(probs);\n    \ntvm.error.InternalError: Check failed: (probs.IsContiguous()) is false: probs must be contiguous\n\n[2026-10-19 16:20:15] SIGQUIT received. signum=None, frame=None. It usually means one child failed.\n[rank0]:[W1019 16:20:16.481948466 ProcessGroupNCCL.cpp:1624] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())\n[2026-10-19 16:20:20] No live scheduler processes found; skipping py-spy and CUDA coredump.\n",
+   "wall_s": 47.07
+  },
+  {
+   "arm": "smoke_FA_SG3n_S4",
+   "status": "ERROR",
+   "error": "child exited with code -9 and no result",
+   "settings_done": {},
+   "log_tail": " *args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/utils/nvtx_utils.py\", line 109, in wrapper\n    return func(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/managers/scheduler.py\", line 4415, in run_batch\n    batch_result = self.model_worker.forward_batch_generation(\n        batch, **fwd_kwargs\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/speculative/ngram_worker.py\", line 528, in forward_batch_generation\n    batch_result = self.target_worker.forward_batch_generation(\n        batch, pp_proxy_tensors=pp_proxy_tensors\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/managers/tp_worker.py\", line 686, in forward_batch_generation\n    batch_result.next_token_ids = self.model_runner.sample(\n                                  ~~~~~~~~~~~~~~~~~~~~~~~~^\n        logits_output, forward_batch\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/model_executor/model_runner.py\", line 2017, in sample\n    next_token_ids = self.sampler(\n        logits_output,\n    ...<9 lines>...\n        ),\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1778, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1789, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/layers/sampler.py\", line 269, in forward\n    batch_next_token_ids, sampling_mask_capture = self._sample_from_probs(\n                                                  ~~~~~~~~~~~~~~~~~~~~~~~^\n        probs,\n        ^^^^^^\n    ...<2 lines>...\n        simple_sampling_case,\n        ^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/layers/sampler.py\", line 370, in _sample_from_probs\n    probs = top_k_renorm_prob(probs, sampling_info.top_ks)\n  File \"/usr/local/lib/python3.13/dist-packages/sgl_kernel/sampling.py\", line 59, in top_k_renorm_probs\n    return _flashinfer_sampling.top_k_renorm_probs(probs, top_k)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/api_logging.py\", line 2333, in _auto_dump_wrapper\n    return _inner(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/sampling.py\", line 1899, in top_k_renorm_probs\n    return get_sampling_module().top_k_renorm_probs(\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^\n        probs, *_to_tensor_scalar_tuple(top_k), row_states_buffer\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/sampling.py\", line 531, in top_k_renorm_probs\n    module.top_k_renorm_probs(\n    ~~~~~~~~~~~~~~~~~~~~~~~~~^\n        probs,\n        ^^^^^^\n    ...<3 lines>...\n        row_states_buffer,\n        ^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"python/tvm_ffi/cython/function.pxi\", line 968, in tvm_ffi.core.Function.__call__\n  File \"<unknown>\", line 0, in __tvm_ffi_top_k_renorm_probs\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/data/csrc/renorm.cu\", line 64, in void top_k_renorm_probs(tvm::ffi::TensorView, tvm::ffi::TensorView, tvm::ffi::Optional<tvm::ffi::TensorView>, int64_t, tvm::ffi::TensorView)\n    CHECK_INPUT(probs);\n    \nRuntimeError: Check failed: (probs.IsContiguous()) is false: probs must be contiguous\n\n[2026-10-19 16:21:02] SIGQUIT received. signum=None, frame=None. It usually means one child failed.\n[rank0]:[W1019 16:21:03.498546362 ProcessGroupNCCL.cpp:1624] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())\n[2026-10-19 16:21:07] No live scheduler processes found; skipping py-spy and CUDA coredump.\n",
+   "wall_s": 47.07
+  },
+  {
+   "arm": "smoke_FA_SG3n_S6",
+   "status": "ERROR",
+   "error": "child exited with code -9 and no result",
+   "settings_done": {},
+   "log_tail": " *args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/utils/nvtx_utils.py\", line 109, in wrapper\n    return func(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/managers/scheduler.py\", line 4415, in run_batch\n    batch_result = self.model_worker.forward_batch_generation(\n        batch, **fwd_kwargs\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/speculative/ngram_worker.py\", line 528, in forward_batch_generation\n    batch_result = self.target_worker.forward_batch_generation(\n        batch, pp_proxy_tensors=pp_proxy_tensors\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/managers/tp_worker.py\", line 686, in forward_batch_generation\n    batch_result.next_token_ids = self.model_runner.sample(\n                                  ~~~~~~~~~~~~~~~~~~~~~~~~^\n        logits_output, forward_batch\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/model_executor/model_runner.py\", line 2017, in sample\n    next_token_ids = self.sampler(\n        logits_output,\n    ...<9 lines>...\n        ),\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1778, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1789, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/layers/sampler.py\", line 269, in forward\n    batch_next_token_ids, sampling_mask_capture = self._sample_from_probs(\n                                                  ~~~~~~~~~~~~~~~~~~~~~~~^\n        probs,\n        ^^^^^^\n    ...<2 lines>...\n        simple_sampling_case,\n        ^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/layers/sampler.py\", line 370, in _sample_from_probs\n    probs = top_k_renorm_prob(probs, sampling_info.top_ks)\n  File \"/usr/local/lib/python3.13/dist-packages/sgl_kernel/sampling.py\", line 59, in top_k_renorm_probs\n    return _flashinfer_sampling.top_k_renorm_probs(probs, top_k)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/api_logging.py\", line 2333, in _auto_dump_wrapper\n    return _inner(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/sampling.py\", line 1899, in top_k_renorm_probs\n    return get_sampling_module().top_k_renorm_probs(\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^\n        probs, *_to_tensor_scalar_tuple(top_k), row_states_buffer\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/sampling.py\", line 531, in top_k_renorm_probs\n    module.top_k_renorm_probs(\n    ~~~~~~~~~~~~~~~~~~~~~~~~~^\n        probs,\n        ^^^^^^\n    ...<3 lines>...\n        row_states_buffer,\n        ^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"python/tvm_ffi/cython/function.pxi\", line 968, in tvm_ffi.core.Function.__call__\n  File \"<unknown>\", line 0, in __tvm_ffi_top_k_renorm_probs\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/data/csrc/renorm.cu\", line 64, in void top_k_renorm_probs(tvm::ffi::TensorView, tvm::ffi::TensorView, tvm::ffi::Optional<tvm::ffi::TensorView>, int64_t, tvm::ffi::TensorView)\n    CHECK_INPUT(probs);\n    \nRuntimeError: Check failed: (probs.IsContiguous()) is false: probs must be contiguous\n\n[2026-10-19 16:21:49] SIGQUIT received. signum=None, frame=None. It usually means one child failed.\n[rank0]:[W1019 16:21:50.524116735 ProcessGroupNCCL.cpp:1624] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())\n[2026-10-19 16:21:54] No live scheduler processes found; skipping py-spy and CUDA coredump.\n",
+   "wall_s": 47.02
+  },
+  {
+   "arm": "smoke_FB_NULL",
+   "status": "RUNS",
+   "wall_s": 74.95,
+   "smoke": {
+    "FB/NULL/S0": {
+     "seq_per_s": 56.6,
+     "spec": {
+      "spec_verify_ct": 0,
+      "spec_num_correct_drafts": 0,
+      "spec_num_proposed_drafts": 0
+     },
+     "random_seed": 328586204,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    },
+    "FB/NULL/S2": {
+     "seq_per_s": 55.2,
+     "spec": {
+      "spec_verify_ct": 0,
+      "spec_num_correct_drafts": 0,
+      "spec_num_proposed_drafts": 0
+     },
+     "random_seed": 423440421,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    },
+    "FB/NULL/G": {
+     "seq_per_s": 57.5,
+     "spec": {
+      "spec_verify_ct": 0,
+      "spec_num_correct_drafts": 0,
+      "spec_num_proposed_drafts": 0
+     },
+     "random_seed": 7173567,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    }
+   },
+   "engine_options": {
+    "attention_backend": "triton",
+    "cuda_graphs": "disabled",
+    "fused_op_backend": "torch"
+   }
+  },
+  {
+   "arm": "smoke_FB_SG1@tgt",
+   "status": "RUNS",
+   "wall_s": 78.91,
+   "smoke": {
+    "FB/SG1@tgt/S0": {
+     "seq_per_s": 76.2,
+     "spec": {
+      "spec_verify_ct": 452,
+      "spec_num_correct_drafts": 60,
+      "spec_num_proposed_drafts": 1356
+     },
+     "random_seed": 693620790,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    },
+    "FB/SG1@tgt/S2": {
+     "seq_per_s": 82.7,
+     "spec": {
+      "spec_verify_ct": 425,
+      "spec_num_correct_drafts": 89,
+      "spec_num_proposed_drafts": 1275
+     },
+     "random_seed": 638416759,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    },
+    "FB/SG1@tgt/G": {
+     "seq_per_s": 119.1,
+     "spec": {
+      "spec_verify_ct": 400,
+      "spec_num_correct_drafts": 100,
+      "spec_num_proposed_drafts": 1200
+     },
+     "random_seed": 760569729,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    }
+   },
+   "engine_options": {
+    "attention_backend": "triton",
+    "cuda_graphs": "disabled",
+    "fused_op_backend": "torch"
+   }
+  },
+  {
+   "arm": "smoke_FB_SG1@flat",
+   "status": "RUNS",
+   "wall_s": 78.56,
+   "smoke": {
+    "FB/SG1@flat/S0": {
+     "seq_per_s": 95.6,
+     "spec": {
+      "spec_verify_ct": 444,
+      "spec_num_correct_drafts": 67,
+      "spec_num_proposed_drafts": 1332
+     },
+     "random_seed": 906253515,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    },
+    "FB/SG1@flat/S2": {
+     "seq_per_s": 84.8,
+     "spec": {
+      "spec_verify_ct": 419,
+      "spec_num_correct_drafts": 103,
+      "spec_num_proposed_drafts": 1257
+     },
+     "random_seed": 232206484,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    },
+    "FB/SG1@flat/G": {
+     "seq_per_s": 119.9,
+     "spec": {
+      "spec_verify_ct": 400,
+      "spec_num_correct_drafts": 100,
+      "spec_num_proposed_drafts": 1200
+     },
+     "random_seed": 433622447,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    }
+   },
+   "engine_options": {
+    "attention_backend": "triton",
+    "cuda_graphs": "disabled",
+    "fused_op_backend": "torch"
+   }
+  },
+  {
+   "arm": "smoke_FB_NULL_S6",
+   "status": "ERROR",
+   "error": "child exited with code -9 and no result",
+   "settings_done": {},
+   "log_tail": "ers/scheduler.py\", line 1988, in event_loop_overlap\n    batch_result = self.run_batch(batch)\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/observability/scheduler_stage_metrics.py\", line 155, in wrapper\n    return profiled_func(self, *args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/utils/nvtx_utils.py\", line 109, in wrapper\n    return func(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/managers/scheduler.py\", line 4415, in run_batch\n    batch_result = self.model_worker.forward_batch_generation(\n        batch, **fwd_kwargs\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/managers/tp_worker.py\", line 686, in forward_batch_generation\n    batch_result.next_token_ids = self.model_runner.sample(\n                                  ~~~~~~~~~~~~~~~~~~~~~~~~^\n        logits_output, forward_batch\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/model_executor/model_runner.py\", line 2017, in sample\n    next_token_ids = self.sampler(\n        logits_output,\n    ...<9 lines>...\n        ),\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1778, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1789, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/layers/sampler.py\", line 269, in forward\n    batch_next_token_ids, sampling_mask_capture = self._sample_from_probs(\n                                                  ~~~~~~~~~~~~~~~~~~~~~~~^\n        probs,\n        ^^^^^^\n    ...<2 lines>...\n        simple_sampling_case,\n        ^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/layers/sampler.py\", line 370, in _sample_from_probs\n    probs = top_k_renorm_prob(probs, sampling_info.top_ks)\n  File \"/usr/local/lib/python3.13/dist-packages/sgl_kernel/sampling.py\", line 59, in top_k_renorm_probs\n    return _flashinfer_sampling.top_k_renorm_probs(probs, top_k)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/api_logging.py\", line 2333, in _auto_dump_wrapper\n    return _inner(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/sampling.py\", line 1899, in top_k_renorm_probs\n    return get_sampling_module().top_k_renorm_probs(\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^\n        probs, *_to_tensor_scalar_tuple(top_k), row_states_buffer\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/sampling.py\", line 531, in top_k_renorm_probs\n    module.top_k_renorm_probs(\n    ~~~~~~~~~~~~~~~~~~~~~~~~~^\n        probs,\n        ^^^^^^\n    ...<3 lines>...\n        row_states_buffer,\n        ^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"python/tvm_ffi/cython/function.pxi\", line 968, in tvm_ffi.core.Function.__call__\n  File \"<unknown>\", line 0, in __tvm_ffi_top_k_renorm_probs\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/data/csrc/renorm.cu\", line 64, in void top_k_renorm_probs(tvm::ffi::TensorView, tvm::ffi::TensorView, tvm::ffi::Optional<tvm::ffi::TensorView>, int64_t, tvm::ffi::TensorView)\n    CHECK_INPUT(probs);\n    \nRuntimeError: Check failed: (probs.IsContiguous()) is false: probs must be contiguous\n\n[2026-10-19 16:26:58] SIGQUIT received. signum=None, frame=None. It usually means one child failed.\n[rank0]:[W1019 16:26:59.786404621 ProcessGroupNCCL.cpp:1624] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())\n[2026-10-19 16:27:03] No live scheduler processes found; skipping py-spy and CUDA coredump.\n",
+   "wall_s": 46.02
+  },
+  {
+   "arm": "smoke_FB_SG1@tgt_S6",
+   "status": "ERROR",
+   "error": "child exited with code -9 and no result",
+   "settings_done": {},
+   "log_tail": " )\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/speculative/eagle_worker_v2.py\", line 1324, in forward_batch_generation\n    return self._forward_prefill_batch(batch, on_publish, pp_proxy_tensors)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/speculative/eagle_worker_v2.py\", line 1461, in _forward_prefill_batch\n    batch_output = self.target_worker.forward_batch_generation(\n        batch,\n        pp_proxy_tensors=pp_proxy_tensors,\n        capture_hidden_mode=target_capture_mode,\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/managers/tp_worker.py\", line 686, in forward_batch_generation\n    batch_result.next_token_ids = self.model_runner.sample(\n                                  ~~~~~~~~~~~~~~~~~~~~~~~~^\n        logits_output, forward_batch\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/model_executor/model_runner.py\", line 2017, in sample\n    next_token_ids = self.sampler(\n        logits_output,\n    ...<9 lines>...\n        ),\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1778, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1789, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/layers/sampler.py\", line 269, in forward\n    batch_next_token_ids, sampling_mask_capture = self._sample_from_probs(\n                                                  ~~~~~~~~~~~~~~~~~~~~~~~^\n        probs,\n        ^^^^^^\n    ...<2 lines>...\n        simple_sampling_case,\n        ^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/layers/sampler.py\", line 370, in _sample_from_probs\n    probs = top_k_renorm_prob(probs, sampling_info.top_ks)\n  File \"/usr/local/lib/python3.13/dist-packages/sgl_kernel/sampling.py\", line 59, in top_k_renorm_probs\n    return _flashinfer_sampling.top_k_renorm_probs(probs, top_k)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/api_logging.py\", line 2333, in _auto_dump_wrapper\n    return _inner(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/sampling.py\", line 1899, in top_k_renorm_probs\n    return get_sampling_module().top_k_renorm_probs(\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^\n        probs, *_to_tensor_scalar_tuple(top_k), row_states_buffer\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/sampling.py\", line 531, in top_k_renorm_probs\n    module.top_k_renorm_probs(\n    ~~~~~~~~~~~~~~~~~~~~~~~~~^\n        probs,\n        ^^^^^^\n    ...<3 lines>...\n        row_states_buffer,\n        ^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"python/tvm_ffi/cython/function.pxi\", line 968, in tvm_ffi.core.Function.__call__\n  File \"<unknown>\", line 0, in __tvm_ffi_top_k_renorm_probs\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/data/csrc/renorm.cu\", line 64, in void top_k_renorm_probs(tvm::ffi::TensorView, tvm::ffi::TensorView, tvm::ffi::Optional<tvm::ffi::TensorView>, int64_t, tvm::ffi::TensorView)\n    CHECK_INPUT(probs);\n    \ntvm.error.InternalError: Check failed: (probs.IsContiguous()) is false: probs must be contiguous\n\n[2026-10-19 16:27:45] SIGQUIT received. signum=None, frame=None. It usually means one child failed.\n[rank0]:[W1019 16:27:46.733275240 ProcessGroupNCCL.cpp:1624] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())\n[2026-10-19 16:27:50] No live scheduler processes found; skipping py-spy and CUDA coredump.\n",
+   "wall_s": 46.82
+  },
+  {
+   "arm": "smoke_FB_SG1@flat_S6",
+   "status": "ERROR",
+   "error": "child exited with code -9 and no result",
+   "settings_done": {},
+   "log_tail": " )\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/speculative/eagle_worker_v2.py\", line 1324, in forward_batch_generation\n    return self._forward_prefill_batch(batch, on_publish, pp_proxy_tensors)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/speculative/eagle_worker_v2.py\", line 1461, in _forward_prefill_batch\n    batch_output = self.target_worker.forward_batch_generation(\n        batch,\n        pp_proxy_tensors=pp_proxy_tensors,\n        capture_hidden_mode=target_capture_mode,\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/managers/tp_worker.py\", line 686, in forward_batch_generation\n    batch_result.next_token_ids = self.model_runner.sample(\n                                  ~~~~~~~~~~~~~~~~~~~~~~~~^\n        logits_output, forward_batch\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/model_executor/model_runner.py\", line 2017, in sample\n    next_token_ids = self.sampler(\n        logits_output,\n    ...<9 lines>...\n        ),\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1778, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1789, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/layers/sampler.py\", line 269, in forward\n    batch_next_token_ids, sampling_mask_capture = self._sample_from_probs(\n                                                  ~~~~~~~~~~~~~~~~~~~~~~~^\n        probs,\n        ^^^^^^\n    ...<2 lines>...\n        simple_sampling_case,\n        ^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/layers/sampler.py\", line 370, in _sample_from_probs\n    probs = top_k_renorm_prob(probs, sampling_info.top_ks)\n  File \"/usr/local/lib/python3.13/dist-packages/sgl_kernel/sampling.py\", line 59, in top_k_renorm_probs\n    return _flashinfer_sampling.top_k_renorm_probs(probs, top_k)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/api_logging.py\", line 2333, in _auto_dump_wrapper\n    return _inner(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/sampling.py\", line 1899, in top_k_renorm_probs\n    return get_sampling_module().top_k_renorm_probs(\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^\n        probs, *_to_tensor_scalar_tuple(top_k), row_states_buffer\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/sampling.py\", line 531, in top_k_renorm_probs\n    module.top_k_renorm_probs(\n    ~~~~~~~~~~~~~~~~~~~~~~~~~^\n        probs,\n        ^^^^^^\n    ...<3 lines>...\n        row_states_buffer,\n        ^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"python/tvm_ffi/cython/function.pxi\", line 968, in tvm_ffi.core.Function.__call__\n  File \"<unknown>\", line 0, in __tvm_ffi_top_k_renorm_probs\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/data/csrc/renorm.cu\", line 64, in void top_k_renorm_probs(tvm::ffi::TensorView, tvm::ffi::TensorView, tvm::ffi::Optional<tvm::ffi::TensorView>, int64_t, tvm::ffi::TensorView)\n    CHECK_INPUT(probs);\n    \ntvm.error.InternalError: Check failed: (probs.IsContiguous()) is false: probs must be contiguous\n\n[2026-10-19 16:28:32] SIGQUIT received. signum=None, frame=None. It usually means one child failed.\n[rank0]:[W1019 16:28:33.584793299 ProcessGroupNCCL.cpp:1624] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())\n[2026-10-19 16:28:37] No live scheduler processes found; skipping py-spy and CUDA coredump.\n",
+   "wall_s": 46.87
+  },
+  {
+   "arm": "smoke_FA_NULL_S4_pytorch",
+   "status": "RUNS",
+   "wall_s": 30.95,
+   "smoke": {
+    "pytorch:FA/NULL/S4": {
+     "seq_per_s": 52.8,
+     "spec": {
+      "spec_verify_ct": 0,
+      "spec_num_correct_drafts": 0,
+      "spec_num_proposed_drafts": 0
+     },
+     "random_seed": 467849002,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    }
+   },
+   "engine_options": {
+    "attention_backend": "triton",
+    "cuda_graphs": "disabled",
+    "fused_op_backend": "torch",
+    "sampling_backend": "pytorch"
+   }
+  },
+  {
+   "arm": "smoke_FA_NULL_S6_pytorch",
+   "status": "RUNS",
+   "wall_s": 31.21,
+   "smoke": {
+    "pytorch:FA/NULL/S6": {
+     "seq_per_s": 52.8,
+     "spec": {
+      "spec_verify_ct": 0,
+      "spec_num_correct_drafts": 0,
+      "spec_num_proposed_drafts": 0
+     },
+     "random_seed": 792245321,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    }
+   },
+   "engine_options": {
+    "attention_backend": "triton",
+    "cuda_graphs": "disabled",
+    "fused_op_backend": "torch",
+    "sampling_backend": "pytorch"
+   }
+  },
+  {
+   "arm": "smoke_FA_SG1@tgt_S4_pytorch",
+   "status": "RUNS",
+   "wall_s": 31.92,
+   "smoke": {
+    "pytorch:FA/SG1@tgt/S4": {
+     "seq_per_s": 105.8,
+     "spec": {
+      "spec_verify_ct": 263,
+      "spec_num_correct_drafts": 7,
+      "spec_num_proposed_drafts": 789
+     },
+     "random_seed": 888520458,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    }
+   },
+   "engine_options": {
+    "attention_backend": "triton",
+    "cuda_graphs": "disabled",
+    "fused_op_backend": "torch",
+    "sampling_backend": "pytorch"
+   }
+  },
+  {
+   "arm": "smoke_FA_SG1@tgt_S6_pytorch",
+   "status": "RUNS",
+   "wall_s": 32.15,
+   "smoke": {
+    "pytorch:FA/SG1@tgt/S6": {
+     "seq_per_s": 103.1,
+     "spec": {
+      "spec_verify_ct": 256,
+      "spec_num_correct_drafts": 5,
+      "spec_num_proposed_drafts": 768
+     },
+     "random_seed": 1009121619,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    }
+   },
+   "engine_options": {
+    "attention_backend": "triton",
+    "cuda_graphs": "disabled",
+    "fused_op_backend": "torch",
+    "sampling_backend": "pytorch"
+   }
+  },
+  {
+   "arm": "seed_check",
+   "status": "RUNS",
+   "wall_s": 143.56,
+   "seed_check": {
+    "FA/NULL/S0": {
+     "same_seed_repeats": true,
+     "other_seed_differs": true
+    },
+    "FA/SG1@tgt/S0": {
+     "same_seed_repeats": true,
+     "other_seed_differs": true
+    }
+   }
+  },
+  {
+   "arm": "reference",
+   "status": "ERROR",
+   "error": "child exited with code -9 and no result",
+   "settings_done": {
+    "FA/S0/default": {
+     "delta_num": 0.00019517286653968416,
+     "finite": true,
+     "argmax_prefix": 359,
+     "support_mismatch": 0,
+     "row_sum_dev": 1.513051322010739e-07,
+     "rows": 10000,
+     "prefixes": 400,
+     "copy_dev": 3.39091046170914e-05,
+     "path": "logprob"
+    },
+    "FA/S1/default": {
+     "delta_num": 0.00022294602217827215,
+     "finite": true,
+     "argmax_prefix": 247,
+     "support_mismatch": 0,
+     "row_sum_dev": 1.4800825165472986e-07,
+     "rows": 10000,
+     "prefixes": 400,
+     "copy_dev": 6.906410617846248e-07,
+     "path": "logprob"
+    }
+   },
+   "log_tail": "988, in event_loop_overlap\n    batch_result = self.run_batch(batch)\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/observability/scheduler_stage_metrics.py\", line 155, in wrapper\n    return profiled_func(self, *args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/utils/nvtx_utils.py\", line 109, in wrapper\n    return func(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/managers/scheduler.py\", line 4415, in run_batch\n    batch_result = self.model_worker.forward_batch_generation(\n        batch, **fwd_kwargs\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/managers/tp_worker.py\", line 686, in forward_batch_generation\n    batch_result.next_token_ids = self.model_runner.sample(\n                                  ~~~~~~~~~~~~~~~~~~~~~~~~^\n        logits_output, forward_batch\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/model_executor/model_runner.py\", line 2017, in sample\n    next_token_ids = self.sampler(\n        logits_output,\n    ...<9 lines>...\n        ),\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1778, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1789, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/layers/sampler.py\", line 269, in forward\n    batch_next_token_ids, sampling_mask_capture = self._sample_from_probs(\n                                                  ~~~~~~~~~~~~~~~~~~~~~~~^\n        probs,\n        ^^^^^^\n    ...<2 lines>...\n        simple_sampling_case,\n        ^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/layers/sampler.py\", line 414, in _sample_from_probs\n    filtered_probs = top_k_renorm_prob(\n        capture_probs, capture_top_ks\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/sgl_kernel/sampling.py\", line 59, in top_k_renorm_probs\n    return _flashinfer_sampling.top_k_renorm_probs(probs, top_k)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/api_logging.py\", line 2333, in _auto_dump_wrapper\n    return _inner(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/sampling.py\", line 1899, in top_k_renorm_probs\n    return get_sampling_module().top_k_renorm_probs(\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^\n        probs, *_to_tensor_scalar_tuple(top_k), row_states_buffer\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/sampling.py\", line 531, in top_k_renorm_probs\n    module.top_k_renorm_probs(\n    ~~~~~~~~~~~~~~~~~~~~~~~~~^\n        probs,\n        ^^^^^^\n    ...<3 lines>...\n        row_states_buffer,\n        ^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"python/tvm_ffi/cython/function.pxi\", line 968, in tvm_ffi.core.Function.__call__\n  File \"<unknown>\", line 0, in __tvm_ffi_top_k_renorm_probs\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/data/csrc/renorm.cu\", line 64, in void top_k_renorm_probs(tvm::ffi::TensorView, tvm::ffi::TensorView, tvm::ffi::Optional<tvm::ffi::TensorView>, int64_t, tvm::ffi::TensorView)\n    CHECK_INPUT(probs);\n    \nRuntimeError: Check failed: (probs.IsContiguous()) is false: probs must be contiguous\n\n[2026-10-19 16:35:04] SIGQUIT received. signum=None, frame=None. It usually means one child failed.\n[rank0]:[W1019 16:35:06.996053540 ProcessGroupNCCL.cpp:1624] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())\n[2026-10-19 16:35:09] No live scheduler processes found; skipping py-spy and CUDA coredump.\n",
+   "wall_s": 71.22
+  },
+  {
+   "arm": "reference_pytorch",
+   "status": "RUNS",
+   "wall_s": 77.63,
+   "reference": {
+    "FA/S4/pytorch": {
+     "delta_num": 0.0001898114382725448,
+     "finite": true,
+     "argmax_prefix": 212,
+     "support_mismatch": 0,
+     "row_sum_dev": 1.0851437548531351e-07,
+     "rows": 10000,
+     "prefixes": 400,
+     "copy_dev": 3.298498624471069e-05,
+     "path": "sampling_mask"
+    },
+    "FA/S6/pytorch": {
+     "delta_num": 0.00021968093750121542,
+     "finite": true,
+     "argmax_prefix": 39,
+     "support_mismatch": 0,
+     "row_sum_dev": 1.360097647840064e-07,
+     "rows": 10000,
+     "prefixes": 400,
+     "copy_dev": 6.556819831526894e-07,
+     "path": "sampling_mask"
+    },
+    "FB/S6/pytorch": {
+     "delta_num": 0.0017486773221505672,
+     "finite": true,
+     "argmax_prefix": 23,
+     "support_mismatch": 0,
+     "row_sum_dev": 1.27661473392493e-07,
+     "rows": 10000,
+     "prefixes": 277,
+     "copy_dev": 0.00020452884740590482,
+     "path": "sampling_mask"
+    }
+   }
+  },
+  {
+   "arm": "throughput",
+   "status": "RUNS",
+   "wall_s": 155.14,
+   "throughput_seq_per_s": {
+    "FA/NULL/S0": 820.5,
+    "FA/SG1@tgt/S0": 283.8,
+    "FA/SG3s/S0": 293.8
+   }
+  }
+ ],
+ "finished": "2026-10-19T16:39:23Z"
+}

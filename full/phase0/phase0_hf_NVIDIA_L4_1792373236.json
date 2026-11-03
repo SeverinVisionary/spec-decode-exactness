@@ -1,0 +1,38 @@
+{
+ "phase": "0",
+ "engine": "hf",
+ "started": "2026-10-19T01:27:16Z",
+ "environment": {
+  "python": "3.13.15",
+  "platform": "Linux-6.6.122+-x86_64-with-glibc2.39",
+  "gpu": "NVIDIA L4, 580.82.07, 23034 MiB",
+  "compute_cap": "8.9",
+  "cuda": "Build cuda_13.0.r13.0/compiler.36424714_0",
+  "harness_git": "16dc24bba37b12db3c68d9274ead803a3533400c",
+  "torch": "2.11.0+cu130",
+  "transformers": "5.18.0",
+  "vllm": "not importable: ModuleNotFoundError",
+  "sglang": "not importable: ModuleNotFoundError",
+  "tensorrt_llm": "not importable: ModuleNotFoundError"
+ },
+ "probe_timeout_s": 900,
+ "complete": true,
+ "fixture_sha256": {
+  "target/model.safetensors": "061fcbb7a885ee83d09ecff985bd39c94e2100f05d1f18875908ff774bf4bc93",
+  "draft/model.safetensors": "bd6c546cb880bc5cd7149bd31dc214370a70d843c084541d92ac0eabbbfebe7e",
+  "target.gguf": "c3c681e6fe013dfb3e11bb319a6b54af1a4cd2727b3fa051099a44631311f7a1",
+  "draft.gguf": "d929d3ad9e359db34d92d1a03b727f446f98fa0ec29cf4fe9d7b5d1e63a50e08"
+ },
+ "probes": [
+  {
+   "arm": "HG1",
+   "status": "RUNS",
+   "wall_s": 4.67,
+   "seq_per_s": 23.6,
+   "n": 100,
+   "out_of_space": 0,
+   "device": "NVIDIA L4"
+  }
+ ],
+ "finished": "2026-10-19T01:27:28Z"
+}

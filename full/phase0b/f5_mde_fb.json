@@ -1,0 +1,105 @@
+{
+ "level": 8.474576271186441e-05,
+ "m": 118,
+ "sims": 500,
+ "cells": {
+  "hf_S0": {
+   "level": 8.474576271186441e-05,
+   "min_visits": 200,
+   "expected_prefixes_NA": 499,
+   "mde_eps_NA": 0.0009765625,
+   "mde_eps_Nfloor": 0.001953125
+  },
+  "hf_S2": {
+   "level": 8.474576271186441e-05,
+   "min_visits": 200,
+   "expected_prefixes_NA": 203,
+   "mde_eps_NA": 0.009765625000000002,
+   "mde_eps_Nfloor": 0.017773437500000003
+  },
+  "hf_S6": {
+   "level": 8.474576271186441e-05,
+   "min_visits": 200,
+   "expected_prefixes_NA": 182,
+   "mde_eps_NA": 0.0140625,
+   "mde_eps_Nfloor": 0.026171875000000004
+  },
+  "lcpp_S0": {
+   "level": 8.474576271186441e-05,
+   "min_visits": 200,
+   "expected_prefixes_NA": 499,
+   "mde_eps_NA": 0.0009765625,
+   "mde_eps_Nfloor": 0.001953125
+  },
+  "lcpp_S2": {
+   "level": 8.474576271186441e-05,
+   "min_visits": 200,
+   "expected_prefixes_NA": 203,
+   "mde_eps_NA": 0.009765625000000002,
+   "mde_eps_Nfloor": 0.017773437500000003
+  },
+  "lcpp_S6": {
+   "level": 8.474576271186441e-05,
+   "min_visits": 200,
+   "expected_prefixes_NA": 256,
+   "mde_eps_NA": 0.0087890625,
+   "mde_eps_Nfloor": 0.0158203125
+  },
+  "vllm_S0": {
+   "level": 8.474576271186441e-05,
+   "min_visits": 200,
+   "expected_prefixes_NA": 499,
+   "mde_eps_NA": 0.0009765625,
+   "mde_eps_Nfloor": 0.001953125
+  },
+  "vllm_S2": {
+   "level": 8.474576271186441e-05,
+   "min_visits": 200,
+   "expected_prefixes_NA": 203,
+   "mde_eps_NA": 0.009765625000000002,
+   "mde_eps_Nfloor": 0.017773437500000003
+  },
+  "trtllm_S0": {
+   "level": 8.474576271186441e-05,
+   "min_visits": 200,
+   "expected_prefixes_NA": 499,
+   "mde_eps_NA": 0.0009765625,
+   "mde_eps_Nfloor": 0.001953125
+  },
+  "trtllm_S2": {
+   "level": 8.474576271186441e-05,
+   "min_visits": 200,
+   "expected_prefixes_NA": 203,
+   "mde_eps_NA": 0.009765625000000002,
+   "mde_eps_Nfloor": 0.017773437500000003
+  },
+  "sglang_S0": {
+   "level": 8.474576271186441e-05,
+   "min_visits": 200,
+   "expected_prefixes_NA": 499,
+   "mde_eps_NA": 0.0009765625,
+   "mde_eps_Nfloor": 0.001953125
+  },
+  "sglang_S2": {
+   "level": 8.474576271186441e-05,
+   "min_visits": 200,
+   "expected_prefixes_NA": 203,
+   "mde_eps_NA": 0.009765625000000002,
+   "mde_eps_Nfloor": 0.017773437500000003
+  },
+  "sglang_S6": {
+   "level": 8.474576271186441e-05,
+   "min_visits": 200,
+   "expected_prefixes_NA": 182,
+   "mde_eps_NA": 0.0140625,
+   "mde_eps_Nfloor": 0.026171875000000004
+  },
+  "sglang_torch_S6": {
+   "level": 8.474576271186441e-05,
+   "min_visits": 200,
+   "expected_prefixes_NA": 244,
+   "mde_eps_NA": 0.01484375,
+   "mde_eps_Nfloor": 0.026562500000000003
+  }
+ }
+}

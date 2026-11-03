@@ -1,0 +1,14 @@
+vllm/FA/NULL@V2/S0                   null   NOT_REJECTED N 200000 p 0.554 mde 0.00302734375
+vllm/FA/VG4p@fitflat/S0              cell   NOT_REJECTED N 200000 p 0.623 mde 0.00302734375 acc 0.541
+vllm/FA/NULL@V2/S1                   null   NOT_REJECTED N 200000 p 0.395 mde 0.0015625
+vllm/FA/VG4p@fitflat/S1              cell   NOT_REJECTED N 200000 p 0.467 mde 0.0015625 acc 0.534
+vllm/FA/NULL@V2/S2                   null   NOT_REJECTED N 200000 p 0.378 mde 0.001708984375
+vllm/FA/VG4p@fitflat/S2              cell   NOT_REJECTED N 200000 p 0.566 mde 0.001708984375 acc 0.366
+vllm/FA/NULL@V2/S3                   null   NOT_REJECTED N 200000 p 0.539 mde 0.00908203125
+vllm/FA/VG4p@fitflat/S3              cell   NOT_REJECTED N 200000 p 0.661 mde 0.00908203125 acc 0.421
+vllm/FA/VG4p@fitflat/G               greedy PASS 1000/1000 on chain (5, 6, 3, 6) (margin 0.0282)
+vllm/FB/NULL@V2/S0                   null   NOT_REJECTED N 200000 p 0.237 mde 0.0009765625
+vllm/FB/VG4p@fitflat/S0              cell   NOT_REJECTED N 200000 p 0.147 mde 0.0009765625 acc 0.387
+vllm/FB/NULL@V2/S2                   null   NOT_REJECTED N 200000 p 0.164 mde 0.009765625000000002
+vllm/FB/VG4p@fitflat/S2              cell   NOT_REJECTED N 200000 p 0.268 mde 0.009765625000000002 acc 0.216
+vllm/FB/VG4p@fitflat/G               greedy PASS 1000/1000 on chain (11, 11, 14, 14, 17, 28) (margin 0.00234)

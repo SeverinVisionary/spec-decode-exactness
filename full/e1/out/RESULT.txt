@@ -1,0 +1,6 @@
+rc=0
+rc=0
+4
+family: {'fwer': 0.0035, 'ci99': (0.00101967945307038, 0.008545112420801028), 'nominal': 0.01, 'sims': 2000}
+{'setting': 'S2', 'cls': 'D8', 'lam': 0.03, 'tv': 0.028173231878056357, 'mass_on_ref_zero': 0.02644540132129483, 'n90': 2197.0, 'censored': False, 'power_at_NA': 1.0}
+{'setting': 'S2', 'cls': 'D8', 'lam': 0.01, 'tv': 0.009414443908771428, 'mass_on_ref_zero': 0.008838500389850864, 'n90': 5340.0, 'censored': False, 'power_at_NA': 1.0}

@@ -1,0 +1,6 @@
+{
+  "do_sample": false,
+  "eos_token_id": 31,
+  "pad_token_id": 31,
+  "transformers_version": "5.18.0"
+}

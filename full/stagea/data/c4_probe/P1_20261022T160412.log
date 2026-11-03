@@ -1,0 +1,189 @@
+<runtime>/py312/lib/python3.12/site-packages/modelopt/torch/__init__.py:36: UserWarning: transformers version 4.57.3 is incompatible with nvidia-modelopt and may cause issues. Please install recommended version with `pip install nvidia-modelopt[hf]` if working with HF models.
+  _warnings.warn(
+[TensorRT-LLM] TensorRT LLM version: 1.2.1
+[10/22/2026-16:04:27] [TRT-LLM] [I] Using LLM with PyTorch backend
+[10/22/2026-16:04:27] [TRT-LLM] [W] Using default gpus_per_node: 1
+[10/22/2026-16:04:27] [TRT-LLM] [I] neither checkpoint_format nor checkpoint_loader were provided, checkpoint_format will be set to HF.
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+You are using a model of type llama to instantiate a model of type . This is not supported for all configurations of models and can yield errors.
+`torch_dtype` is deprecated! Use `dtype` instead!
+<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/serve/openai_protocol.py:104: UserWarning: Field name "schema" in "ResponseFormat" shadows an attribute in parent "OpenAIBaseModel"
+  class ResponseFormat(OpenAIBaseModel):
+
+Loading safetensors weights in parallel:   0%|          | 0/1 [00:00<?, ?it/s]
+Loading safetensors weights in parallel: 100%|██████████| 1/1 [00:00<00:00, 678.03it/s]
+
+Loading weights concurrently:   0%|          | 0/52 [00:00<?, ?it/s]
+Loading weights concurrently: 100%|██████████| 52/52 [00:00<00:00, 5025.55it/s]
+Model init total -- 0.03s
+
+Loading safetensors weights in parallel:   0%|          | 0/1 [00:00<?, ?it/s]
+Loading safetensors weights in parallel: 100%|██████████| 1/1 [00:00<00:00, 918.39it/s]
+
+Loading weights concurrently:   0%|          | 0/52 [00:00<?, ?it/s]
+Loading weights concurrently: 100%|██████████| 52/52 [00:00<00:00, 7238.52it/s]
+[TensorRT-LLM][INFO] Max KV cache blocks per sequence: 1 [window size=67], tokens per block=1024, primary blocks=128, secondary blocks=0, max sequence length=67
+[TensorRT-LLM][INFO] Number of tokens per block: 1024.
+[TensorRT-LLM][INFO] [MemUsageChange] Allocated 0.12 GiB for max tokens in paged KV cache (131072).
+[TensorRT-LLM][INFO] Max KV cache blocks per sequence: 1 [window size=67], tokens per block=1024, primary blocks=128, secondary blocks=0, max sequence length=67
+[TensorRT-LLM][INFO] Number of tokens per block: 1024.
+[TensorRT-LLM][INFO] [MemUsageChange] Allocated 0.12 GiB for max tokens in paged KV cache (131072).
+Model init total -- 0.02s
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00,  4.89it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00,  4.88it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.01it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 32.38it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 32.34it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 32.85it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.99it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 32.00it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.53it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]Traceback (most recent call last):
+  File "<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/speculative/model_drafter.py", line 996, in prepare_draft_tokens
+    outputs = self.forward_draft_model(draft_batch,
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "full/c4_probe.py", line 60, in forward_draft_model
+    context_chunk_size=int(getattr(r, "context_chunk_size", -1))))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: [TensorRT-LLM][ERROR] Assertion failed: getContextChunkSize is only possible during the context phase or generation init phase. (../include/tensorrt_llm/batch_manager/llmRequest.h:1558)
+1       0x7da928322e69 <runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/bindings.cpython-312-x86_64-linux-gnu.so(+0xc3e69) [0x7da928322e69]
+2       0x7da9286a718b <runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/bindings.cpython-312-x86_64-linux-gnu.so(+0x44818b) [0x7da9286a718b]
+3       0x7da9286a5706 <runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/bindings.cpython-312-x86_64-linux-gnu.so(+0x446706) [0x7da9286a5706]
+4       0x7da92876b562 <runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/bindings.cpython-312-x86_64-linux-gnu.so(+0x50c562) [0x7da92876b562]
+5             0x54a69d PyObject_CallOneArg + 77
+6             0x585008 _PyObject_GenericGetAttrWithDict + 168
+7             0x584e88 _PyObject_LookupAttr + 72
+8             0x5d2dc4 <runtime>/py312/bin/python() [0x5d2dc4]
+9             0x5d86ad _PyEval_EvalFrameDefault + 8317
+10            0x54cb52 <runtime>/py312/bin/python() [0x54cb52]
+11            0x5db2ee _PyEval_EvalFrameDefault + 19646
+12            0x54cb52 <runtime>/py312/bin/python() [0x54cb52]
+13            0x6f899c <runtime>/py312/bin/python() [0x6f899c]
+14            0x6b93bc <runtime>/py312/bin/python() [0x6b93bc]
+15      0x7dab45a76b84 /lib/x86_64-linux-gnu/libc.so.6(+0x9cb84) [0x7dab45a76b84]
+16      0x7dab45b03ecc /lib/x86_64-linux-gnu/libc.so.6(+0x129ecc) [0x7dab45b03ecc]
+[10/22/2026-16:04:30] [TRT-LLM] [E] Encountered an error in decode: [TensorRT-LLM][ERROR] Assertion failed: getContextChunkSize is only possible during the context phase or generation init phase. (../include/tensorrt_llm/batch_manager/llmRequest.h:1558)
+1       0x7da928322e69 <runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/bindings.cpython-312-x86_64-linux-gnu.so(+0xc3e69) [0x7da928322e69]
+2       0x7da9286a718b <runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/bindings.cpython-312-x86_64-linux-gnu.so(+0x44818b) [0x7da9286a718b]
+3       0x7da9286a5706 <runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/bindings.cpython-312-x86_64-linux-gnu.so(+0x446706) [0x7da9286a5706]
+4       0x7da92876b562 <runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/bindings.cpython-312-x86_64-linux-gnu.so(+0x50c562) [0x7da92876b562]
+5             0x54a69d PyObject_CallOneArg + 77
+6             0x585008 _PyObject_GenericGetAttrWithDict + 168
+7             0x584e88 _PyObject_LookupAttr + 72
+8             0x5d2dc4 <runtime>/py312/bin/python() [0x5d2dc4]
+9             0x5d86ad _PyEval_EvalFrameDefault + 8317
+10            0x54cb52 <runtime>/py312/bin/python() [0x54cb52]
+11            0x5db2ee _PyEval_EvalFrameDefault + 19646
+12            0x54cb52 <runtime>/py312/bin/python() [0x54cb52]
+13            0x6f899c <runtime>/py312/bin/python() [0x6f899c]
+14            0x6b93bc <runtime>/py312/bin/python() [0x6b93bc]
+15      0x7dab45a76b84 /lib/x86_64-linux-gnu/libc.so.6(+0x9cb84) [0x7dab45a76b84]
+16      0x7dab45b03ecc /lib/x86_64-linux-gnu/libc.so.6(+0x129ecc) [0x7dab45b03ecc]
+[10/22/2026-16:04:30] [TRT-LLM] [E] Error in event loop: [TensorRT-LLM][ERROR] Assertion failed: getContextChunkSize is only possible during the context phase or generation init phase. (../include/tensorrt_llm/batch_manager/llmRequest.h:1558)
+1       0x7da928322e69 <runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/bindings.cpython-312-x86_64-linux-gnu.so(+0xc3e69) [0x7da928322e69]
+2       0x7da9286a718b <runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/bindings.cpython-312-x86_64-linux-gnu.so(+0x44818b) [0x7da9286a718b]
+3       0x7da9286a5706 <runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/bindings.cpython-312-x86_64-linux-gnu.so(+0x446706) [0x7da9286a5706]
+4       0x7da92876b562 <runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/bindings.cpython-312-x86_64-linux-gnu.so(+0x50c562) [0x7da92876b562]
+5             0x54a69d PyObject_CallOneArg + 77
+6             0x585008 _PyObject_GenericGetAttrWithDict + 168
+7             0x584e88 _PyObject_LookupAttr + 72
+8             0x5d2dc4 <runtime>/py312/bin/python() [0x5d2dc4]
+9             0x5d86ad _PyEval_EvalFrameDefault + 8317
+10            0x54cb52 <runtime>/py312/bin/python() [0x54cb52]
+11            0x5db2ee _PyEval_EvalFrameDefault + 19646
+12            0x54cb52 <runtime>/py312/bin/python() [0x54cb52]
+13            0x6f899c <runtime>/py312/bin/python() [0x6f899c]
+14            0x6b93bc <runtime>/py312/bin/python() [0x6b93bc]
+15      0x7dab45a76b84 /lib/x86_64-linux-gnu/libc.so.6(+0x9cb84) [0x7dab45a76b84]
+16      0x7dab45b03ecc /lib/x86_64-linux-gnu/libc.so.6(+0x129ecc) [0x7dab45b03ecc]
+[10/22/2026-16:04:30] [TRT-LLM] [E] Traceback (most recent call last):
+  File "<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/py_executor.py", line 390, in _event_loop_wrapper
+    self.event_loop()
+  File "<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/py_executor.py", line 1435, in _executor_loop
+    self.drafter.prepare_draft_tokens(
+  File "full/c4_probe.py", line 50, in prepare_draft_tokens
+    return o_prep(self_, *a, **k)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/speculative/model_drafter.py", line 1040, in prepare_draft_tokens
+    raise e
+  File "<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/speculative/model_drafter.py", line 996, in prepare_draft_tokens
+    outputs = self.forward_draft_model(draft_batch,
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "full/c4_probe.py", line 60, in forward_draft_model
+    context_chunk_size=int(getattr(r, "context_chunk_size", -1))))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: [TensorRT-LLM][ERROR] Assertion failed: getContextChunkSize is only possible during the context phase or generation init phase. (../include/tensorrt_llm/batch_manager/llmRequest.h:1558)
+1       0x7da928322e69 <runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/bindings.cpython-312-x86_64-linux-gnu.so(+0xc3e69) [0x7da928322e69]
+2       0x7da9286a718b <runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/bindings.cpython-312-x86_64-linux-gnu.so(+0x44818b) [0x7da9286a718b]
+3       0x7da9286a5706 <runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/bindings.cpython-312-x86_64-linux-gnu.so(+0x446706) [0x7da9286a5706]
+4       0x7da92876b562 <runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/bindings.cpython-312-x86_64-linux-gnu.so(+0x50c562) [0x7da92876b562]
+5             0x54a69d PyObject_CallOneArg + 77
+6             0x585008 _PyObject_GenericGetAttrWithDict + 168
+7             0x584e88 _PyObject_LookupAttr + 72
+8             0x5d2dc4 <runtime>/py312/bin/python() [0x5d2dc4]
+9             0x5d86ad _PyEval_EvalFrameDefault + 8317
+10            0x54cb52 <runtime>/py312/bin/python() [0x54cb52]
+11            0x5db2ee _PyEval_EvalFrameDefault + 19646
+12            0x54cb52 <runtime>/py312/bin/python() [0x54cb52]
+13            0x6f899c <runtime>/py312/bin/python() [0x6f899c]
+14            0x6b93bc <runtime>/py312/bin/python() [0x6b93bc]
+15      0x7dab45a76b84 /lib/x86_64-linux-gnu/libc.so.6(+0x9cb84) [0x7dab45a76b84]
+16      0x7dab45b03ecc /lib/x86_64-linux-gnu/libc.so.6(+0x129ecc) [0x7dab45b03ecc]
+
+Exception in thread Thread-1 (_event_loop_wrapper):
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/threading.py", line 1073, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.12/threading.py", line 1010, in run
+    self._target(*self._args, **self._kwargs)
+  File "<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/py_executor.py", line 394, in _event_loop_wrapper
+    raise e
+  File "<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/py_executor.py", line 390, in _event_loop_wrapper
+    self.event_loop()
+  File "<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/py_executor.py", line 1435, in _executor_loop
+    self.drafter.prepare_draft_tokens(
+  File "full/c4_probe.py", line 50, in prepare_draft_tokens
+    return o_prep(self_, *a, **k)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/speculative/model_drafter.py", line 1040, in prepare_draft_tokens
+    raise e
+  File "<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/speculative/model_drafter.py", line 996, in prepare_draft_tokens
+    outputs = self.forward_draft_model(draft_batch,
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "full/c4_probe.py", line 60, in forward_draft_model
+    context_chunk_size=int(getattr(r, "context_chunk_size", -1))))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: [TensorRT-LLM][ERROR] Assertion failed: getContextChunkSize is only possible during the context phase or generation init phase. (../include/tensorrt_llm/batch_manager/llmRequest.h:1558)
+1       0x7da928322e69 <runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/bindings.cpython-312-x86_64-linux-gnu.so(+0xc3e69) [0x7da928322e69]
+2       0x7da9286a718b <runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/bindings.cpython-312-x86_64-linux-gnu.so(+0x44818b) [0x7da9286a718b]
+3       0x7da9286a5706 <runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/bindings.cpython-312-x86_64-linux-gnu.so(+0x446706) [0x7da9286a5706]
+4       0x7da92876b562 <runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/bindings.cpython-312-x86_64-linux-gnu.so(+0x50c562) [0x7da92876b562]
+5             0x54a69d PyObject_CallOneArg + 77
+6             0x585008 _PyObject_GenericGetAttrWithDict + 168
+7             0x584e88 _PyObject_LookupAttr + 72
+8             0x5d2dc4 <runtime>/py312/bin/python() [0x5d2dc4]
+9             0x5d86ad _PyEval_EvalFrameDefault + 8317
+10            0x54cb52 <runtime>/py312/bin/python() [0x54cb52]
+11            0x5db2ee _PyEval_EvalFrameDefault + 19646
+12            0x54cb52 <runtime>/py312/bin/python() [0x54cb52]
+13            0x6f899c <runtime>/py312/bin/python() [0x6f899c]
+14            0x6b93bc <runtime>/py312/bin/python() [0x6b93bc]
+15      0x7dab45a76b84 /lib/x86_64-linux-gnu/libc.so.6(+0x9cb84) [0x7dab45a76b84]
+16      0x7dab45b03ecc /lib/x86_64-linux-gnu/libc.so.6(+0x129ecc) [0x7dab45b03ecc]

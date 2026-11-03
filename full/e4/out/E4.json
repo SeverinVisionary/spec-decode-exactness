@@ -1,0 +1,464 @@
+{
+ "T1": {
+  "base_half_vs_half": {
+   "tv": 0.015600000000000013,
+   "chi2": 38.26577942380811,
+   "dof": 21,
+   "p": 0.01199459329258596
+  },
+  "F0": {
+   "vs_base": {
+    "tv": 0.017175000000000003,
+    "chi2": 148.16763086112192,
+    "dof": 19,
+    "p": 4.942428620233449e-22
+   },
+   "n": 20000,
+   "verifications": 59898,
+   "rows_fewer_than_K": 59898,
+   "accepted_beyond_R": 0,
+   "accepted_zero_target_prob": 0,
+   "calibration_entries": 59898,
+   "calibration": [
+    {
+     "position": 0,
+     "chi2": 227.71,
+     "dof": 26,
+     "n": 59773,
+     "impossible_draws": 14,
+     "p": 0.0,
+     "p_holm": 0.0,
+     "reject": true
+    },
+    {
+     "position": 1,
+     "chi2": 0.02,
+     "dof": 1,
+     "n": 64,
+     "impossible_draws": 0,
+     "p": 0.887537083981715,
+     "p_holm": 1.0,
+     "reject": false
+    }
+   ],
+   "passes_vs_base": false,
+   "calibrated": false
+  },
+  "F1": {
+   "vs_base": {
+    "tv": 0.010474999999999996,
+    "chi2": 18.361407105073013,
+    "dof": 20,
+    "p": 0.563613778756108
+   },
+   "n": 20000,
+   "verifications": 59914,
+   "rows_fewer_than_K": 0,
+   "accepted_beyond_R": 0,
+   "accepted_zero_target_prob": 0,
+   "calibration_entries": 59914,
+   "calibration": [
+    {
+     "position": 0,
+     "chi2": 13.1,
+     "dof": 29,
+     "n": 59801,
+     "impossible_draws": 0,
+     "p": 0.9950688422205642,
+     "p_holm": 1.0,
+     "reject": false
+    },
+    {
+     "position": 1,
+     "chi2": 1.42,
+     "dof": 2,
+     "n": 74,
+     "impossible_draws": 0,
+     "p": 0.4916441974609652,
+     "p_holm": 1.0,
+     "reject": false
+    }
+   ],
+   "passes_vs_base": true,
+   "calibrated": true
+  },
+  "F12": {
+   "vs_base": {
+    "tv": 0.00492499999999997,
+    "chi2": 10.255754886785999,
+    "dof": 20,
+    "p": 0.9632937253444858
+   },
+   "n": 20000,
+   "verifications": 59918,
+   "rows_fewer_than_K": 0,
+   "accepted_beyond_R": 0,
+   "accepted_zero_target_prob": 0,
+   "calibration_entries": 59918,
+   "calibration": [
+    {
+     "position": 0,
+     "chi2": 17.09,
+     "dof": 29,
+     "n": 59778,
+     "impossible_draws": 1,
+     "p": 0.0,
+     "p_holm": 0.0,
+     "reject": true
+    },
+    {
+     "position": 1,
+     "chi2": 1.36,
+     "dof": 2,
+     "n": 76,
+     "impossible_draws": 0,
+     "p": 0.5066169923655897,
+     "p_holm": 1.0,
+     "reject": false
+    }
+   ],
+   "passes_vs_base": true,
+   "calibrated": false
+  },
+  "F123": {
+   "vs_base": {
+    "tv": 0.013374999999999993,
+    "chi2": 30.330829299446457,
+    "dof": 20,
+    "p": 0.06466746332041685
+   },
+   "n": 20000,
+   "verifications": 59912,
+   "rows_fewer_than_K": 0,
+   "accepted_beyond_R": 0,
+   "accepted_zero_target_prob": 0,
+   "calibration_entries": 59912,
+   "calibration": [
+    {
+     "position": 0,
+     "chi2": 34.89,
+     "dof": 29,
+     "n": 59780,
+     "impossible_draws": 0,
+     "p": 0.20817458652452284,
+     "p_holm": 1.0,
+     "reject": false
+    },
+    {
+     "position": 1,
+     "chi2": 2.45,
+     "dof": 2,
+     "n": 74,
+     "impossible_draws": 0,
+     "p": 0.2937577003235327,
+     "p_holm": 1.0,
+     "reject": false
+    }
+   ],
+   "passes_vs_base": true,
+   "calibrated": true
+  },
+  "F13": {
+   "vs_base": {
+    "tv": 0.010575000000000008,
+    "chi2": 17.657334475095695,
+    "dof": 20,
+    "p": 0.6099699186035925
+   },
+   "n": 20000,
+   "verifications": 59913,
+   "rows_fewer_than_K": 0,
+   "accepted_beyond_R": 0,
+   "accepted_zero_target_prob": 0,
+   "calibration_entries": 59913,
+   "calibration": [
+    {
+     "position": 0,
+     "chi2": 37.04,
+     "dof": 29,
+     "n": 59786,
+     "impossible_draws": 0,
+     "p": 0.14520383124713382,
+     "p_holm": 1.0,
+     "reject": false
+    },
+    {
+     "position": 1,
+     "chi2": 12.9,
+     "dof": 2,
+     "n": 72,
+     "impossible_draws": 0,
+     "p": 0.001580522168736218,
+     "p_holm": 0.028449399037251924,
+     "reject": false
+    }
+   ],
+   "passes_vs_base": true,
+   "calibrated": true
+  },
+  "F3": {
+   "vs_base": {
+    "tv": 0.016750000000000032,
+    "chi2": 177.38242731517505,
+    "dof": 21,
+    "p": 9.57168458569039e-27
+   },
+   "n": 20000,
+   "verifications": 59874,
+   "rows_fewer_than_K": 59874,
+   "accepted_beyond_R": 0,
+   "accepted_zero_target_prob": 0,
+   "calibration_entries": 59874,
+   "calibration": [
+    {
+     "position": 0,
+     "chi2": 217.81,
+     "dof": 26,
+     "n": 59751,
+     "impossible_draws": 16,
+     "p": 0.0,
+     "p_holm": 0.0,
+     "reject": true
+    },
+    {
+     "position": 1,
+     "chi2": 1.51,
+     "dof": 2,
+     "n": 88,
+     "impossible_draws": 0,
+     "p": 0.4700106147305382,
+     "p_holm": 1.0,
+     "reject": false
+    }
+   ],
+   "passes_vs_base": false,
+   "calibrated": false
+  }
+ },
+ "topk3": {
+  "base_half_vs_half": {
+   "tv": 0.012699999999999998,
+   "chi2": 19.340671153996404,
+   "dof": 15,
+   "p": 0.19870929791400901
+  },
+  "F0": {
+   "vs_base": {
+    "tv": 0.9997,
+    "chi2": 59973.077616255076,
+    "dof": 16,
+    "p": 0.0
+   },
+   "n": 20000,
+   "verifications": 20012,
+   "rows_fewer_than_K": 20012,
+   "accepted_beyond_R": 0,
+   "accepted_zero_target_prob": 19994,
+   "calibration_entries": 20012,
+   "calibration": [
+    {
+     "position": 0,
+     "chi2": Infinity,
+     "dof": 2,
+     "n": 20000,
+     "impossible_draws": 19994,
+     "p": 0.0,
+     "p_holm": 0.0,
+     "reject": true
+    }
+   ],
+   "passes_vs_base": false,
+   "calibrated": false
+  },
+  "F1": {
+   "vs_base": {
+    "tv": 0.00842500000000001,
+    "chi2": 9.479568853173678,
+    "dof": 15,
+    "p": 0.8511385337710295
+   },
+   "n": 20000,
+   "verifications": 59924,
+   "rows_fewer_than_K": 0,
+   "accepted_beyond_R": 0,
+   "accepted_zero_target_prob": 0,
+   "calibration_entries": 59924,
+   "calibration": [
+    {
+     "position": 0,
+     "chi2": 15.37,
+     "dof": 17,
+     "n": 59918,
+     "impossible_draws": 0,
+     "p": 0.5688497374502084,
+     "p_holm": 1.0,
+     "reject": false
+    },
+    {
+     "position": 1,
+     "chi2": 1.66,
+     "dof": 2,
+     "n": 70,
+     "impossible_draws": 0,
+     "p": 0.4360492863215355,
+     "p_holm": 1.0,
+     "reject": false
+    }
+   ],
+   "passes_vs_base": true,
+   "calibrated": true
+  },
+  "F12": {
+   "vs_base": {
+    "tv": 0.011274999999999993,
+    "chi2": 10.243583502222435,
+    "dof": 15,
+    "p": 0.8041444802078355
+   },
+   "n": 20000,
+   "verifications": 59919,
+   "rows_fewer_than_K": 0,
+   "accepted_beyond_R": 0,
+   "accepted_zero_target_prob": 0,
+   "calibration_entries": 59919,
+   "calibration": [
+    {
+     "position": 0,
+     "chi2": 11.49,
+     "dof": 17,
+     "n": 59907,
+     "impossible_draws": 0,
+     "p": 0.8299882250902797,
+     "p_holm": 1.0,
+     "reject": false
+    },
+    {
+     "position": 1,
+     "chi2": 0.35,
+     "dof": 2,
+     "n": 73,
+     "impossible_draws": 0,
+     "p": 0.8394570207692074,
+     "p_holm": 1.0,
+     "reject": false
+    }
+   ],
+   "passes_vs_base": true,
+   "calibrated": true
+  },
+  "F123": {
+   "vs_base": {
+    "tv": 0.004700000000000006,
+    "chi2": 11.01999366915091,
+    "dof": 15,
+    "p": 0.7511757682189373
+   },
+   "n": 20000,
+   "verifications": 59917,
+   "rows_fewer_than_K": 0,
+   "accepted_beyond_R": 0,
+   "accepted_zero_target_prob": 0,
+   "calibration_entries": 59917,
+   "calibration": [
+    {
+     "position": 0,
+     "chi2": 16.39,
+     "dof": 17,
+     "n": 59907,
+     "impossible_draws": 0,
+     "p": 0.49637507439634077,
+     "p_holm": 1.0,
+     "reject": false
+    },
+    {
+     "position": 1,
+     "chi2": 0.83,
+     "dof": 2,
+     "n": 68,
+     "impossible_draws": 0,
+     "p": 0.6603402807049827,
+     "p_holm": 1.0,
+     "reject": false
+    }
+   ],
+   "passes_vs_base": true,
+   "calibrated": true
+  },
+  "F13": {
+   "vs_base": {
+    "tv": 0.012800000000000013,
+    "chi2": 18.10160414892126,
+    "dof": 15,
+    "p": 0.25736161579252
+   },
+   "n": 20000,
+   "verifications": 59912,
+   "rows_fewer_than_K": 0,
+   "accepted_beyond_R": 0,
+   "accepted_zero_target_prob": 0,
+   "calibration_entries": 59912,
+   "calibration": [
+    {
+     "position": 0,
+     "chi2": 22.8,
+     "dof": 17,
+     "n": 59901,
+     "impossible_draws": 0,
+     "p": 0.1558756958767264,
+     "p_holm": 1.0,
+     "reject": false
+    },
+    {
+     "position": 1,
+     "chi2": 1.35,
+     "dof": 2,
+     "n": 79,
+     "impossible_draws": 0,
+     "p": 0.5091564206075492,
+     "p_holm": 1.0,
+     "reject": false
+    }
+   ],
+   "passes_vs_base": true,
+   "calibrated": true
+  },
+  "F3": {
+   "vs_base": {
+    "tv": 0.011624999999999988,
+    "chi2": 142.47799261171778,
+    "dof": 15,
+    "p": 7.459854578274139e-23
+   },
+   "n": 20000,
+   "verifications": 59923,
+   "rows_fewer_than_K": 59923,
+   "accepted_beyond_R": 0,
+   "accepted_zero_target_prob": 0,
+   "calibration_entries": 59923,
+   "calibration": [
+    {
+     "position": 0,
+     "chi2": 155.97,
+     "dof": 14,
+     "n": 59910,
+     "impossible_draws": 0,
+     "p": 4.5767767523918e-26,
+     "p_holm": 8.69587582954442e-25,
+     "reject": true
+    },
+    {
+     "position": 1,
+     "chi2": 1.31,
+     "dof": 2,
+     "n": 68,
+     "impossible_draws": 0,
+     "p": 0.5194420625870482,
+     "p_holm": 1.0,
+     "reject": false
+    }
+   ],
+   "passes_vs_base": false,
+   "calibrated": false
+  }
+ }
+}

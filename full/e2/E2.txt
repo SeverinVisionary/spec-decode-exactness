@@ -1,0 +1,42 @@
+hf/M0/S0         n  50000 effect      0 | chi2 n (p 0.78) | calib n | trace n {'I1': 0, 'I2': 0, 'I3': 0, 'I4': 0, 'I5': 0}
+hf/M0/S2         n  50000 effect      0 | chi2 n (p 0.48) | calib n | trace n {'I1': 0, 'I2': 0, 'I3': 0, 'I4': 0, 'I5': 0}
+hf/M1/S0         n  50000 effect  46178 | chi2 Y (p 0) | calib Y | trace Y {'I1': 1000, 'I2': 0, 'I3': 0, 'I4': 0, 'I5': 0} | E1 N90 1052.0
+hf/M1/S2         n  50000 effect  42048 | chi2 Y (p 0) | calib Y | trace Y {'I1': 1000, 'I2': 235, 'I3': 0, 'I4': 0, 'I5': 0} | E1 N90 552.0
+hf/M2/S0         n  50000 effect  62397 | chi2 Y (p 0) | calib Y | trace Y {'I1': 1000, 'I2': 0, 'I3': 6, 'I4': 0, 'I5': 0} | E1 N90 182.0
+hf/M2/S2         n  50000 effect  55607 | chi2 Y (p 0) | calib Y | trace Y {'I1': 1000, 'I2': 298, 'I3': 3, 'I4': 0, 'I5': 0} | E1 N90 100.0
+hf/M3/S0         n  50000 effect  62146 | chi2 Y (p 0) | calib Y | trace Y {'I1': 1000, 'I2': 0, 'I3': 19, 'I4': 0, 'I5': 0} | E1 N90 181.0
+hf/M3/S2         n  50000 effect  50752 | chi2 Y (p 0) | calib Y | trace Y {'I1': 1000, 'I2': 573, 'I3': 0, 'I4': 0, 'I5': 0} | E1 N90 100.0
+hf/M4/S0         n  50000 effect  51368 | chi2 Y (p 0) | calib Y | trace Y {'I1': 0, 'I2': 0, 'I3': 168, 'I4': 0, 'I5': 0} | E1 N90 571.0
+hf/M4/S2         n  50000 effect  51682 | chi2 Y (p 0) | calib Y | trace Y {'I1': 0, 'I2': 0, 'I3': 134, 'I4': 0, 'I5': 0} | E1 N90 237.0
+hf/M6/S0         n  50000 effect  40239 | chi2 Y (p 0) | calib Y | trace Y {'I1': 0, 'I2': 0, 'I3': 101, 'I4': 0, 'I5': 422} | E1 N90 105.0
+hf/M6/S2         n  50000 effect  41136 | chi2 Y (p 0) | calib Y | trace Y {'I1': 0, 'I2': 4, 'I3': 336, 'I4': 10, 'I5': 419} | E1 N90 100.0
+vllm/M0/S0       n  50000 effect      0 | chi2 n (p 0.58) | calib n | trace n {'I1': 0, 'I2': 0, 'I3': 0, 'I4': 0, 'I5': 0}
+vllm/M0/S2       n  50000 effect      0 | chi2 n (p 0.72) | calib n | trace n {'I1': 0, 'I2': 0, 'I3': 0, 'I4': 0, 'I5': 0}
+vllm/M0/G        n   1000 effect      0 | greedy n (0/1000) | trace n {'I1': 0, 'I2': 0, 'I3': 0, 'I4': 0, 'I5': 0}
+vllm/M1/S0       n  50000 effect  45651 | chi2 Y (p 0) | calib Y | trace Y {'I1': 1000, 'I2': 0, 'I3': 0, 'I4': 0, 'I5': 0} | E1 N90 1052.0
+vllm/M1/S2       n  50000 effect  38331 | chi2 Y (p 0) | calib Y | trace Y {'I1': 1000, 'I2': 148, 'I3': 0, 'I4': 0, 'I5': 0} | E1 N90 552.0
+vllm/M2/S0       n  50000 effect 101554 | chi2 Y (p 0) | calib Y | trace Y {'I1': 1000, 'I2': 0, 'I3': 26, 'I4': 0, 'I5': 0} | E1 N90 182.0
+vllm/M2/S2       n  50000 effect 108912 | chi2 Y (p 0) | calib Y | trace Y {'I1': 1000, 'I2': 190, 'I3': 68, 'I4': 0, 'I5': 0} | E1 N90 100.0
+vllm/M3/S0       n  50000 effect 101664 | chi2 Y (p 0) | calib Y | trace Y {'I1': 1000, 'I2': 0, 'I3': 30, 'I4': 0, 'I5': 0} | E1 N90 181.0
+vllm/M3/S2       n  50000 effect 108870 | chi2 Y (p 0) | calib Y | trace Y {'I1': 1000, 'I2': 175, 'I3': 70, 'I4': 0, 'I5': 0} | E1 N90 100.0
+vllm/M4/S0       n  50000 effect  82370 | chi2 Y (p 0) | calib Y | trace Y {'I1': 0, 'I2': 0, 'I3': 158, 'I4': 0, 'I5': 0} | E1 N90 571.0
+vllm/M4/S2       n  50000 effect  94082 | chi2 Y (p 0) | calib Y | trace Y {'I1': 0, 'I2': 0, 'I3': 165, 'I4': 0, 'I5': 0} | E1 N90 237.0
+vllm/M6/S0       n  50000 effect  70206 | chi2 Y (p 0) | calib Y | trace Y {'I1': 0, 'I2': 0, 'I3': 295, 'I4': 0, 'I5': 0} | E1 N90 105.0
+vllm/M6/S2       n  50000 effect  65853 | chi2 Y (p 0) | calib Y | trace Y {'I1': 0, 'I2': 89, 'I3': 372, 'I4': 0, 'I5': 0} | E1 N90 100.0
+vllm/M6/G        n   1000 effect   1000 | greedy Y (1000/1000) | trace Y {'I1': 0, 'I2': 0, 'I3': 256, 'I4': 0, 'I5': 0}
+hf/M0/G          NOT_APPLICABLE HF greedy verification does not call the verifier
+hf/M1/G          NOT_APPLICABLE HF greedy verification does not call the verifier
+hf/M2/G          NOT_APPLICABLE HF greedy verification does not call the verifier
+hf/M3/G          NOT_APPLICABLE HF greedy verification does not call the verifier
+hf/M4/G          NOT_APPLICABLE HF greedy verification does not call the verifier
+hf/M5/S0         NOT_APPLICABLE no draft row at the bonus position in this engine
+hf/M5/S2         NOT_APPLICABLE no draft row at the bonus position in this engine
+hf/M5/G          NOT_APPLICABLE no draft row at the bonus position in this engine
+hf/M6/G          NOT_APPLICABLE HF greedy verification does not call the verifier
+vllm/M1/G        INVALID 
+vllm/M2/G        INVALID 
+vllm/M3/G        INVALID 
+vllm/M4/G        INVALID 
+vllm/M5/S0       NOT_APPLICABLE no draft row at the bonus position in this engine
+vllm/M5/S2       NOT_APPLICABLE no draft row at the bonus position in this engine
+vllm/M5/G        NOT_APPLICABLE no draft row at the bonus position in this engine

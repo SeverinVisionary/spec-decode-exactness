@@ -1,0 +1,468 @@
+.FFFFF                                                                   [100%]
+=================================== FAILURES ===================================
+_____________ test_get_rejected_indices_zero_target_prob_rejected ______________
+
+    def test_get_rejected_indices_zero_target_prob_rejected():
+        # Token 1 has p == 0 and q == 0 (0 / 0 = NaN in unguarded q / p);
+        # Token 2 has p > 0 and q == 0. Both must always be rejected.
+        draft_probs = torch.tensor([
+            [0.5, 0.0, 0.5, 0.0],
+            [0.5, 0.0, 0.5, 0.0],
+            [0.0, 0.0, 1.0, 0.0],
+        ])
+        target_probs = torch.tensor([
+            [0.5, 0.0, 0.5, 0.0],
+            [0.5, 0.0, 0.5, 0.0],
+            [1.0, 0.0, 0.0, 0.0],
+            [0.25, 0.25, 0.25, 0.25],
+        ])
+        generator = torch.Generator()
+        generator.manual_seed(42)
+    
+        # Draft token 0 at pos 0 (p=0.5, q=0.5 -> accepted),
+        # Draft token 1 at pos 1 (p=0.0, q=0.0 -> must be rejected),
+        # Draft token 2 at pos 2 (p=1.0, q=0.0 -> must be rejected).
+        draft_tokens = [0, 1, 2]
+        rejected_indices = get_rejected_indices(draft_probs, target_probs,
+                                                generator, draft_tokens)
+        rejected_list = rejected_indices.squeeze(-1).tolist()
+        if isinstance(rejected_list, int):
+            rejected_list = [rejected_list]
+>       assert 1 in rejected_list
+E       assert 1 in [2]
+
+drafts/trtllm_fix/test_torch_rejection_sampling.py:88: AssertionError
+____________ test_get_rejected_indices_mismatched_row_count_raises _____________
+
+    def test_get_rejected_indices_mismatched_row_count_raises():
+        vocab_size = 8
+        draft_probs = torch.full((2, vocab_size), 1.0 / vocab_size)
+        target_probs = torch.full((4, vocab_size), 1.0 / vocab_size)
+        generator = torch.Generator()
+    
+>       with pytest.raises(ValueError, match="draft_probs row count"):
+E       Failed: DID NOT RAISE ValueError
+
+drafts/trtllm_fix/test_torch_rejection_sampling.py:99: Failed
+_____ test_process_decoded_tokens_accumulates_draft_logits_in_order[False] _____
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7ce67a1fd490>
+use_chunked_generation_logits = False
+
+    @pytest.mark.parametrize("use_chunked_generation_logits", [False, True])
+    def test_process_decoded_tokens_accumulates_draft_logits_in_order(
+            monkeypatch, use_chunked_generation_logits: bool):
+        if not torch.cuda.is_available():
+            orig_empty = torch.empty
+            monkeypatch.setattr(
+                torch,
+                "empty",
+                lambda *args, **kwargs: orig_empty(
+                    *args, **{
+                        **kwargs, "pin_memory": False
+                    }),
+            )
+    
+        vocab_size = 8
+        max_draft_len = 3
+        target_prompt_len = 5
+    
+        py_result = PyResult(
+            prompt_len=target_prompt_len + 1,
+            max_new_tokens=max_draft_len,
+            use_device_memory=False,
+            streaming=False,
+            return_log_probs=False,
+            return_context_logits=False,
+            return_generation_logits=True,
+            exclude_last_generation_logits=False,
+            use_chunked_generation_logits=use_chunked_generation_logits,
+        )
+    
+        target_req = SimpleNamespace(
+            py_request_id=7,
+            state=LlmRequestState.GENERATION_IN_PROGRESS,
+            py_draft_pages_allocated=max_draft_len,
+            py_draft_tokens=[],
+            py_draft_logits=None,
+        )
+        draft_req = SimpleNamespace(
+            py_request_id=7,
+            state=LlmRequestState.GENERATION_IN_PROGRESS,
+            py_prompt_len=target_prompt_len + 1,
+            context_current_position=0,
+            context_chunk_size=3,
+            py_return_context_logits=False,
+            py_return_generation_logits=True,
+            py_use_chunked_generation_logits=use_chunked_generation_logits,
+            is_last_context_chunk=False,
+            py_is_draft=True,
+            py_result=py_result,
+            _last_token=0,
+            get_last_tokens=lambda beam: draft_req._last_token,
+        )
+    
+        drafter = ModelDrafter.__new__(ModelDrafter)
+        drafter.max_draft_len = max_draft_len
+        drafter.max_total_draft_tokens = max_draft_len
+        drafter.draft_tokens_accumulator = {}
+        drafter.draft_logits_accumulator = {}
+        drafter.req_id_to_old_request = {7: target_req}
+        drafter.draft_seq_slot_manager = SimpleNamespace(
+            free_resources=lambda req: None)
+        drafter.update_requests = lambda state, resource_manager=None: None
+    
+        with torch.inference_mode():
+            step_logits = [
+                torch.arange(vocab_size, dtype=torch.float32) + 10.0 * step
+                for step in range(max_draft_len)
+            ]
+        drafted_tokens = [3, 5, 2]
+    
+        # Non-final context chunk (end_compute=3 < py_prompt_len - 1=5) must not append logits.
+        HandleLogits()(
+            context_requests=[draft_req],
+            generation_requests=[],
+            logits=step_logits[0].unsqueeze(0),
+            beam_width=1,
+            num_context_logits_prefix_sum=[0, 1],
+            is_generation_model=True,
+        )
+        assert draft_req.py_result.generation_logits is None
+    
+        # Final draft context chunk (end_compute=5 == py_prompt_len - 1) appends L_0.
+        draft_req.context_chunk_size = target_prompt_len
+        HandleLogits()(
+            context_requests=[draft_req],
+            generation_requests=[],
+            logits=step_logits[0].unsqueeze(0),
+            beam_width=1,
+            num_context_logits_prefix_sum=[0, 1],
+            is_generation_model=True,
+        )
+    
+        draft_batch = SimpleNamespace(all_requests=lambda: [draft_req])
+    
+        # In _execute_draft_loop, step i+1's HandleLogits runs before
+        # process_decoded_tokens(draft_position=i+1).
+        for i in range(max_draft_len - 1):
+            draft_req._last_token = drafted_tokens[i]
+            HandleLogits()(
+                context_requests=[],
+                generation_requests=[draft_req],
+                logits=step_logits[i + 1].unsqueeze(0),
+                beam_width=1,
+                num_context_logits_prefix_sum=[0],
+                is_generation_model=True,
+            )
+>           drafter.process_decoded_tokens(draft_batch, draft_position=i + 1)
+
+drafts/trtllm_fix/test_torch_rejection_sampling.py:212: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <tensorrt_llm._torch.speculative.model_drafter.ModelDrafter object at 0x7ce67a2a12e0>
+draft_batch = namespace(all_requests=<function test_process_decoded_tokens_accumulates_draft_logits_in_order.<locals>.<lambda> at 0x7ce65310d620>)
+draft_position = 1, cleanup_resources = True
+
+    def process_decoded_tokens(
+            self,
+            draft_batch: ScheduledRequests,
+            draft_position: int,
+            cleanup_resources: bool = True) -> List[LlmRequest]:
+        """Process decoded tokens and determine which requests to continue processing."""
+        new_requests = []
+        for req in draft_batch.all_requests():
+            target_model_req = self.req_id_to_old_request[req.py_request_id]
+            if target_model_req.state != LlmRequestState.GENERATION_IN_PROGRESS:
+                # This is a chunked prefill request and we have more prefill chunks
+                # to process. Defer adding draft tokens until the whole prompt is processed.
+                self.draft_seq_slot_manager.free_resources(req)
+                continue
+    
+            # Save tokens to accumulator instead of directly modifying target_model_req.py_draft_tokens
+            if req.py_request_id not in self.draft_tokens_accumulator:
+                self.draft_tokens_accumulator[
+                    req.py_request_id] = [0] * self.max_total_draft_tokens
+            self.draft_tokens_accumulator[req.py_request_id][
+                draft_position - 1] = req.get_last_tokens(0)
+    
+            generation_logits = req.py_result.generation_logits  # forwards Nones
+            if generation_logits is not None:
+                # generation_logits returns [beam_width, seq_length, vocab_size]
+                beam_width = generation_logits.size(0)
+                assert beam_width == 1, f"expected beam_width=1, got {beam_width}"
+>               generation_logits.squeeze_(0)
+E               RuntimeError: Inplace update to inference tensor outside InferenceMode is not allowed.You can make a clone to get a normal tensor before doing inplace update.See https://github.com/pytorch/rfcs/pull/17 for more details.
+
+py312/lib/python3.12/site-packages/tensorrt_llm/_torch/speculative/model_drafter.py:476: RuntimeError
+_____ test_process_decoded_tokens_accumulates_draft_logits_in_order[True] ______
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7ce67a1fe8a0>
+use_chunked_generation_logits = True
+
+    @pytest.mark.parametrize("use_chunked_generation_logits", [False, True])
+    def test_process_decoded_tokens_accumulates_draft_logits_in_order(
+            monkeypatch, use_chunked_generation_logits: bool):
+        if not torch.cuda.is_available():
+            orig_empty = torch.empty
+            monkeypatch.setattr(
+                torch,
+                "empty",
+                lambda *args, **kwargs: orig_empty(
+                    *args, **{
+                        **kwargs, "pin_memory": False
+                    }),
+            )
+    
+        vocab_size = 8
+        max_draft_len = 3
+        target_prompt_len = 5
+    
+        py_result = PyResult(
+            prompt_len=target_prompt_len + 1,
+            max_new_tokens=max_draft_len,
+            use_device_memory=False,
+            streaming=False,
+            return_log_probs=False,
+            return_context_logits=False,
+            return_generation_logits=True,
+            exclude_last_generation_logits=False,
+            use_chunked_generation_logits=use_chunked_generation_logits,
+        )
+    
+        target_req = SimpleNamespace(
+            py_request_id=7,
+            state=LlmRequestState.GENERATION_IN_PROGRESS,
+            py_draft_pages_allocated=max_draft_len,
+            py_draft_tokens=[],
+            py_draft_logits=None,
+        )
+        draft_req = SimpleNamespace(
+            py_request_id=7,
+            state=LlmRequestState.GENERATION_IN_PROGRESS,
+            py_prompt_len=target_prompt_len + 1,
+            context_current_position=0,
+            context_chunk_size=3,
+            py_return_context_logits=False,
+            py_return_generation_logits=True,
+            py_use_chunked_generation_logits=use_chunked_generation_logits,
+            is_last_context_chunk=False,
+            py_is_draft=True,
+            py_result=py_result,
+            _last_token=0,
+            get_last_tokens=lambda beam: draft_req._last_token,
+        )
+    
+        drafter = ModelDrafter.__new__(ModelDrafter)
+        drafter.max_draft_len = max_draft_len
+        drafter.max_total_draft_tokens = max_draft_len
+        drafter.draft_tokens_accumulator = {}
+        drafter.draft_logits_accumulator = {}
+        drafter.req_id_to_old_request = {7: target_req}
+        drafter.draft_seq_slot_manager = SimpleNamespace(
+            free_resources=lambda req: None)
+        drafter.update_requests = lambda state, resource_manager=None: None
+    
+        with torch.inference_mode():
+            step_logits = [
+                torch.arange(vocab_size, dtype=torch.float32) + 10.0 * step
+                for step in range(max_draft_len)
+            ]
+        drafted_tokens = [3, 5, 2]
+    
+        # Non-final context chunk (end_compute=3 < py_prompt_len - 1=5) must not append logits.
+        HandleLogits()(
+            context_requests=[draft_req],
+            generation_requests=[],
+            logits=step_logits[0].unsqueeze(0),
+            beam_width=1,
+            num_context_logits_prefix_sum=[0, 1],
+            is_generation_model=True,
+        )
+        assert draft_req.py_result.generation_logits is None
+    
+        # Final draft context chunk (end_compute=5 == py_prompt_len - 1) appends L_0.
+        draft_req.context_chunk_size = target_prompt_len
+        HandleLogits()(
+            context_requests=[draft_req],
+            generation_requests=[],
+            logits=step_logits[0].unsqueeze(0),
+            beam_width=1,
+            num_context_logits_prefix_sum=[0, 1],
+            is_generation_model=True,
+        )
+    
+        draft_batch = SimpleNamespace(all_requests=lambda: [draft_req])
+    
+        # In _execute_draft_loop, step i+1's HandleLogits runs before
+        # process_decoded_tokens(draft_position=i+1).
+        for i in range(max_draft_len - 1):
+            draft_req._last_token = drafted_tokens[i]
+            HandleLogits()(
+                context_requests=[],
+                generation_requests=[draft_req],
+                logits=step_logits[i + 1].unsqueeze(0),
+                beam_width=1,
+                num_context_logits_prefix_sum=[0],
+                is_generation_model=True,
+            )
+>           drafter.process_decoded_tokens(draft_batch, draft_position=i + 1)
+
+drafts/trtllm_fix/test_torch_rejection_sampling.py:212: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <tensorrt_llm._torch.speculative.model_drafter.ModelDrafter object at 0x7ce946a17350>
+draft_batch = namespace(all_requests=<function test_process_decoded_tokens_accumulates_draft_logits_in_order.<locals>.<lambda> at 0x7ce65310f240>)
+draft_position = 1, cleanup_resources = True
+
+    def process_decoded_tokens(
+            self,
+            draft_batch: ScheduledRequests,
+            draft_position: int,
+            cleanup_resources: bool = True) -> List[LlmRequest]:
+        """Process decoded tokens and determine which requests to continue processing."""
+        new_requests = []
+        for req in draft_batch.all_requests():
+            target_model_req = self.req_id_to_old_request[req.py_request_id]
+            if target_model_req.state != LlmRequestState.GENERATION_IN_PROGRESS:
+                # This is a chunked prefill request and we have more prefill chunks
+                # to process. Defer adding draft tokens until the whole prompt is processed.
+                self.draft_seq_slot_manager.free_resources(req)
+                continue
+    
+            # Save tokens to accumulator instead of directly modifying target_model_req.py_draft_tokens
+            if req.py_request_id not in self.draft_tokens_accumulator:
+                self.draft_tokens_accumulator[
+                    req.py_request_id] = [0] * self.max_total_draft_tokens
+            self.draft_tokens_accumulator[req.py_request_id][
+                draft_position - 1] = req.get_last_tokens(0)
+    
+            generation_logits = req.py_result.generation_logits  # forwards Nones
+            if generation_logits is not None:
+                # generation_logits returns [beam_width, seq_length, vocab_size]
+                beam_width = generation_logits.size(0)
+                assert beam_width == 1, f"expected beam_width=1, got {beam_width}"
+>               generation_logits.squeeze_(0)
+E               RuntimeError: Inplace update to inference tensor outside InferenceMode is not allowed.You can make a clone to get a normal tensor before doing inplace update.See https://github.com/pytorch/rfcs/pull/17 for more details.
+
+py312/lib/python3.12/site-packages/tensorrt_llm/_torch/speculative/model_drafter.py:476: RuntimeError
+___________________ test_early_stop_draft_rejection_sampling ___________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7ce6531444d0>
+
+    def test_early_stop_draft_rejection_sampling(monkeypatch):
+        if not torch.cuda.is_available():
+            orig_empty = torch.empty
+            monkeypatch.setattr(
+                torch,
+                "empty",
+                lambda *args, **kwargs: orig_empty(
+                    *args, **{
+                        **kwargs, "pin_memory": False
+                    }),
+            )
+    
+        vocab_size = 4
+        max_draft_len = 3
+        target_prompt_len = 5
+    
+        py_result = PyResult(
+            prompt_len=target_prompt_len + 1,
+            max_new_tokens=max_draft_len,
+            use_device_memory=False,
+            streaming=False,
+            return_log_probs=False,
+            return_context_logits=False,
+            return_generation_logits=True,
+            exclude_last_generation_logits=False,
+            use_chunked_generation_logits=True,
+        )
+    
+        added_tokens: list[int] = []
+        target_req = SimpleNamespace(
+            py_request_id=11,
+            state=LlmRequestState.GENERATION_IN_PROGRESS,
+            py_draft_pages_allocated=max_draft_len,
+            py_draft_tokens=[0] * max_draft_len,
+            py_draft_logits=None,
+            py_target_probs=None,
+            py_draft_use_greedy_sampling=False,
+            py_sampling_strategy=("temperature", 1.0),
+            seq_slot=0,
+            py_seq_slot=0,
+            py_end_id=-1,
+            py_orig_prompt_len=target_prompt_len,
+            py_max_new_tokens=32,
+            py_stop_words_list=None,
+            add_new_token=lambda token, beam_idx: added_tokens.append(token),
+            get_num_tokens=lambda beam_idx: target_prompt_len + len(added_tokens),
+            get_tokens=lambda beam_idx: [1] * target_prompt_len + added_tokens,
+            finish_by=lambda reason, beam_idx: None,
+        )
+        draft_req = SimpleNamespace(
+            py_request_id=11,
+            state=LlmRequestState.GENERATION_COMPLETE,
+            py_prompt_len=target_prompt_len + 1,
+            context_current_position=0,
+            context_chunk_size=target_prompt_len,
+            py_return_context_logits=False,
+            py_return_generation_logits=True,
+            py_use_chunked_generation_logits=True,
+            is_last_context_chunk=False,
+            py_is_draft=True,
+            py_result=py_result,
+            _last_token=2,
+            get_last_tokens=lambda beam: draft_req._last_token,
+        )
+    
+        drafter = ModelDrafter.__new__(ModelDrafter)
+        drafter.max_draft_len = max_draft_len
+        drafter.max_total_draft_tokens = max_draft_len
+        drafter._static_max_total_draft_tokens = max_draft_len
+        drafter.draft_tokens_accumulator = {}
+        drafter.draft_logits_accumulator = {}
+        drafter.req_id_to_old_request = {11: target_req}
+        drafter.draft_seq_slot_manager = SimpleNamespace(
+            free_resources=lambda req: None)
+        drafter.update_requests = lambda state, resource_manager=None: None
+    
+        with torch.inference_mode():
+            l0 = torch.tensor([0.0, 0.0, 10.0, 0.0])
+    
+        # Step 0 produces L_0; draft_req then finishes after m=1 (< K=3) token.
+        HandleLogits()(
+            context_requests=[draft_req],
+            generation_requests=[],
+            logits=l0.unsqueeze(0),
+            beam_width=1,
+            num_context_logits_prefix_sum=[0, 1],
+            is_generation_model=True,
+        )
+        draft_batch = SimpleNamespace(all_requests=lambda: [draft_req])
+        remaining = drafter.process_decoded_tokens(draft_batch, draft_position=1)
+        assert remaining == []
+    
+        empty_batch = SimpleNamespace(all_requests=lambda: [])
+        drafter.process_dynamic_draft_outputs(
+            SimpleNamespace(scheduled_requests=empty_batch))
+    
+        # Padded draft tokens have length K=3 ([2, 0, 0]), while py_draft_logits has m=1 row.
+        assert target_req.py_draft_tokens == [2, 0, 0]
+>       assert target_req.py_draft_logits is not None
+E       assert None is not None
+E        +  where None = namespace(py_request_id=11, state=LlmRequestState.GENERATION_IN_PROGRESS, py_draft_pages_allocated=3, py_draft_tokens=... at 0x7ce65310fd80>, finish_by=<function test_early_stop_draft_rejection_sampling.<locals>.<lambda> at 0x7ce65310f380>).py_draft_logits
+
+drafts/trtllm_fix/test_torch_rejection_sampling.py:326: AssertionError
+=============================== warnings summary ===============================
+py312/lib/python3.12/site-packages/modelopt/torch/__init__.py:36
+  <runtime>/py312/lib/python3.12/site-packages/modelopt/torch/__init__.py:36: UserWarning: transformers version 4.57.3 is incompatible with nvidia-modelopt and may cause issues. Please install recommended version with `pip install nvidia-modelopt[hf]` if working with HF models.
+    _warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED drafts/trtllm_fix/test_torch_rejection_sampling.py::test_get_rejected_indices_zero_target_prob_rejected
+FAILED drafts/trtllm_fix/test_torch_rejection_sampling.py::test_get_rejected_indices_mismatched_row_count_raises
+FAILED drafts/trtllm_fix/test_torch_rejection_sampling.py::test_process_decoded_tokens_accumulates_draft_logits_in_order[False]
+FAILED drafts/trtllm_fix/test_torch_rejection_sampling.py::test_process_decoded_tokens_accumulates_draft_logits_in_order[True]
+FAILED drafts/trtllm_fix/test_torch_rejection_sampling.py::test_early_stop_draft_rejection_sampling
+5 failed, 1 passed, 1 warning in 30.63s

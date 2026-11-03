@@ -1,0 +1,1653 @@
+{
+ "phase": "0b",
+ "engine": "vllm",
+ "started": "2026-10-19T15:44:21Z",
+ "environment": {
+  "python": "3.13.15",
+  "platform": "Linux-6.6.122+-x86_64-with-glibc2.39",
+  "gpu": "NVIDIA L4, 580.82.07, 23034 MiB",
+  "compute_cap": "8.9",
+  "cuda": "Build cuda_13.0.r13.0/compiler.36424714_0",
+  "harness_git": "4857af1e60fcbb35e2f16a2c65bb5916dd2eb3d5",
+  "torch": "2.13.0",
+  "transformers": "5.18.0",
+  "vllm": "0.30.0",
+  "sglang": "not installed",
+  "tensorrt_llm": "not installed",
+  "numpy": "2.1.3",
+  "pyarrow": "23.0.1"
+ },
+ "probe_timeout_s": 1800,
+ "complete": true,
+ "n_smoke": 100,
+ "chunk": 10000,
+ "prompt_throughput": [
+  4,
+  5,
+  6,
+  4,
+  5
+ ],
+ "tables_dir": "out/d40_full/phase0b_vllm_NVIDIA_L4_1792424661_tables",
+ "fixture_sha256": {
+  "target/model.safetensors": "061fcbb7a885ee83d09ecff985bd39c94e2100f05d1f18875908ff774bf4bc93",
+  "draft/model.safetensors": "bd6c546cb880bc5cd7149bd31dc214370a70d843c084541d92ac0eabbbfebe7e",
+  "fb_target/model.safetensors": "f625aff75aebfc4df07796fd2f52c8a37727e7f4451b0e750a577bfafaeb9148",
+  "fb_draft/model.safetensors": "2d7a1a58bfb4b8b4db6f6e704189b595a9c472c554de2809fc85f0549f2221be",
+  "target.gguf": "c3c681e6fe013dfb3e11bb319a6b54af1a4cd2727b3fa051099a44631311f7a1",
+  "draft.gguf": "d929d3ad9e359db34d92d1a03b727f446f98fa0ec29cf4fe9d7b5d1e63a50e08",
+  "fb_target.gguf": "15dd7d58ecacdee8414b029a01450d122a138c79b8d06c1eea62fdda59a0596f",
+  "fb_draft.gguf": "28e091b0e2b4410235a0c28f1a5f7341e4abc1fe02b01ed4733ed104d8c61736",
+  "eagle3_FA_tgt/model.safetensors": "551df3adf01bbe0838a6e0c5ddfa2d7bf82ff0ab5ed24690b2b8ea4e9d9b5af4",
+  "eagle3_FA_flat/model.safetensors": "7898d010656ebf96ed4471d4cbd8c66f572a9c4f637ff02f458defc5401677a2",
+  "eagle3_FB_tgt/model.safetensors": "e2f90d5b34e13618a9b0d9d9e9e576fe681dbe757f4700ae7803033b3f9064ac",
+  "eagle3_FB_flat/model.safetensors": "2d4e9d8563195fae26e662d114d3f1d380ebd0273f59223501cdca0f83aff46a",
+  "mimo_FA/model.safetensors": "baa869b24e10c1dd82cd312ea0d2c526d1bad4ed92fba4d11c2ad2cc1c22e305",
+  "mimo_FA/config.json": "32a868dfcc84668de744a4b4a26ec37a901447f566d1721483f99181bb3887fe",
+  "target_vllm/model.safetensors": "da24c0a8107b6baff66948814c102aaed1b98568825d3818f403d0bd953e6b8c",
+  "target_vllm/config.json": "75070dc2a28ae7a4f1b01e6625a2436af46c6fe6713768124d3afdd6639a82c2",
+  "draft_vllm/model.safetensors": "c00a88c8319796e110c838cc27368e2f2d6f841300ac03610af29dc9b48fdaab",
+  "draft_vllm/config.json": "75070dc2a28ae7a4f1b01e6625a2436af46c6fe6713768124d3afdd6639a82c2"
+ },
+ "probe_selection": null,
+ "probes": [
+  {
+   "arm": "smoke_FA_NULL_V1",
+   "status": "RUNS",
+   "wall_s": 154.06,
+   "smoke": {
+    "FA/NULL/use_v2_model_runner": false,
+    "FA/NULL/S0": {
+     "runner": "V1",
+     "seq_per_s": 162.4,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": null
+    },
+    "FA/NULL/S1": {
+     "runner": "V1",
+     "seq_per_s": 1812.5,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": null
+    },
+    "FA/NULL/S2": {
+     "runner": "V1",
+     "seq_per_s": 1838.5,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": null
+    },
+    "FA/NULL/S3": {
+     "runner": "V1",
+     "seq_per_s": 1661.0,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": null
+    },
+    "FA/NULL/S5": {
+     "runner": "V1",
+     "seq_per_s": 169.5,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": null
+    },
+    "FA/NULL/G": {
+     "runner": "V1",
+     "seq_per_s": 1988.1,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": null
+    },
+    "FA/NULL/S4": {
+     "runner": "V1",
+     "seq_per_s": 1479.0,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": null
+    },
+    "FA/NULL/S6": {
+     "runner": "V1",
+     "seq_per_s": 1785.0,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": null
+    }
+   }
+  },
+  {
+   "arm": "smoke_FA_VG1_V1",
+   "status": "RUNS",
+   "wall_s": 29.08,
+   "smoke": {
+    "FA/VG1/use_v2_model_runner": false,
+    "FA/VG1/S0": {
+     "runner": "V1",
+     "seq_per_s": 32.4,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "spec_decode_num_drafts": 180,
+      "spec_decode_num_draft_tokens": 540,
+      "spec_decode_num_accepted_tokens": 104
+     }
+    },
+    "FA/VG1/S1": {
+     "runner": "V1",
+     "seq_per_s": 964.5,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "spec_decode_num_drafts": 179,
+      "spec_decode_num_draft_tokens": 537,
+      "spec_decode_num_accepted_tokens": 140
+     }
+    },
+    "FA/VG1/S2": {
+     "runner": "V1",
+     "seq_per_s": 947.1,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "spec_decode_num_drafts": 179,
+      "spec_decode_num_draft_tokens": 537,
+      "spec_decode_num_accepted_tokens": 117
+     }
+    },
+    "FA/VG1/S3": {
+     "runner": "V1",
+     "seq_per_s": 932.0,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "spec_decode_num_drafts": 193,
+      "spec_decode_num_draft_tokens": 579,
+      "spec_decode_num_accepted_tokens": 123
+     }
+    },
+    "FA/VG1/S5": {
+     "runner": "V1",
+     "seq_per_s": 815.4,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "spec_decode_num_drafts": 191,
+      "spec_decode_num_draft_tokens": 573,
+      "spec_decode_num_accepted_tokens": 91
+     }
+    },
+    "FA/VG1/G": {
+     "runner": "V1",
+     "seq_per_s": 1081.9,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "spec_decode_num_drafts": 200,
+      "spec_decode_num_draft_tokens": 600,
+      "spec_decode_num_accepted_tokens": 100
+     }
+    },
+    "FA/VG1/S4": {
+     "runner": "V1",
+     "error": "VLLMValidationError: The min_p and logit_bias sampling parameters are not yet supported with speculative decoding.",
+     "spec_counters": {
+      "spec_decode_num_drafts": 0,
+      "spec_decode_num_draft_tokens": 0,
+      "spec_decode_num_accepted_tokens": 0
+     }
+    },
+    "FA/VG1/S6": {
+     "runner": "V1",
+     "error": "VLLMValidationError: The min_p and logit_bias sampling parameters are not yet supported with speculative decoding.",
+     "spec_counters": {
+      "spec_decode_num_drafts": 0,
+      "spec_decode_num_draft_tokens": 0,
+      "spec_decode_num_accepted_tokens": 0
+     }
+    }
+   }
+  },
+  {
+   "arm": "smoke_FA_VG2_V1",
+   "status": "RUNS",
+   "wall_s": 21.29,
+   "smoke": {
+    "FA/VG2/use_v2_model_runner": false,
+    "FA/VG2/S0": {
+     "runner": "V1",
+     "seq_per_s": 53.2,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "spec_decode_num_drafts": 139,
+      "spec_decode_num_draft_tokens": 417,
+      "spec_decode_num_accepted_tokens": 203
+     }
+    },
+    "FA/VG2/S1": {
+     "runner": "V1",
+     "seq_per_s": 939.9,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "spec_decode_num_drafts": 154,
+      "spec_decode_num_draft_tokens": 462,
+      "spec_decode_num_accepted_tokens": 189
+     }
+    },
+    "FA/VG2/S2": {
+     "runner": "V1",
+     "seq_per_s": 969.7,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "spec_decode_num_drafts": 140,
+      "spec_decode_num_draft_tokens": 420,
+      "spec_decode_num_accepted_tokens": 179
+     }
+    },
+    "FA/VG2/S3": {
+     "runner": "V1",
+     "seq_per_s": 950.4,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "spec_decode_num_drafts": 148,
+      "spec_decode_num_draft_tokens": 444,
+      "spec_decode_num_accepted_tokens": 212
+     }
+    },
+    "FA/VG2/S5": {
+     "runner": "V1",
+     "seq_per_s": 811.4,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "spec_decode_num_drafts": 153,
+      "spec_decode_num_draft_tokens": 459,
+      "spec_decode_num_accepted_tokens": 190
+     }
+    },
+    "FA/VG2/G": {
+     "runner": "V1",
+     "seq_per_s": 1053.5,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "spec_decode_num_drafts": 200,
+      "spec_decode_num_draft_tokens": 600,
+      "spec_decode_num_accepted_tokens": 100
+     }
+    },
+    "FA/VG2/S4": {
+     "runner": "V1",
+     "error": "VLLMValidationError: The min_p and logit_bias sampling parameters are not yet supported with speculative decoding.",
+     "spec_counters": {
+      "spec_decode_num_drafts": 0,
+      "spec_decode_num_draft_tokens": 0,
+      "spec_decode_num_accepted_tokens": 0
+     }
+    },
+    "FA/VG2/S6": {
+     "runner": "V1",
+     "error": "VLLMValidationError: The min_p and logit_bias sampling parameters are not yet supported with speculative decoding.",
+     "spec_counters": {
+      "spec_decode_num_drafts": 0,
+      "spec_decode_num_draft_tokens": 0,
+      "spec_decode_num_accepted_tokens": 0
+     }
+    }
+   }
+  },
+  {
+   "arm": "smoke_FA_VG3_V1",
+   "status": "RUNS",
+   "wall_s": 19.42,
+   "smoke": {
+    "FA/VG3/use_v2_model_runner": false,
+    "FA/VG3/S0": {
+     "runner": "V1",
+     "seq_per_s": 54.2,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "spec_decode_num_drafts": 95,
+      "spec_decode_num_draft_tokens": 269,
+      "spec_decode_num_accepted_tokens": 4
+     }
+    },
+    "FA/VG3/S1": {
+     "runner": "V1",
+     "seq_per_s": 1738.7,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "spec_decode_num_drafts": 73,
+      "spec_decode_num_draft_tokens": 201,
+      "spec_decode_num_accepted_tokens": 6
+     }
+    },
+    "FA/VG3/S2": {
+     "runner": "V1",
+     "seq_per_s": 1538.2,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "spec_decode_num_drafts": 56,
+      "spec_decode_num_draft_tokens": 156,
+      "spec_decode_num_accepted_tokens": 3
+     }
+    },
+    "FA/VG3/S3": {
+     "runner": "V1",
+     "seq_per_s": 1519.5,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "spec_decode_num_drafts": 77,
+      "spec_decode_num_draft_tokens": 212,
+      "spec_decode_num_accepted_tokens": 3
+     }
+    },
+    "FA/VG3/S5": {
+     "runner": "V1",
+     "seq_per_s": 693.9,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "spec_decode_num_drafts": 75,
+      "spec_decode_num_draft_tokens": 205,
+      "spec_decode_num_accepted_tokens": 4
+     }
+    },
+    "FA/VG3/G": {
+     "runner": "V1",
+     "seq_per_s": 1992.5,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "spec_decode_num_drafts": 100,
+      "spec_decode_num_draft_tokens": 300,
+      "spec_decode_num_accepted_tokens": 0
+     }
+    },
+    "FA/VG3/S4": {
+     "runner": "V1",
+     "error": "VLLMValidationError: The min_p and logit_bias sampling parameters are not yet supported with speculative decoding.",
+     "spec_counters": {
+      "spec_decode_num_drafts": 0,
+      "spec_decode_num_draft_tokens": 0,
+      "spec_decode_num_accepted_tokens": 0
+     }
+    },
+    "FA/VG3/S6": {
+     "runner": "V1",
+     "error": "VLLMValidationError: The min_p and logit_bias sampling parameters are not yet supported with speculative decoding.",
+     "spec_counters": {
+      "spec_decode_num_drafts": 0,
+      "spec_decode_num_draft_tokens": 0,
+      "spec_decode_num_accepted_tokens": 0
+     }
+    }
+   }
+  },
+  {
+   "arm": "smoke_FA_VG5_V1",
+   "status": "RUNS",
+   "wall_s": 21.04,
+   "smoke": {
+    "FA/VG5/use_v2_model_runner": false,
+    "FA/VG5/S0": {
+     "runner": "V1",
+     "seq_per_s": 82.5,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "spec_decode_num_drafts": 185,
+      "spec_decode_num_draft_tokens": 555,
+      "spec_decode_num_accepted_tokens": 106
+     }
+    },
+    "FA/VG5/S1": {
+     "runner": "V1",
+     "seq_per_s": 936.5,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "spec_decode_num_drafts": 164,
+      "spec_decode_num_draft_tokens": 492,
+      "spec_decode_num_accepted_tokens": 142
+     }
+    },
+    "FA/VG5/S2": {
+     "runner": "V1",
+     "seq_per_s": 142.8,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "spec_decode_num_drafts": 154,
+      "spec_decode_num_draft_tokens": 462,
+      "spec_decode_num_accepted_tokens": 102
+     }
+    },
+    "FA/VG5/S3": {
+     "runner": "V1",
+     "seq_per_s": 864.8,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "spec_decode_num_drafts": 180,
+      "spec_decode_num_draft_tokens": 540,
+      "spec_decode_num_accepted_tokens": 108
+     }
+    },
+    "FA/VG5/S5": {
+     "runner": "V1",
+     "seq_per_s": 815.4,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "spec_decode_num_drafts": 173,
+      "spec_decode_num_draft_tokens": 519,
+      "spec_decode_num_accepted_tokens": 93
+     }
+    },
+    "FA/VG5/G": {
+     "runner": "V1",
+     "seq_per_s": 1094.2,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "spec_decode_num_drafts": 200,
+      "spec_decode_num_draft_tokens": 600,
+      "spec_decode_num_accepted_tokens": 100
+     }
+    },
+    "FA/VG5/S4": {
+     "runner": "V1",
+     "error": "VLLMValidationError: The min_p and logit_bias sampling parameters are not yet supported with speculative decoding.",
+     "spec_counters": {
+      "spec_decode_num_drafts": 0,
+      "spec_decode_num_draft_tokens": 0,
+      "spec_decode_num_accepted_tokens": 0
+     }
+    },
+    "FA/VG5/S6": {
+     "runner": "V1",
+     "error": "VLLMValidationError: The min_p and logit_bias sampling parameters are not yet supported with speculative decoding.",
+     "spec_counters": {
+      "spec_decode_num_drafts": 0,
+      "spec_decode_num_draft_tokens": 0,
+      "spec_decode_num_accepted_tokens": 0
+     }
+    }
+   }
+  },
+  {
+   "arm": "smoke_FA_NULL_V2",
+   "status": "RUNS",
+   "wall_s": 26.36,
+   "smoke": {
+    "FA/NULL/use_v2_model_runner": true,
+    "FA/NULL/S0": {
+     "runner": "V2",
+     "seq_per_s": 940.7,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": null
+    },
+    "FA/NULL/S1": {
+     "runner": "V2",
+     "seq_per_s": 2045.1,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": null
+    },
+    "FA/NULL/S2": {
+     "runner": "V2",
+     "seq_per_s": 1879.3,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": null
+    },
+    "FA/NULL/S3": {
+     "runner": "V2",
+     "seq_per_s": 1853.5,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": null
+    },
+    "FA/NULL/S5": {
+     "runner": "V2",
+     "seq_per_s": 2011.8,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": null
+    },
+    "FA/NULL/G": {
+     "runner": "V2",
+     "seq_per_s": 2012.5,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": null
+    },
+    "FA/NULL/S4": {
+     "runner": "V2",
+     "seq_per_s": 1997.0,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": null
+    },
+    "FA/NULL/S6": {
+     "runner": "V2",
+     "seq_per_s": 1803.5,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": null
+    }
+   }
+  },
+  {
+   "arm": "smoke_FA_VG4@tgt_V2",
+   "status": "RUNS",
+   "wall_s": 34.68,
+   "smoke": {
+    "FA/VG4@tgt/use_v2_model_runner": true,
+    "FA/VG4@tgt/S0": {
+     "runner": "V2",
+     "seq_per_s": 94.9,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "spec_decode_num_drafts": 243,
+      "spec_decode_num_draft_tokens": 729,
+      "spec_decode_num_accepted_tokens": 12
+     }
+    },
+    "FA/VG4@tgt/S1": {
+     "runner": "V2",
+     "seq_per_s": 1322.0,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "spec_decode_num_drafts": 264,
+      "spec_decode_num_draft_tokens": 792,
+      "spec_decode_num_accepted_tokens": 3
+     }
+    },
+    "FA/VG4@tgt/S2": {
+     "runner": "V2",
+     "seq_per_s": 1186.4,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "spec_decode_num_drafts": 240,
+      "spec_decode_num_draft_tokens": 720,
+      "spec_decode_num_accepted_tokens": 6
+     }
+    },
+    "FA/VG4@tgt/S3": {
+     "runner": "V2",
+     "seq_per_s": 1306.8,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "spec_decode_num_drafts": 251,
+      "spec_decode_num_draft_tokens": 753,
+      "spec_decode_num_accepted_tokens": 8
+     }
+    },
+    "FA/VG4@tgt/S5": {
+     "runner": "V2",
+     "seq_per_s": 1346.9,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "spec_decode_num_drafts": 251,
+      "spec_decode_num_draft_tokens": 753,
+      "spec_decode_num_accepted_tokens": 15
+     }
+    },
+    "FA/VG4@tgt/G": {
+     "runner": "V2",
+     "seq_per_s": 1326.3,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "spec_decode_num_drafts": 300,
+      "spec_decode_num_draft_tokens": 900,
+      "spec_decode_num_accepted_tokens": 0
+     }
+    },
+    "FA/VG4@tgt/S4": {
+     "runner": "V2",
+     "error": "VLLMValidationError: The min_p and logit_bias sampling parameters are not yet supported with speculative decoding.",
+     "spec_counters": {
+      "spec_decode_num_drafts": 0,
+      "spec_decode_num_draft_tokens": 0,
+      "spec_decode_num_accepted_tokens": 0
+     }
+    },
+    "FA/VG4@tgt/S6": {
+     "runner": "V2",
+     "error": "VLLMValidationError: The min_p and logit_bias sampling parameters are not yet supported with speculative decoding.",
+     "spec_counters": {
+      "spec_decode_num_drafts": 0,
+      "spec_decode_num_draft_tokens": 0,
+      "spec_decode_num_accepted_tokens": 0
+     }
+    }
+   }
+  },
+  {
+   "arm": "smoke_FA_VG4@flat_V2",
+   "status": "RUNS",
+   "wall_s": 17.58,
+   "smoke": {
+    "FA/VG4@flat/use_v2_model_runner": true,
+    "FA/VG4@flat/S0": {
+     "runner": "V2",
+     "seq_per_s": 743.2,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "spec_decode_num_drafts": 249,
+      "spec_decode_num_draft_tokens": 747,
+      "spec_decode_num_accepted_tokens": 14
+     }
+    },
+    "FA/VG4@flat/S1": {
+     "runner": "V2",
+     "seq_per_s": 1354.3,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "spec_decode_num_drafts": 255,
+      "spec_decode_num_draft_tokens": 765,
+      "spec_decode_num_accepted_tokens": 10
+     }
+    },
+    "FA/VG4@flat/S2": {
+     "runner": "V2",
+     "seq_per_s": 1196.5,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "spec_decode_num_drafts": 253,
+      "spec_decode_num_draft_tokens": 759,
+      "spec_decode_num_accepted_tokens": 10
+     }
+    },
+    "FA/VG4@flat/S3": {
+     "runner": "V2",
+     "seq_per_s": 1308.8,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "spec_decode_num_drafts": 261,
+      "spec_decode_num_draft_tokens": 783,
+      "spec_decode_num_accepted_tokens": 9
+     }
+    },
+    "FA/VG4@flat/S5": {
+     "runner": "V2",
+     "seq_per_s": 1359.7,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "spec_decode_num_drafts": 257,
+      "spec_decode_num_draft_tokens": 771,
+      "spec_decode_num_accepted_tokens": 9
+     }
+    },
+    "FA/VG4@flat/G": {
+     "runner": "V2",
+     "seq_per_s": 1371.7,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "spec_decode_num_drafts": 300,
+      "spec_decode_num_draft_tokens": 900,
+      "spec_decode_num_accepted_tokens": 0
+     }
+    },
+    "FA/VG4@flat/S4": {
+     "runner": "V2",
+     "error": "VLLMValidationError: The min_p and logit_bias sampling parameters are not yet supported with speculative decoding.",
+     "spec_counters": {
+      "spec_decode_num_drafts": 0,
+      "spec_decode_num_draft_tokens": 0,
+      "spec_decode_num_accepted_tokens": 0
+     }
+    },
+    "FA/VG4@flat/S6": {
+     "runner": "V2",
+     "error": "VLLMValidationError: The min_p and logit_bias sampling parameters are not yet supported with speculative decoding.",
+     "spec_counters": {
+      "spec_decode_num_drafts": 0,
+      "spec_decode_num_draft_tokens": 0,
+      "spec_decode_num_accepted_tokens": 0
+     }
+    }
+   }
+  },
+  {
+   "arm": "smoke_FA_VG6_V2",
+   "status": "RUNS",
+   "wall_s": 46.41,
+   "smoke": {
+    "FA/VG6/use_v2_model_runner": true,
+    "FA/VG6/S0": {
+     "runner": "V2",
+     "seq_per_s": 259.2,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "spec_decode_num_drafts": 252,
+      "spec_decode_num_draft_tokens": 252,
+      "spec_decode_num_accepted_tokens": 28
+     }
+    },
+    "FA/VG6/S1": {
+     "runner": "V2",
+     "seq_per_s": 1559.6,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "spec_decode_num_drafts": 286,
+      "spec_decode_num_draft_tokens": 286,
+      "spec_decode_num_accepted_tokens": 32
+     }
+    },
+    "FA/VG6/S2": {
+     "runner": "V2",
+     "seq_per_s": 1454.3,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "spec_decode_num_drafts": 255,
+      "spec_decode_num_draft_tokens": 255,
+      "spec_decode_num_accepted_tokens": 36
+     }
+    },
+    "FA/VG6/S3": {
+     "runner": "V2",
+     "seq_per_s": 1526.5,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "spec_decode_num_drafts": 262,
+      "spec_decode_num_draft_tokens": 262,
+      "spec_decode_num_accepted_tokens": 26
+     }
+    },
+    "FA/VG6/S5": {
+     "runner": "V2",
+     "seq_per_s": 1644.5,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "spec_decode_num_drafts": 250,
+      "spec_decode_num_draft_tokens": 250,
+      "spec_decode_num_accepted_tokens": 20
+     }
+    },
+    "FA/VG6/G": {
+     "runner": "V2",
+     "seq_per_s": 1655.1,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "spec_decode_num_drafts": 300,
+      "spec_decode_num_draft_tokens": 300,
+      "spec_decode_num_accepted_tokens": 0
+     }
+    },
+    "FA/VG6/S4": {
+     "runner": "V2",
+     "error": "VLLMValidationError: The min_p and logit_bias sampling parameters are not yet supported with speculative decoding.",
+     "spec_counters": {
+      "spec_decode_num_drafts": 0,
+      "spec_decode_num_draft_tokens": 0,
+      "spec_decode_num_accepted_tokens": 0
+     }
+    },
+    "FA/VG6/S6": {
+     "runner": "V2",
+     "error": "VLLMValidationError: The min_p and logit_bias sampling parameters are not yet supported with speculative decoding.",
+     "spec_counters": {
+      "spec_decode_num_drafts": 0,
+      "spec_decode_num_draft_tokens": 0,
+      "spec_decode_num_accepted_tokens": 0
+     }
+    }
+   }
+  },
+  {
+   "arm": "smoke_FA_NULL_mimo_V2",
+   "status": "RUNS",
+   "wall_s": 17.76,
+   "smoke": {
+    "FA/NULL_mimo/use_v2_model_runner": true,
+    "FA/NULL_mimo/S0": {
+     "runner": "V2",
+     "seq_per_s": 957.8,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": null
+    },
+    "FA/NULL_mimo/S1": {
+     "runner": "V2",
+     "seq_per_s": 2031.2,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": null
+    },
+    "FA/NULL_mimo/S2": {
+     "runner": "V2",
+     "seq_per_s": 1913.7,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": null
+    },
+    "FA/NULL_mimo/S3": {
+     "runner": "V2",
+     "seq_per_s": 1969.6,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": null
+    },
+    "FA/NULL_mimo/S5": {
+     "runner": "V2",
+     "seq_per_s": 2112.0,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": null
+    },
+    "FA/NULL_mimo/G": {
+     "runner": "V2",
+     "seq_per_s": 2100.8,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": null
+    },
+    "FA/NULL_mimo/S4": {
+     "runner": "V2",
+     "seq_per_s": 2082.0,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": null
+    },
+    "FA/NULL_mimo/S6": {
+     "runner": "V2",
+     "seq_per_s": 1882.3,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": null
+    }
+   }
+  },
+  {
+   "arm": "smoke_FB_NULL_V1",
+   "status": "RUNS",
+   "wall_s": 134.25,
+   "smoke": {
+    "FB/NULL/use_v2_model_runner": false,
+    "FB/NULL/S0": {
+     "runner": "V1",
+     "seq_per_s": 500.0,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": null
+    },
+    "FB/NULL/S2": {
+     "runner": "V1",
+     "seq_per_s": 1201.3,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": null
+    },
+    "FB/NULL/G": {
+     "runner": "V1",
+     "seq_per_s": 1354.3,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": null
+    },
+    "FB/NULL/S6": {
+     "runner": "V1",
+     "seq_per_s": 648.1,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": null
+    }
+   }
+  },
+  {
+   "arm": "smoke_FB_VG1_V1",
+   "status": "RUNS",
+   "wall_s": 21.55,
+   "smoke": {
+    "FB/VG1/use_v2_model_runner": false,
+    "FB/VG1/S0": {
+     "runner": "V1",
+     "seq_per_s": 75.2,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "spec_decode_num_drafts": 392,
+      "spec_decode_num_draft_tokens": 1176,
+      "spec_decode_num_accepted_tokens": 164
+     }
+    },
+    "FB/VG1/S2": {
+     "runner": "V1",
+     "seq_per_s": 440.2,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "spec_decode_num_drafts": 410,
+      "spec_decode_num_draft_tokens": 1230,
+      "spec_decode_num_accepted_tokens": 157
+     }
+    },
+    "FB/VG1/G": {
+     "runner": "V1",
+     "seq_per_s": 622.3,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "spec_decode_num_drafts": 300,
+      "spec_decode_num_draft_tokens": 900,
+      "spec_decode_num_accepted_tokens": 300
+     }
+    },
+    "FB/VG1/S6": {
+     "runner": "V1",
+     "error": "VLLMValidationError: The min_p and logit_bias sampling parameters are not yet supported with speculative decoding.",
+     "spec_counters": {
+      "spec_decode_num_drafts": 0,
+      "spec_decode_num_draft_tokens": 0,
+      "spec_decode_num_accepted_tokens": 0
+     }
+    }
+   }
+  },
+  {
+   "arm": "smoke_FB_VG2_V1",
+   "status": "RUNS",
+   "wall_s": 20.64,
+   "smoke": {
+    "FB/VG2/use_v2_model_runner": false,
+    "FB/VG2/S0": {
+     "runner": "V1",
+     "seq_per_s": 76.6,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "spec_decode_num_drafts": 272,
+      "spec_decode_num_draft_tokens": 816,
+      "spec_decode_num_accepted_tokens": 312
+     }
+    },
+    "FB/VG2/S2": {
+     "runner": "V1",
+     "seq_per_s": 445.3,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "spec_decode_num_drafts": 299,
+      "spec_decode_num_draft_tokens": 897,
+      "spec_decode_num_accepted_tokens": 316
+     }
+    },
+    "FB/VG2/G": {
+     "runner": "V1",
+     "seq_per_s": 671.9,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "spec_decode_num_drafts": 300,
+      "spec_decode_num_draft_tokens": 900,
+      "spec_decode_num_accepted_tokens": 300
+     }
+    },
+    "FB/VG2/S6": {
+     "runner": "V1",
+     "error": "VLLMValidationError: The min_p and logit_bias sampling parameters are not yet supported with speculative decoding.",
+     "spec_counters": {
+      "spec_decode_num_drafts": 0,
+      "spec_decode_num_draft_tokens": 0,
+      "spec_decode_num_accepted_tokens": 0
+     }
+    }
+   }
+  },
+  {
+   "arm": "smoke_FB_NULL_V2",
+   "status": "RUNS",
+   "wall_s": 19.82,
+   "smoke": {
+    "FB/NULL/use_v2_model_runner": true,
+    "FB/NULL/S0": {
+     "runner": "V2",
+     "seq_per_s": 750.1,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": null
+    },
+    "FB/NULL/S2": {
+     "runner": "V2",
+     "seq_per_s": 1184.3,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": null
+    },
+    "FB/NULL/G": {
+     "runner": "V2",
+     "seq_per_s": 1332.0,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": null
+    },
+    "FB/NULL/S6": {
+     "runner": "V2",
+     "seq_per_s": 1230.4,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": null
+    }
+   }
+  },
+  {
+   "arm": "smoke_FB_VG4@tgt_V2",
+   "status": "RUNS",
+   "wall_s": 18.62,
+   "smoke": {
+    "FB/VG4@tgt/use_v2_model_runner": true,
+    "FB/VG4@tgt/S0": {
+     "runner": "V2",
+     "seq_per_s": 563.4,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "spec_decode_num_drafts": 451,
+      "spec_decode_num_draft_tokens": 1353,
+      "spec_decode_num_accepted_tokens": 60
+     }
+    },
+    "FB/VG4@tgt/S2": {
+     "runner": "V2",
+     "seq_per_s": 782.4,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "spec_decode_num_drafts": 432,
+      "spec_decode_num_draft_tokens": 1296,
+      "spec_decode_num_accepted_tokens": 77
+     }
+    },
+    "FB/VG4@tgt/G": {
+     "runner": "V2",
+     "seq_per_s": 963.5,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "spec_decode_num_drafts": 400,
+      "spec_decode_num_draft_tokens": 1200,
+      "spec_decode_num_accepted_tokens": 100
+     }
+    },
+    "FB/VG4@tgt/S6": {
+     "runner": "V2",
+     "error": "VLLMValidationError: The min_p and logit_bias sampling parameters are not yet supported with speculative decoding.",
+     "spec_counters": {
+      "spec_decode_num_drafts": 0,
+      "spec_decode_num_draft_tokens": 0,
+      "spec_decode_num_accepted_tokens": 0
+     }
+    }
+   }
+  },
+  {
+   "arm": "smoke_FB_VG4@flat_V2",
+   "status": "RUNS",
+   "wall_s": 17.77,
+   "smoke": {
+    "FB/VG4@flat/use_v2_model_runner": true,
+    "FB/VG4@flat/S0": {
+     "runner": "V2",
+     "seq_per_s": 586.1,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "spec_decode_num_drafts": 433,
+      "spec_decode_num_draft_tokens": 1299,
+      "spec_decode_num_accepted_tokens": 80
+     }
+    },
+    "FB/VG4@flat/S2": {
+     "runner": "V2",
+     "seq_per_s": 802.1,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "spec_decode_num_drafts": 424,
+      "spec_decode_num_draft_tokens": 1272,
+      "spec_decode_num_accepted_tokens": 94
+     }
+    },
+    "FB/VG4@flat/G": {
+     "runner": "V2",
+     "seq_per_s": 997.7,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true,
+     "spec_counters": {
+      "spec_decode_num_drafts": 400,
+      "spec_decode_num_draft_tokens": 1200,
+      "spec_decode_num_accepted_tokens": 100
+     }
+    },
+    "FB/VG4@flat/S6": {
+     "runner": "V2",
+     "error": "VLLMValidationError: The min_p and logit_bias sampling parameters are not yet supported with speculative decoding.",
+     "spec_counters": {
+      "spec_decode_num_drafts": 0,
+      "spec_decode_num_draft_tokens": 0,
+      "spec_decode_num_accepted_tokens": 0
+     }
+    }
+   }
+  },
+  {
+   "arm": "vg5_preflight",
+   "status": "RUNS",
+   "wall_s": 38.34,
+   "vg5_preflight": {
+    "VG2": {
+     "spec_decode_num_drafts": 131,
+     "spec_decode_num_draft_tokens": 393,
+     "spec_decode_num_accepted_tokens": 194
+    },
+    "VG2_probabilistic_draft_probs": true,
+    "VG5p": {
+     "spec_decode_num_drafts": 171,
+     "spec_decode_num_draft_tokens": 513,
+     "spec_decode_num_accepted_tokens": 121
+    },
+    "VG5p_probabilistic_draft_probs": false,
+    "VG1": {
+     "spec_decode_num_drafts": 171,
+     "spec_decode_num_draft_tokens": 513,
+     "spec_decode_num_accepted_tokens": 121
+    },
+    "VG1_probabilistic_draft_probs": false,
+    "complete": true,
+    "VG5p_equals_VG1": true,
+    "VG5p_equals_VG2": false
+   }
+  },
+  {
+   "arm": "seed_check_v1",
+   "status": "RUNS",
+   "wall_s": 38.08,
+   "seed_check": {
+    "FA/NULL/S0": {
+     "runner": "V1",
+     "same_seed_repeats": true,
+     "next_seeds_differ": true
+    },
+    "FA/VG1/S0": {
+     "runner": "V1",
+     "same_seed_repeats": true,
+     "next_seeds_differ": true
+    },
+    "FA/VG2/S0": {
+     "runner": "V1",
+     "same_seed_repeats": false,
+     "next_seeds_differ": true
+    }
+   },
+   "note": "V1 probabilistic drafting ignores seeds (llm_base_proposer.py, TODO consider seeds)"
+  },
+  {
+   "arm": "seed_check_v2",
+   "status": "RUNS",
+   "wall_s": 25.19,
+   "seed_check": {
+    "FA/NULL/S0": {
+     "runner": "V2",
+     "same_seed_repeats": true,
+     "next_seeds_differ": true
+    },
+    "FA/VG4@tgt/S0": {
+     "runner": "V2",
+     "same_seed_repeats": true,
+     "next_seeds_differ": true
+    }
+   }
+  },
+  {
+   "arm": "effect_p7",
+   "status": "RUNS",
+   "wall_s": 19.99,
+   "effect": {
+    "P7_S2": {
+     "calls": 7,
+     "max_abs_diff": 1.0000000150474662e+30,
+     "changed": true
+    }
+   }
+  },
+  {
+   "arm": "effect_p8",
+   "status": "RUNS",
+   "wall_s": 20.15,
+   "effect": {
+    "P8_S0": {
+     "calls": 12,
+     "tokens_changed": 74,
+     "q_nondegenerate": true,
+     "changed": true
+    }
+   }
+  },
+  {
+   "arm": "reference_v1",
+   "status": "RUNS",
+   "wall_s": 175.61,
+   "reference": {
+    "FA/NULL/S0/V1": {
+     "delta_num": 0.00019514850024113933,
+     "finite": true,
+     "argmax_prefix": 359,
+     "support_mismatch": 0,
+     "row_sum_dev": 1.279734603842897e-07,
+     "rows": 10000,
+     "prefixes": 400,
+     "copy_dev": 3.943824894436787e-07
+    },
+    "FA/NULL/S1/V1": {
+     "delta_num": 0.00022285777983001992,
+     "finite": true,
+     "argmax_prefix": 247,
+     "support_mismatch": 0,
+     "row_sum_dev": 1.6230424570995439e-07,
+     "rows": 10000,
+     "prefixes": 400,
+     "copy_dev": 4.582696854216195e-07
+    },
+    "FA/NULL/S2/V1": {
+     "delta_num": 0.00017018019329200634,
+     "finite": true,
+     "argmax_prefix": 247,
+     "support_mismatch": 0,
+     "row_sum_dev": 1.2404363936013851e-07,
+     "rows": 10000,
+     "prefixes": 400,
+     "copy_dev": 4.1086365484832577e-07
+    },
+    "FA/NULL/S3/V1": {
+     "delta_num": 0.00016776167731871044,
+     "finite": true,
+     "argmax_prefix": 247,
+     "support_mismatch": 0,
+     "row_sum_dev": 1.2505223101477725e-07,
+     "rows": 10000,
+     "prefixes": 400,
+     "copy_dev": 3.770670824465583e-07
+    },
+    "FA/NULL/S5/V1": {
+     "delta_num": 0.0001786596681879922,
+     "finite": true,
+     "argmax_prefix": 247,
+     "support_mismatch": 0,
+     "row_sum_dev": 1.58003971240106e-07,
+     "rows": 10000,
+     "prefixes": 400,
+     "copy_dev": 4.046849091388083e-07
+    },
+    "FB/NULL/S0/V1": {
+     "delta_num": 0.001091807075192627,
+     "finite": true,
+     "argmax_prefix": 637,
+     "support_mismatch": 0,
+     "row_sum_dev": 1.947349232978013e-07,
+     "rows": 10000,
+     "prefixes": 828,
+     "copy_dev": 4.11943876388321e-05
+    },
+    "FB/NULL/S2/V1": {
+     "delta_num": 0.0013067936689172832,
+     "finite": true,
+     "argmax_prefix": 23,
+     "support_mismatch": 0,
+     "row_sum_dev": 1.0199089195417343e-07,
+     "rows": 10000,
+     "prefixes": 232,
+     "copy_dev": 4.551460443136257e-05
+    }
+   }
+  },
+  {
+   "arm": "reference_v2",
+   "status": "RUNS",
+   "wall_s": 75.98,
+   "reference": {
+    "FA/NULL/S0/V2": {
+     "delta_num": 0.00019514502402771979,
+     "finite": true,
+     "argmax_prefix": 359,
+     "support_mismatch": 0,
+     "row_sum_dev": 1.594206464616832e-07,
+     "rows": 10000,
+     "prefixes": 400,
+     "copy_dev": 4.601128837933288e-07
+    },
+    "FA/NULL/S1/V2": {
+     "delta_num": 0.00022287990480889322,
+     "finite": true,
+     "argmax_prefix": 247,
+     "support_mismatch": 0,
+     "row_sum_dev": 1.5911354944719847e-07,
+     "rows": 10000,
+     "prefixes": 400,
+     "copy_dev": 4.253879503091085e-07
+    },
+    "FA/NULL/S2/V2": {
+     "delta_num": 0.0001701850007957903,
+     "finite": true,
+     "argmax_prefix": 247,
+     "support_mismatch": 0,
+     "row_sum_dev": 1.4959376448686612e-07,
+     "rows": 10000,
+     "prefixes": 400,
+     "copy_dev": 4.1086365484832577e-07
+    },
+    "FA/NULL/S3/V2": {
+     "delta_num": 0.00016776167731871044,
+     "finite": true,
+     "argmax_prefix": 247,
+     "support_mismatch": 0,
+     "row_sum_dev": 1.4534712278191364e-07,
+     "rows": 10000,
+     "prefixes": 400,
+     "copy_dev": 3.770670824465583e-07
+    },
+    "FA/NULL/S5/V2": {
+     "delta_num": 0.0001786596681879922,
+     "finite": true,
+     "argmax_prefix": 247,
+     "support_mismatch": 0,
+     "row_sum_dev": 1.58003971240106e-07,
+     "rows": 10000,
+     "prefixes": 400,
+     "copy_dev": 4.046849091388083e-07
+    },
+    "FB/NULL/S0/V2": {
+     "delta_num": 0.001091807075192627,
+     "finite": true,
+     "argmax_prefix": 637,
+     "support_mismatch": 0,
+     "row_sum_dev": 1.947349232978013e-07,
+     "rows": 10000,
+     "prefixes": 828,
+     "copy_dev": 4.122903265713074e-05
+    },
+    "FB/NULL/S2/V2": {
+     "delta_num": 0.0013067936689172832,
+     "finite": true,
+     "argmax_prefix": 23,
+     "support_mismatch": 0,
+     "row_sum_dev": 1.3606480608885363e-07,
+     "rows": 10000,
+     "prefixes": 232,
+     "copy_dev": 4.551460443136257e-05
+    },
+    "FA/NULL_mimo/S0/V2": {
+     "delta_num": 0.0001950838450756557,
+     "finite": true,
+     "argmax_prefix": 359,
+     "support_mismatch": 0,
+     "row_sum_dev": 1.6794513268969524e-07,
+     "rows": 10000,
+     "prefixes": 400,
+     "copy_dev": 1.353803081860505e-07
+    },
+    "FA/NULL_mimo/S1/V2": {
+     "delta_num": 0.00022288539884446346,
+     "finite": true,
+     "argmax_prefix": 247,
+     "support_mismatch": 0,
+     "row_sum_dev": 1.6807878400193488e-07,
+     "rows": 10000,
+     "prefixes": 400,
+     "copy_dev": 1.1497431634532873e-07
+    },
+    "FA/NULL_mimo/S2/V2": {
+     "delta_num": 0.00017019962096736369,
+     "finite": true,
+     "argmax_prefix": 247,
+     "support_mismatch": 0,
+     "row_sum_dev": 1.1115863962629646e-07,
+     "rows": 10000,
+     "prefixes": 400,
+     "copy_dev": 8.646896587638508e-08
+    },
+    "FA/NULL_mimo/S3/V2": {
+     "delta_num": 0.0001677931282776865,
+     "finite": true,
+     "argmax_prefix": 247,
+     "support_mismatch": 0,
+     "row_sum_dev": 1.2869743115651033e-07,
+     "rows": 10000,
+     "prefixes": 400,
+     "copy_dev": 1.0112273218787493e-07
+    },
+    "FA/NULL_mimo/S5/V2": {
+     "delta_num": 0.0001786969910590394,
+     "finite": true,
+     "argmax_prefix": 247,
+     "support_mismatch": 0,
+     "row_sum_dev": 1.6536752034390645e-07,
+     "rows": 10000,
+     "prefixes": 400,
+     "copy_dev": 1.7539059404825252e-07
+    }
+   },
+   "note": "NULL_mimo: mimo_FA (VG6 target), zero q/k/v biases, scored against F-A's R_np"
+  },
+  {
+   "arm": "throughput_v1",
+   "status": "RUNS",
+   "wall_s": 57.45,
+   "throughput_seq_per_s": {
+    "FA/NULL/S0/V1": 2096.8,
+    "FA/VG1/S0/V1": 1031.7,
+    "FA/VG2/S0/V1": 1537.8
+   }
+  },
+  {
+   "arm": "throughput_v2",
+   "status": "RUNS",
+   "wall_s": 34.51,
+   "throughput_seq_per_s": {
+    "FA/NULL/S0/V2": 2480.1,
+    "FA/VG4@tgt/S0/V2": 1860.9
+   }
+  }
+ ],
+ "finished": "2026-10-19T16:07:32Z"
+}

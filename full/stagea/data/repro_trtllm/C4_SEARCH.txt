@@ -1,0 +1,4 @@
+none  model=-      relation=-              row0: 1452 occurrences
+none  model=-      relation=-              row1: 499 occurrences
+none  model=-      relation=-              row2: 62 occurrences
+distinct rows 110; best |Δ| median 3.77e-02, min 4.84e-03, max 8.98e-02

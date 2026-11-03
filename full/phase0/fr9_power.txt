@@ -1,0 +1,10 @@
+S0 0.0 fixed2e5 0.000 fixed5e4 0.000 adaptive 0.000 extended 0.045
+S0 0.003 fixed2e5 0.895 fixed5e4 0.003 adaptive 0.177 extended 0.195
+S0 0.005 fixed2e5 1.000 fixed5e4 0.040 adaptive 0.550 extended 0.520
+S0 0.009 fixed2e5 1.000 fixed5e4 0.938 adaptive 0.998 extended 0.107
+S0 0.018 fixed2e5 1.000 fixed5e4 1.000 adaptive 1.000 extended 0.000
+S3 0.0 fixed2e5 0.000 fixed5e4 0.000 adaptive 0.000 extended 0.045
+S3 0.003 fixed2e5 0.005 fixed5e4 0.000 adaptive 0.000 extended 0.077
+S3 0.005 fixed2e5 0.070 fixed5e4 0.000 adaptive 0.015 extended 0.145
+S3 0.009 fixed2e5 0.873 fixed5e4 0.015 adaptive 0.458 extended 0.490
+S3 0.018 fixed2e5 1.000 fixed5e4 0.895 adaptive 1.000 extended 0.135

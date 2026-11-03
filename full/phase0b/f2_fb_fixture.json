@@ -1,0 +1,17 @@
+{
+ "scale": 21.57312366155,
+ "sigma": 0.004573695896861668,
+ "n_cal_sequences": 2000,
+ "distinct_visited_prefixes": 1826,
+ "entropy_median_visited": 1.418386660216338,
+ "acceptance_visit_weighted": 0.6500539359166262,
+ "acceptance_min_max": [
+  0.29745055730402825,
+  0.9967335691526542
+ ],
+ "eos_rate_per_step": 3.748391826939677e-05,
+ "in_band": {
+  "entropy": true,
+  "acceptance": true
+ }
+}

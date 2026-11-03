@@ -1,0 +1,533 @@
+diff --git a/tensorrt_llm/_torch/pyexecutor/handle_logits.py b/tensorrt_llm/_torch/pyexecutor/handle_logits.py
+index 17c3907..757a9d0 100644
+--- a/tensorrt_llm/_torch/pyexecutor/handle_logits.py
++++ b/tensorrt_llm/_torch/pyexecutor/handle_logits.py
+@@ -60,7 +60,14 @@ class HandleLogits:
+                 llm_req.py_result.append_context_logits(
+                     context_logits_device_view)
+ 
+-            if llm_req.py_return_generation_logits and llm_req.is_last_context_chunk:
++            is_last_draft_context_chunk = (
++                llm_req.py_is_draft
++                and llm_req.context_current_position + llm_req.context_chunk_size
++                == llm_req.py_prompt_len - 1
++            )
++            if llm_req.py_return_generation_logits and (
++                llm_req.is_last_context_chunk or is_last_draft_context_chunk
++            ):
+                 # Get the logits from the last context token and draft tokens
+                 logits_view = logits[logits_end - 1:logits_end]
+                 if beam_width > 1:
+diff --git a/tensorrt_llm/_torch/pyexecutor/py_executor.py b/tensorrt_llm/_torch/pyexecutor/py_executor.py
+index 757f1cd..72fd717 100644
+--- a/tensorrt_llm/_torch/pyexecutor/py_executor.py
++++ b/tensorrt_llm/_torch/pyexecutor/py_executor.py
+@@ -1525,6 +1525,7 @@ class PyExecutor:
+                     continue
+ 
+                 req.py_last_draft_tokens = req.py_draft_tokens
++                req.py_draft_logits = None
+ 
+                 if self.max_total_draft_tokens > 0 and self.use_spec_decode and not req.py_disable_speculative_decoding:
+                     req.py_draft_tokens = [0] * self.max_total_draft_tokens
+diff --git a/tensorrt_llm/_torch/pyexecutor/sampler.py b/tensorrt_llm/_torch/pyexecutor/sampler.py
+index 1418910..cee6430 100644
+--- a/tensorrt_llm/_torch/pyexecutor/sampler.py
++++ b/tensorrt_llm/_torch/pyexecutor/sampler.py
+@@ -1407,15 +1407,22 @@ class TorchSampler(Sampler, AsyncWorkerMixin):
+             target_indices = (source_indices + d2t) % vocab_t
+             aligned_draft_probs[..., target_indices] = draft_probs
+             draft_probs = aligned_draft_probs
++        num_draft_tokens = draft_probs.size(0)
++        draft_token_length = get_draft_token_length(request)
++        if not (0 < num_draft_tokens <= draft_token_length):
++            raise ValueError(
++                f"draft_probs row count ({num_draft_tokens}) must be in "
++                f"(0, {draft_token_length}]"
++            )
+         rejected_indices = get_rejected_indices(
+             draft_probs,
+             target_probs,
+             generator,
+-            request.py_draft_tokens,
++            request.py_draft_tokens[:num_draft_tokens],
+         )
+         sample_last = True
+         if rejected_indices.numel() == 0:
+-            num_initially_accepted = get_draft_token_length(request)
++            num_initially_accepted = num_draft_tokens
+             sample_last = False
+         else:
+             num_initially_accepted = cast(int, rejected_indices[0].item())
+diff --git a/tensorrt_llm/_torch/pyexecutor/sampling_utils.py b/tensorrt_llm/_torch/pyexecutor/sampling_utils.py
+index b2c660f..4e86f80 100644
+--- a/tensorrt_llm/_torch/pyexecutor/sampling_utils.py
++++ b/tensorrt_llm/_torch/pyexecutor/sampling_utils.py
+@@ -431,23 +431,32 @@ def get_rejected_indices(
+     generator: torch.Generator,
+     draft_tokens: list[int],
+ ) -> torch.Tensor:
+-    # NB: ModelDrafter._pad_to_max_draft_tokens pads draft_tokens, but
+-    #     not draft_probs. Relying on shape of draft_probs here.
+-    num_draft_tokens = draft_probs.size(0)
+-    draft_tokens = draft_tokens[:num_draft_tokens]
++    num_draft_tokens = len(draft_tokens)
++    if draft_probs.size(0) != num_draft_tokens:
++        raise ValueError(
++            f"draft_probs row count ({draft_probs.size(0)}) does not match "
++            f"number of draft tokens ({num_draft_tokens})"
++        )
+     # NB: torch.arange is needed to enable "advanced indexing",
+     #   cf. https://numpy.org/devdocs/user/basics.indexing.html#integer-array-indexing
+     token_idx = torch.arange(num_draft_tokens, dtype=torch.int32, device=generator.device)
+-    draft_tokens_cuda = torch.tensor(draft_tokens, dtype=torch.int32, pin_memory=True).to(
+-        device=generator.device, non_blocking=True
+-    )
++    draft_tokens_cuda = torch.tensor(
++        draft_tokens, dtype=torch.int32, pin_memory=generator.device.type == "cuda"
++    ).to(device=generator.device, non_blocking=True)
+     p = draft_probs[token_idx, draft_tokens_cuda]
+     q = target_probs.squeeze(0)[token_idx, draft_tokens_cuda]
+-    accept_probs = torch.minimum(torch.ones((), device=generator.device, dtype=q.dtype), q / p)
++    accept_probs = torch.where(
++        q > 0,
++        torch.minimum(torch.ones((), device=generator.device, dtype=q.dtype), q / p),
++        torch.zeros_like(q),
++    )
+     # Use deterministic random generation for multi-GPU consistency
+     rejected_indices = (
+-        torch.rand(accept_probs.shape, generator=generator, device=accept_probs.device)
+-        > accept_probs
++        (
++            torch.rand(accept_probs.shape, generator=generator, device=accept_probs.device)
++            > accept_probs
++        )
++        | (q <= 0)
+     ).nonzero()
+     return rejected_indices
+ 
+diff --git a/tensorrt_llm/_torch/speculative/model_drafter.py b/tensorrt_llm/_torch/speculative/model_drafter.py
+index 6c73426..c557a94 100644
+--- a/tensorrt_llm/_torch/speculative/model_drafter.py
++++ b/tensorrt_llm/_torch/speculative/model_drafter.py
+@@ -97,8 +97,9 @@ class ModelDrafter(Drafter):
+             assert spec_config._allow_greedy_draft_tokens
+             assert spec_config.draft_len_schedule is None
+ 
+-        # Create accumulator for draft tokens in non-CDL mode
++        # Create accumulators for draft tokens and logits in non-CDL mode
+         self.draft_tokens_accumulator: Dict[int, List[int]] = {}
++        self.draft_logits_accumulator: Dict[int, List[torch.Tensor]] = {}
+ 
+         # Initialize draft latency tracking for specDecodingStats
+         self.last_draft_latency_ms = 0.0
+@@ -115,14 +116,13 @@ class ModelDrafter(Drafter):
+         return LlmRequest(
+             input_tokens=input_tokens,
+             request_id=request.py_request_id,
+-            max_new_tokens=request.py_max_new_tokens,
++            max_new_tokens=max(request.py_max_new_tokens, self.max_draft_len),
+             sampling_config=request.sampling_config,
+             guided_decoding_params=request.guided_decoding_params,
+             target_seq_slot=request.py_seq_slot,
+             return_perf_metrics=request.return_perf_metrics,
+             is_streaming=False,
+-            exclude_last_generation_logits=
+-            True,  # prepare_draft_tokens uses overlap scheduling
++            exclude_last_generation_logits=False,
+             is_draft=True,
+             # NB: self.sampler is shared with PyExecutor
+             return_generation_logits=self.sampler.should_provide_draft_probs(
+@@ -473,12 +473,20 @@ class ModelDrafter(Drafter):
+                 # generation_logits returns [beam_width, seq_length, vocab_size]
+                 beam_width = generation_logits.size(0)
+                 assert beam_width == 1, f"expected beam_width=1, got {beam_width}"
+-                generation_logits.squeeze_(0)
++                generation_logits = generation_logits.squeeze(0)
++                step_idx = draft_position - 1
++                assert generation_logits.size(0) > step_idx, (
++                    f"expected at least {draft_position} draft logit rows, "
++                    f"got {generation_logits.size(0)}")
++                step_logits = generation_logits[step_idx]
+                 # Transfer to CUDA if needed (chunked LogitsStorage stores on CPU)
+-                if generation_logits.device.type == 'cpu':
+-                    generation_logits = generation_logits.to('cuda',
+-                                                             non_blocking=True)
+-            target_model_req.py_draft_logits = generation_logits
++                if (step_logits.device.type == 'cpu'
++                        and torch.cuda.is_available()):
++                    step_logits = step_logits.to('cuda', non_blocking=True)
++                if req.py_request_id not in self.draft_logits_accumulator:
++                    self.draft_logits_accumulator[req.py_request_id] = []
++                self.draft_logits_accumulator[req.py_request_id].append(
++                    step_logits)
+ 
+             if req.state != LlmRequestState.GENERATION_COMPLETE and draft_position < target_model_req.py_draft_pages_allocated:
+                 new_requests.append(req)
+@@ -651,6 +659,7 @@ class ModelDrafter(Drafter):
+             if target_model_req.is_context_init_state:
+                 continue
+             target_model_req.py_draft_tokens = [0] * self.max_draft_len
++            target_model_req.py_draft_logits = None
+ 
+         self.draft_seq_slot_manager.prepare_resources(draft_batch)
+         return draft_batch
+@@ -708,6 +717,9 @@ class ModelDrafter(Drafter):
+         for req_id, tokens in self.draft_tokens_accumulator.items():
+             target_model_req = self.req_id_to_old_request[req_id]
+             target_model_req.py_draft_tokens = tokens
++            logits_list = self.draft_logits_accumulator.get(req_id)
++            target_model_req.py_draft_logits = (
++                torch.stack(logits_list, dim=0) if logits_list else None)
+ 
+     @nvtx_range("_execute_draft_iteration")
+     def _execute_draft_iteration(
+@@ -812,8 +824,9 @@ class ModelDrafter(Drafter):
+         draft_batch.context_requests = []
+ 
+         previous_draft_state = initial_draft_state
+-        # reset draft tokens accumulator
++        # reset draft tokens and logits accumulators
+         self.draft_tokens_accumulator = {}
++        self.draft_logits_accumulator = {}
+         # Generate remaining draft tokens iteratively
+         for i in range(self.max_draft_len - 1):
+             if len(draft_batch.generation_requests) == 0:
+@@ -1028,6 +1041,9 @@ class ModelDrafter(Drafter):
+             for req_id, tokens in self.draft_tokens_accumulator.items():
+                 target_model_req = self.req_id_to_old_request[req_id]
+                 target_model_req.py_draft_tokens = tokens
++                logits_list = self.draft_logits_accumulator.get(req_id)
++                target_model_req.py_draft_logits = (
++                    torch.stack(logits_list, dim=0) if logits_list else None)
+ 
+             # Record draft latency for stats
+             draft_end_time = time.time()
+diff --git a/tests/unittest/_torch/speculative/test_torch_rejection_sampling.py b/tests/unittest/_torch/speculative/test_torch_rejection_sampling.py
+index e28d00d..2032fd1 100644
+--- a/tests/unittest/_torch/speculative/test_torch_rejection_sampling.py
++++ b/tests/unittest/_torch/speculative/test_torch_rejection_sampling.py
+@@ -1,12 +1,18 @@
+ import unittest
++from types import SimpleNamespace
+ from typing import cast
+ 
+ import numpy as np
++import pytest
+ import torch
+ from scipy.stats import entropy
+ 
+-from tensorrt_llm._torch.pyexecutor.sampler import (get_rejected_indices,
++from tensorrt_llm._torch.pyexecutor.handle_logits import HandleLogits
++from tensorrt_llm._torch.pyexecutor.llm_request import LlmRequestState, PyResult
++from tensorrt_llm._torch.pyexecutor.sampler import (TorchSampler,
++                                                    get_rejected_indices,
+                                                     sample_rejected)
++from tensorrt_llm._torch.speculative.model_drafter import ModelDrafter
+ 
+ 
+ def test_get_rejected_indices():
+@@ -53,5 +59,303 @@ def test_get_rejected_indices():
+     assert abs(kl_divergence - kl_divergence_regular) < 0.01
+ 
+ 
++def test_get_rejected_indices_zero_target_prob_rejected():
++    # Token 1 has p == 0 and q == 0 (0 / 0 = NaN in unguarded q / p);
++    # Token 2 has p > 0 and q == 0. Both must always be rejected.
++    draft_probs = torch.tensor([
++        [0.5, 0.0, 0.5, 0.0],
++        [0.5, 0.0, 0.5, 0.0],
++        [0.0, 0.0, 1.0, 0.0],
++    ])
++    target_probs = torch.tensor([
++        [0.5, 0.0, 0.5, 0.0],
++        [0.5, 0.0, 0.5, 0.0],
++        [1.0, 0.0, 0.0, 0.0],
++        [0.25, 0.25, 0.25, 0.25],
++    ])
++    generator = torch.Generator()
++    generator.manual_seed(42)
++
++    # Draft token 0 at pos 0 (p=0.5, q=0.5 -> accepted),
++    # Draft token 1 at pos 1 (p=0.0, q=0.0 -> must be rejected),
++    # Draft token 2 at pos 2 (p=1.0, q=0.0 -> must be rejected).
++    draft_tokens = [0, 1, 2]
++    rejected_indices = get_rejected_indices(draft_probs, target_probs,
++                                            generator, draft_tokens)
++    rejected_list = rejected_indices.squeeze(-1).tolist()
++    if isinstance(rejected_list, int):
++        rejected_list = [rejected_list]
++    assert 1 in rejected_list
++    assert 2 in rejected_list
++    assert rejected_list[0] == 1
++
++
++def test_get_rejected_indices_mismatched_row_count_raises():
++    vocab_size = 8
++    draft_probs = torch.full((2, vocab_size), 1.0 / vocab_size)
++    target_probs = torch.full((4, vocab_size), 1.0 / vocab_size)
++    generator = torch.Generator()
++
++    with pytest.raises(ValueError, match="draft_probs row count"):
++        get_rejected_indices(draft_probs, target_probs, generator, [1, 2, 3])
++
++    with pytest.raises(ValueError, match="draft_probs row count"):
++        get_rejected_indices(draft_probs, target_probs, generator, [1])
++
++
++@pytest.mark.parametrize("use_chunked_generation_logits", [False, True])
++def test_process_decoded_tokens_accumulates_draft_logits_in_order(
++        monkeypatch, use_chunked_generation_logits: bool):
++    if not torch.cuda.is_available():
++        orig_empty = torch.empty
++        monkeypatch.setattr(
++            torch,
++            "empty",
++            lambda *args, **kwargs: orig_empty(
++                *args, **{
++                    **kwargs, "pin_memory": False
++                }),
++        )
++
++    vocab_size = 8
++    max_draft_len = 3
++    target_prompt_len = 5
++
++    py_result = PyResult(
++        prompt_len=target_prompt_len + 1,
++        max_new_tokens=max_draft_len,
++        use_device_memory=False,
++        streaming=False,
++        return_log_probs=False,
++        return_context_logits=False,
++        return_generation_logits=True,
++        exclude_last_generation_logits=False,
++        use_chunked_generation_logits=use_chunked_generation_logits,
++    )
++
++    target_req = SimpleNamespace(
++        py_request_id=7,
++        state=LlmRequestState.GENERATION_IN_PROGRESS,
++        py_draft_pages_allocated=max_draft_len,
++        py_draft_tokens=[],
++        py_draft_logits=None,
++    )
++    draft_req = SimpleNamespace(
++        py_request_id=7,
++        state=LlmRequestState.GENERATION_IN_PROGRESS,
++        py_prompt_len=target_prompt_len + 1,
++        context_current_position=0,
++        context_chunk_size=3,
++        py_return_context_logits=False,
++        py_return_generation_logits=True,
++        py_use_chunked_generation_logits=use_chunked_generation_logits,
++        is_last_context_chunk=False,
++        py_is_draft=True,
++        py_result=py_result,
++        _last_token=0,
++        get_last_tokens=lambda beam: draft_req._last_token,
++    )
++
++    drafter = ModelDrafter.__new__(ModelDrafter)
++    drafter.max_draft_len = max_draft_len
++    drafter.max_total_draft_tokens = max_draft_len
++    drafter.draft_tokens_accumulator = {}
++    drafter.draft_logits_accumulator = {}
++    drafter.req_id_to_old_request = {7: target_req}
++    drafter.draft_seq_slot_manager = SimpleNamespace(
++        free_resources=lambda req: None)
++    drafter.update_requests = lambda state, resource_manager=None: None
++
++    with torch.inference_mode():
++        step_logits = [
++            torch.arange(vocab_size, dtype=torch.float32) + 10.0 * step
++            for step in range(max_draft_len)
++        ]
++    drafted_tokens = [3, 5, 2]
++
++    # Non-final context chunk (end_compute=3 < py_prompt_len - 1=5) must not append logits.
++    HandleLogits()(
++        context_requests=[draft_req],
++        generation_requests=[],
++        logits=step_logits[0].unsqueeze(0),
++        beam_width=1,
++        num_context_logits_prefix_sum=[0, 1],
++        is_generation_model=True,
++    )
++    assert draft_req.py_result.generation_logits is None
++
++    # Final draft context chunk (end_compute=5 == py_prompt_len - 1) appends L_0.
++    draft_req.context_chunk_size = target_prompt_len
++    HandleLogits()(
++        context_requests=[draft_req],
++        generation_requests=[],
++        logits=step_logits[0].unsqueeze(0),
++        beam_width=1,
++        num_context_logits_prefix_sum=[0, 1],
++        is_generation_model=True,
++    )
++
++    draft_batch = SimpleNamespace(all_requests=lambda: [draft_req])
++
++    # In _execute_draft_loop, step i+1's HandleLogits runs before
++    # process_decoded_tokens(draft_position=i+1).
++    for i in range(max_draft_len - 1):
++        draft_req._last_token = drafted_tokens[i]
++        HandleLogits()(
++            context_requests=[],
++            generation_requests=[draft_req],
++            logits=step_logits[i + 1].unsqueeze(0),
++            beam_width=1,
++            num_context_logits_prefix_sum=[0],
++            is_generation_model=True,
++        )
++        drafter.process_decoded_tokens(draft_batch, draft_position=i + 1)
++        assert target_req.py_draft_logits is None
++
++    # Final step in process_dynamic_draft_outputs (draft_position=max_draft_len)
++    draft_req._last_token = drafted_tokens[max_draft_len - 1]
++    final_state = SimpleNamespace(scheduled_requests=draft_batch)
++    drafter.process_dynamic_draft_outputs(final_state)
++
++    assert target_req.py_draft_tokens == drafted_tokens
++    assert target_req.py_draft_logits is not None
++    assert target_req.py_draft_logits.shape == (max_draft_len, vocab_size)
++    for step in range(max_draft_len):
++        assert torch.equal(target_req.py_draft_logits[step].cpu(),
++                           step_logits[step])
++
++
++def test_early_stop_draft_rejection_sampling(monkeypatch):
++    if not torch.cuda.is_available():
++        orig_empty = torch.empty
++        monkeypatch.setattr(
++            torch,
++            "empty",
++            lambda *args, **kwargs: orig_empty(
++                *args, **{
++                    **kwargs, "pin_memory": False
++                }),
++        )
++
++    vocab_size = 4
++    max_draft_len = 3
++    target_prompt_len = 5
++
++    py_result = PyResult(
++        prompt_len=target_prompt_len + 1,
++        max_new_tokens=max_draft_len,
++        use_device_memory=False,
++        streaming=False,
++        return_log_probs=False,
++        return_context_logits=False,
++        return_generation_logits=True,
++        exclude_last_generation_logits=False,
++        use_chunked_generation_logits=True,
++    )
++
++    added_tokens: list[int] = []
++    target_req = SimpleNamespace(
++        py_request_id=11,
++        state=LlmRequestState.GENERATION_IN_PROGRESS,
++        py_draft_pages_allocated=max_draft_len,
++        py_draft_tokens=[0] * max_draft_len,
++        py_draft_logits=None,
++        py_target_probs=None,
++        py_draft_use_greedy_sampling=False,
++        py_sampling_strategy=("temperature", 1.0),
++        seq_slot=0,
++        py_seq_slot=0,
++        py_end_id=-1,
++        py_orig_prompt_len=target_prompt_len,
++        py_max_new_tokens=32,
++        py_stop_words_list=None,
++        add_new_token=lambda token, beam_idx: added_tokens.append(token),
++        get_num_tokens=lambda beam_idx: target_prompt_len + len(added_tokens),
++        get_tokens=lambda beam_idx: [1] * target_prompt_len + added_tokens,
++        finish_by=lambda reason, beam_idx: None,
++    )
++    draft_req = SimpleNamespace(
++        py_request_id=11,
++        state=LlmRequestState.GENERATION_COMPLETE,
++        py_prompt_len=target_prompt_len + 1,
++        context_current_position=0,
++        context_chunk_size=target_prompt_len,
++        py_return_context_logits=False,
++        py_return_generation_logits=True,
++        py_use_chunked_generation_logits=True,
++        is_last_context_chunk=False,
++        py_is_draft=True,
++        py_result=py_result,
++        _last_token=2,
++        get_last_tokens=lambda beam: draft_req._last_token,
++    )
++
++    drafter = ModelDrafter.__new__(ModelDrafter)
++    drafter.max_draft_len = max_draft_len
++    drafter.max_total_draft_tokens = max_draft_len
++    drafter._static_max_total_draft_tokens = max_draft_len
++    drafter.draft_tokens_accumulator = {}
++    drafter.draft_logits_accumulator = {}
++    drafter.req_id_to_old_request = {11: target_req}
++    drafter.draft_seq_slot_manager = SimpleNamespace(
++        free_resources=lambda req: None)
++    drafter.update_requests = lambda state, resource_manager=None: None
++
++    with torch.inference_mode():
++        l0 = torch.tensor([0.0, 0.0, 10.0, 0.0])
++
++    # Step 0 produces L_0; draft_req then finishes after m=1 (< K=3) token.
++    HandleLogits()(
++        context_requests=[draft_req],
++        generation_requests=[],
++        logits=l0.unsqueeze(0),
++        beam_width=1,
++        num_context_logits_prefix_sum=[0, 1],
++        is_generation_model=True,
++    )
++    draft_batch = SimpleNamespace(all_requests=lambda: [draft_req])
++    remaining = drafter.process_decoded_tokens(draft_batch, draft_position=1)
++    assert remaining == []
++
++    empty_batch = SimpleNamespace(all_requests=lambda: [])
++    drafter.process_dynamic_draft_outputs(
++        SimpleNamespace(scheduled_requests=empty_batch))
++
++    # Padded draft tokens have length K=3 ([2, 0, 0]), while py_draft_logits has m=1 row.
++    assert target_req.py_draft_tokens == [2, 0, 0]
++    assert target_req.py_draft_logits is not None
++    assert target_req.py_draft_logits.shape == (1, vocab_size)
++
++    target_req.py_draft_logits = target_req.py_draft_logits.cpu()
++    target_req.py_target_probs = torch.tensor([
++        [0.0, 0.0, 1.0, 0.0],
++        [0.0, 0.0, 0.0, 1.0],
++        [1.0, 0.0, 0.0, 0.0],
++        [0.0, 1.0, 0.0, 0.0],
++    ])
++
++    generator = torch.Generator()
++    generator.manual_seed(0)
++    sampler = TorchSampler.__new__(TorchSampler)
++    sampler.max_seq_len = 128
++    sampler.get_generator = lambda device: generator
++
++    new_tokens_tensor = torch.zeros((max_draft_len + 1, 1, 1),
++                                    dtype=torch.int32)
++    # Distinct bonus tokens at each step: step m=1 has token 3, step K=3 has token 1.
++    new_tokens_list = [[[2]], [[3]], [[0]], [[1]]]
++
++    num_accepted = sampler._process_draft_tokens_rejection_sampling(
++        target_req, new_tokens_list, new_tokens_tensor)
++    assert num_accepted == 1
++    assert added_tokens == [2, 3]
++
++    # Out-of-bounds draft_probs row count (> K) raises a clear ValueError.
++    target_req.py_draft_logits = torch.zeros((max_draft_len + 1, vocab_size))
++    with pytest.raises(ValueError, match="draft_probs row count"):
++        sampler._process_draft_tokens_rejection_sampling(
++            target_req, new_tokens_list, new_tokens_tensor)
++
++
+ if __name__ == "__main__":
+     unittest.main()

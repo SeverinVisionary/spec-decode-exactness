@@ -1,0 +1,18 @@
+trtllm/FA/NULL/S0        null  N=1000000 p=0.836 chi2=931.8/975 tv=0.0059 zero=0 level=0.0017 
+trtllm/FA/NULL/S1        null  N=1000000 p=0.0716 chi2=467.4/424 tv=0.0038 zero=0 level=0.0017 
+trtllm/FA/TG1v/S0        cell  N=1000000 p=0 chi2=30920893.6/975 tv=0.4968 zero=0 level=0.0017 CONFIRMED
+trtllm/FA/TG1v/S1        cell  N=1000000 p=0 chi2=179975267.4/424 tv=0.5822 zero=0 level=0.0017 CONFIRMED
+trtllm/FA/NULL/S2        null  N=1000000 p=0.91 chi2=45.9/60 tv=0.0017 zero=0 level=0.0017 
+trtllm/FA/NULL/S3        null  N=1000000 p=0.675 chi2=29.8/34 tv=0.0013 zero=0 level=0.0017 
+trtllm/FA/TG1v/S2        cell  N=1000000 p=0 chi2=100292470707.4/60 tv=0.5742 zero=449762 level=0.0017 CONFIRMED
+trtllm/FA/TG1v/S3        cell  N=1000000 p=0 chi2=inf/34 tv=0.4746 zero=376375 level=0.0017 CONFIRMED
+trtllm/FB/NULL/S0        null  N=1000000 p=0.929 prefixes=1571 informative=1571 missing=0 level=0.0017 
+trtllm/FB/TG1v/S0        cell  N=1000000 p=0 prefixes=1571 informative=1517 missing=0 level=0.0017 CONFIRMED
+trtllm/FB/NULL/S2        null  N=1000000 p=0.529 prefixes=270 informative=270 missing=0 level=0.0017 
+trtllm/FB/TG1v/S2        cell  N=1000000 p=0 prefixes=270 informative=250 missing=0 level=0.0017 CONFIRMED
+cells: 6
+nulls: 6
+nulls_rejected: []
+confirmed: ['trtllm/FA/TG1v/S0', 'trtllm/FA/TG1v/S1', 'trtllm/FA/TG1v/S2', 'trtllm/FA/TG1v/S3', 'trtllm/FB/TG1v/S0', 'trtllm/FB/TG1v/S2']
+
+exit 0

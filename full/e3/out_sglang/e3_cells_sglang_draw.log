@@ -1,0 +1,4 @@
+gate-passed settings ['S0', 'S1']
+cell S0 {"key": "sglang/FA/SG1@fit/S0", "chunks": 20, "moved_partial": null}
+cell S1 {"key": "sglang/FA/SG1@fit/S1", "chunks": 20, "moved_partial": null}
+greedy G {"key": "sglang/FA/SG1@fit/G", "chunks": 1, "moved_partial": null}

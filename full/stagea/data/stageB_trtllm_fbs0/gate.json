@@ -1,0 +1,182 @@
+{
+ "gpu": "NVIDIA L4",
+ "built": "2026-10-20T22:07:35Z",
+ "environment": {
+  "python": "3.12.3",
+  "platform": "Linux-6.6.122+-x86_64-with-glibc2.39",
+  "gpu": "NVIDIA L4, 580.82.07, 23034 MiB",
+  "compute_cap": "8.9",
+  "cuda": "Build cuda_13.0.r13.0/compiler.36424714_0",
+  "harness_git": "9943e7542cc3927291b174c1fb95954b1e4026b9",
+  "torch": "2.9.1+cu130",
+  "transformers": "4.57.3",
+  "vllm": "not installed",
+  "sglang": "not installed",
+  "tensorrt_llm": "1.2.1",
+  "numpy": "1.26.4",
+  "pyarrow": "25.0.1",
+  "TRITON_F32_DEFAULT": null
+ },
+ "verdicts": {
+  "FA/S0": {
+   "passed": true,
+   "delta_num": 2.1436530692875823e-07,
+   "mde": 0.0026910819133657633,
+   "bound": 4.485136522276272e-05,
+   "reports": 1,
+   "failed_reports": 0
+  },
+  "FA/S1": {
+   "passed": true,
+   "delta_num": 2.2063040976731077e-07,
+   "mde": 0.001480457163932594,
+   "bound": 2.4674286065543234e-05,
+   "reports": 1,
+   "failed_reports": 0
+  },
+  "FA/S2": {
+   "passed": true,
+   "delta_num": 1.9009138514658463e-07,
+   "mde": 0.0011055487622132077,
+   "bound": 1.8425812703553462e-05,
+   "reports": 1,
+   "failed_reports": 0
+  },
+  "FA/S3": {
+   "passed": true,
+   "delta_num": 1.6775235456290005e-07,
+   "mde": 0.004340160939456664,
+   "bound": 7.233601565761108e-05,
+   "reports": 1,
+   "failed_reports": 0
+  },
+  "FB/S0": {
+   "passed": true,
+   "delta_num": 1.2414239793099477e-06,
+   "mde": 0.0009765625,
+   "bound": 1.6276041666666666e-05,
+   "reports": 1,
+   "failed_reports": 0
+  },
+  "FB/S2": {
+   "passed": true,
+   "delta_num": 1.0537729736581625e-06,
+   "mde": 0.009765625000000002,
+   "bound": 0.00016276041666666668,
+   "reports": 1,
+   "failed_reports": 0
+  }
+ },
+ "results": [
+  {
+   "arm": "gate",
+   "status": "RUNS",
+   "wall_s": 703.74,
+   "reference": {
+    "FA/S0": {
+     "delta_num": 2.1436530692875823e-07,
+     "finite": true,
+     "argmax_prefix": 395,
+     "support_mismatch": 0,
+     "row_sum_dev": 1.3213139027357101e-07,
+     "rows": 51200,
+     "prefixes": 400,
+     "copy_dev": 1.1920928955078125e-07,
+     "strategies": [
+      "('temperature', 1.0)"
+     ],
+     "sampler_batch_rows": [
+      1,
+      128
+     ]
+    },
+    "FA/S1": {
+     "delta_num": 2.2063040976731077e-07,
+     "finite": true,
+     "argmax_prefix": 395,
+     "support_mismatch": 0,
+     "row_sum_dev": 1.3861426850780845e-07,
+     "rows": 51200,
+     "prefixes": 400,
+     "copy_dev": 1.7881393432617188e-07,
+     "strategies": [
+      "('temperature', 0.699999988079071)"
+     ],
+     "sampler_batch_rows": [
+      1,
+      128
+     ]
+    },
+    "FA/S2": {
+     "delta_num": 1.9009138514658463e-07,
+     "finite": true,
+     "argmax_prefix": 395,
+     "support_mismatch": 0,
+     "row_sum_dev": 1.210719347000122e-07,
+     "rows": 51200,
+     "prefixes": 400,
+     "copy_dev": 1.7881393432617188e-07,
+     "strategies": [
+      "('top_k', 3, 1.0)"
+     ],
+     "sampler_batch_rows": [
+      1,
+      128
+     ]
+    },
+    "FA/S3": {
+     "delta_num": 1.6775235456290005e-07,
+     "finite": true,
+     "argmax_prefix": 395,
+     "support_mismatch": 0,
+     "row_sum_dev": 8.940696716308594e-08,
+     "rows": 51200,
+     "prefixes": 400,
+     "copy_dev": 1.7881393432617188e-07,
+     "strategies": [
+      "('top_p', 0.800000011920929, 1.0)"
+     ],
+     "sampler_batch_rows": [
+      1,
+      128
+     ]
+    },
+    "FB/S0": {
+     "delta_num": 1.2414239793099477e-06,
+     "finite": true,
+     "argmax_prefix": 1940,
+     "support_mismatch": 0,
+     "row_sum_dev": 2.2641822106095333e-07,
+     "rows": 310400,
+     "prefixes": 2425,
+     "copy_dev": 1.430511474609375e-06,
+     "strategies": [
+      "('temperature', 1.0)"
+     ],
+     "sampler_batch_rows": [
+      1,
+      128
+     ]
+    },
+    "FB/S2": {
+     "delta_num": 1.0537729736581625e-06,
+     "finite": true,
+     "argmax_prefix": 10,
+     "support_mismatch": 0,
+     "row_sum_dev": 1.043081283569336e-07,
+     "rows": 37888,
+     "prefixes": 296,
+     "copy_dev": 1.0728836059570312e-06,
+     "strategies": [
+      "('top_k', 3, 1.0)"
+     ],
+     "sampler_batch_rows": [
+      1,
+      128
+     ]
+    }
+   },
+   "note": "R_eng captured from the live TorchSampler (sampling_utils.sample); S4-S6 BLOCKED (FR12); G is checked by argmax in Stage A"
+  }
+ ]
+}

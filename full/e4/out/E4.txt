@@ -1,0 +1,14 @@
+[T1] base halves: {"tv": 0.015600000000000013, "chi2": 38.26577942380811, "dof": 21, "p": 0.01199459329258596}
+[topk3] base halves: {"tv": 0.012699999999999998, "chi2": 19.340671153996404, "dof": 15, "p": 0.19870929791400901}
+[T1] F0        TV 0.0172 p 4.94e-22 | R<K 59898/59898 beyond-R 0 zero-p 0 | calibration FAIL (min p_holm 0)
+[T1] F1        TV 0.0105 p 0.564 | R<K 0/59914 beyond-R 0 zero-p 0 | calibration ok (min p_holm 1)
+[T1] F12       TV 0.0049 p 0.963 | R<K 0/59918 beyond-R 0 zero-p 0 | calibration FAIL (min p_holm 0)
+[T1] F123      TV 0.0134 p 0.0647 | R<K 0/59912 beyond-R 0 zero-p 0 | calibration ok (min p_holm 1)
+[T1] F13       TV 0.0106 p 0.61 | R<K 0/59913 beyond-R 0 zero-p 0 | calibration ok (min p_holm 0.0284)
+[T1] F3        TV 0.0168 p 9.57e-27 | R<K 59874/59874 beyond-R 0 zero-p 0 | calibration FAIL (min p_holm 0)
+[topk3] F0        TV 0.9997 p 0 | R<K 20012/20012 beyond-R 0 zero-p 19994 | calibration FAIL (min p_holm 0)
+[topk3] F1        TV 0.0084 p 0.851 | R<K 0/59924 beyond-R 0 zero-p 0 | calibration ok (min p_holm 1)
+[topk3] F12       TV 0.0113 p 0.804 | R<K 0/59919 beyond-R 0 zero-p 0 | calibration ok (min p_holm 1)
+[topk3] F123      TV 0.0047 p 0.751 | R<K 0/59917 beyond-R 0 zero-p 0 | calibration ok (min p_holm 1)
+[topk3] F13       TV 0.0128 p 0.257 | R<K 0/59912 beyond-R 0 zero-p 0 | calibration ok (min p_holm 1)
+[topk3] F3        TV 0.0116 p 7.46e-23 | R<K 59923/59923 beyond-R 0 zero-p 0 | calibration FAIL (min p_holm 8.7e-25)

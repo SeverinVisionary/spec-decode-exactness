@@ -1,0 +1,227 @@
+{
+ "phase": "0",
+ "engine": "trtllm",
+ "started": "2026-10-19T02:09:27Z",
+ "environment": {
+  "python": "3.12.3",
+  "platform": "Linux-6.6.122+-x86_64-with-glibc2.39",
+  "gpu": "NVIDIA L4, 580.82.07, 23034 MiB",
+  "compute_cap": "8.9",
+  "cuda": "Build cuda_13.0.r13.0/compiler.36424714_0",
+  "harness_git": "06b6352167f476e87ba66c0ec13622827d180b45",
+  "torch": "2.9.1+cu130",
+  "transformers": "4.57.3",
+  "vllm": "not importable: ModuleNotFoundError",
+  "sglang": "not importable: ModuleNotFoundError",
+  "tensorrt_llm": "1.2.1",
+  "numpy": "1.26.4",
+  "pyarrow": "25.0.1"
+ },
+ "probe_timeout_s": 900,
+ "complete": true,
+ "fixture_sha256": {
+  "target/model.safetensors": "061fcbb7a885ee83d09ecff985bd39c94e2100f05d1f18875908ff774bf4bc93",
+  "draft/model.safetensors": "bd6c546cb880bc5cd7149bd31dc214370a70d843c084541d92ac0eabbbfebe7e",
+  "target.gguf": "c3c681e6fe013dfb3e11bb319a6b54af1a4cd2727b3fa051099a44631311f7a1",
+  "draft.gguf": "d929d3ad9e359db34d92d1a03b727f446f98fa0ec29cf4fe9d7b5d1e63a50e08"
+ },
+ "probes": [
+  {
+   "arm": "NULL_vanilla_vllm",
+   "status": "RUNS",
+   "wall_s": 15.94,
+   "model": "target_vllm",
+   "settings": {
+    "S0": {
+     "seq_per_s": 262.6,
+     "n": 100,
+     "out_of_space": 0
+    },
+    "S2": {
+     "seq_per_s": 367.0,
+     "n": 100,
+     "out_of_space": 0
+    },
+    "G": {
+     "seq_per_s": 384.7,
+     "n": 100,
+     "out_of_space": 0
+    },
+    "S6": {
+     "seq_per_s": 378.8,
+     "n": 100,
+     "out_of_space": 0
+    },
+    "spec_counters": {
+     "draft_tokens": 0,
+     "accepted_tokens": 0,
+     "stat_iterations": 15,
+     "available": true
+    }
+   },
+   "engine_options": {
+    "attn_backend": "VANILLA",
+    "cuda_graphs": "disabled",
+    "overlap_scheduler": "disabled",
+    "flashinfer_sampling": "disabled",
+    "worker": "single-process",
+    "kv_cache_free_gpu_memory_fraction": 0.3,
+    "max_num_tokens": 1024,
+    "max_batch_size": 128,
+    "drafter": null,
+    "sampler_notes": "min_p ignored; per-request seed ignored",
+    "flashinfer_rmsnorm": false,
+    "flashinfer_rope": false,
+    "fp32_hook_patched": [
+     "tensorrt_llm._torch.modules.rms_norm",
+     "tensorrt_llm._torch.modules.rotary_embedding"
+    ]
+   }
+  },
+  {
+   "arm": "TG1_vanilla_vllm",
+   "status": "TIMEOUT",
+   "error": "no result within 900 s; process group killed",
+   "settings_done": {},
+   "log_tail": "n process_decoded_tokens\n    generation_logits.squeeze_(0)\nRuntimeError: Inplace update to inference tensor outside InferenceMode is not allowed.You can make a clone to get a normal tensor before doing inplace update.See https://github.com/pytorch/rfcs/pull/17 for more details.\n[10/19/2026-02:10:19] [TRT-LLM] [E] Encountered an error in decode: Inplace update to inference tensor outside InferenceMode is not allowed.You can make a clone to get a normal tensor before doing inplace update.See https://github.com/pytorch/rfcs/pull/17 for more details.\n[10/19/2026-02:10:19] [TRT-LLM] [E] Error in event loop: Inplace update to inference tensor outside InferenceMode is not allowed.You can make a clone to get a normal tensor before doing inplace update.See https://github.com/pytorch/rfcs/pull/17 for more details.\n[10/19/2026-02:10:19] [TRT-LLM] [E] Traceback (most recent call last):\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/py_executor.py\", line 390, in _event_loop_wrapper\n    self.event_loop()\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/py_executor.py\", line 1435, in _executor_loop\n    self.drafter.prepare_draft_tokens(\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/speculative/model_drafter.py\", line 1040, in prepare_draft_tokens\n    raise e\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/speculative/model_drafter.py\", line 1020, in prepare_draft_tokens\n    previous_draft_state = self._execute_draft_loop(\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/speculative/model_drafter.py\", line 836, in _execute_draft_loop\n    new_requests = self.process_decoded_tokens(\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/speculative/model_drafter.py\", line 476, in process_decoded_tokens\n    generation_logits.squeeze_(0)\nRuntimeError: Inplace update to inference tensor outside InferenceMode is not allowed.You can make a clone to get a normal tensor before doing inplace update.See https://github.com/pytorch/rfcs/pull/17 for more details.\n\nException in thread Thread-1 (_event_loop_wrapper):\nTraceback (most recent call last):\n  File \"/usr/lib/python3.12/threading.py\", line 1073, in _bootstrap_inner\n    self.run()\n  File \"/usr/lib/python3.12/threading.py\", line 1010, in run\n    self._target(*self._args, **self._kwargs)\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/py_executor.py\", line 394, in _event_loop_wrapper\n    raise e\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/py_executor.py\", line 390, in _event_loop_wrapper\n    self.event_loop()\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/py_executor.py\", line 1435, in _executor_loop\n    self.drafter.prepare_draft_tokens(\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/speculative/model_drafter.py\", line 1040, in prepare_draft_tokens\n    raise e\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/speculative/model_drafter.py\", line 1020, in prepare_draft_tokens\n    previous_draft_state = self._execute_draft_loop(\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/speculative/model_drafter.py\", line 836, in _execute_draft_loop\n    new_requests = self.process_decoded_tokens(\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/speculative/model_drafter.py\", line 476, in process_decoded_tokens\n    generation_logits.squeeze_(0)\nRuntimeError: Inplace update to inference tensor outside InferenceMode is not allowed.You can make a clone to get a normal tensor before doing inplace update.See https://github.com/pytorch/rfcs/pull/17 for more details.\n",
+   "wall_s": 900.13
+  },
+  {
+   "arm": "NULL_vanilla_headdim8",
+   "status": "RUNS",
+   "wall_s": 14.68,
+   "model": "target",
+   "settings": {
+    "S0": {
+     "seq_per_s": 244.0,
+     "n": 100,
+     "out_of_space": 0
+    },
+    "S2": {
+     "seq_per_s": 355.9,
+     "n": 100,
+     "out_of_space": 0
+    },
+    "G": {
+     "seq_per_s": 388.9,
+     "n": 100,
+     "out_of_space": 0
+    },
+    "S6": {
+     "seq_per_s": 385.6,
+     "n": 100,
+     "out_of_space": 0
+    },
+    "spec_counters": {
+     "draft_tokens": 0,
+     "accepted_tokens": 0,
+     "stat_iterations": 15,
+     "available": true
+    }
+   },
+   "engine_options": {
+    "attn_backend": "VANILLA",
+    "cuda_graphs": "disabled",
+    "overlap_scheduler": "disabled",
+    "flashinfer_sampling": "disabled",
+    "worker": "single-process",
+    "kv_cache_free_gpu_memory_fraction": 0.3,
+    "max_num_tokens": 1024,
+    "max_batch_size": 128,
+    "drafter": null,
+    "sampler_notes": "min_p ignored; per-request seed ignored",
+    "flashinfer_rmsnorm": false,
+    "flashinfer_rope": false,
+    "fp32_hook_patched": [
+     "tensorrt_llm._torch.modules.rms_norm",
+     "tensorrt_llm._torch.modules.rotary_embedding"
+    ]
+   }
+  },
+  {
+   "arm": "TG1_vanilla_headdim8",
+   "status": "TIMEOUT",
+   "error": "no result within 900 s; process group killed",
+   "settings_done": {},
+   "log_tail": "n process_decoded_tokens\n    generation_logits.squeeze_(0)\nRuntimeError: Inplace update to inference tensor outside InferenceMode is not allowed.You can make a clone to get a normal tensor before doing inplace update.See https://github.com/pytorch/rfcs/pull/17 for more details.\n[10/19/2026-02:25:41] [TRT-LLM] [E] Encountered an error in decode: Inplace update to inference tensor outside InferenceMode is not allowed.You can make a clone to get a normal tensor before doing inplace update.See https://github.com/pytorch/rfcs/pull/17 for more details.\n[10/19/2026-02:25:41] [TRT-LLM] [E] Error in event loop: Inplace update to inference tensor outside InferenceMode is not allowed.You can make a clone to get a normal tensor before doing inplace update.See https://github.com/pytorch/rfcs/pull/17 for more details.\n[10/19/2026-02:25:41] [TRT-LLM] [E] Traceback (most recent call last):\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/py_executor.py\", line 390, in _event_loop_wrapper\n    self.event_loop()\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/py_executor.py\", line 1435, in _executor_loop\n    self.drafter.prepare_draft_tokens(\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/speculative/model_drafter.py\", line 1040, in prepare_draft_tokens\n    raise e\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/speculative/model_drafter.py\", line 1020, in prepare_draft_tokens\n    previous_draft_state = self._execute_draft_loop(\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/speculative/model_drafter.py\", line 836, in _execute_draft_loop\n    new_requests = self.process_decoded_tokens(\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/speculative/model_drafter.py\", line 476, in process_decoded_tokens\n    generation_logits.squeeze_(0)\nRuntimeError: Inplace update to inference tensor outside InferenceMode is not allowed.You can make a clone to get a normal tensor before doing inplace update.See https://github.com/pytorch/rfcs/pull/17 for more details.\n\nException in thread Thread-1 (_event_loop_wrapper):\nTraceback (most recent call last):\n  File \"/usr/lib/python3.12/threading.py\", line 1073, in _bootstrap_inner\n    self.run()\n  File \"/usr/lib/python3.12/threading.py\", line 1010, in run\n    self._target(*self._args, **self._kwargs)\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/py_executor.py\", line 394, in _event_loop_wrapper\n    raise e\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/py_executor.py\", line 390, in _event_loop_wrapper\n    self.event_loop()\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/pyexecutor/py_executor.py\", line 1435, in _executor_loop\n    self.drafter.prepare_draft_tokens(\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/speculative/model_drafter.py\", line 1040, in prepare_draft_tokens\n    raise e\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/speculative/model_drafter.py\", line 1020, in prepare_draft_tokens\n    previous_draft_state = self._execute_draft_loop(\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/speculative/model_drafter.py\", line 836, in _execute_draft_loop\n    new_requests = self.process_decoded_tokens(\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/_torch/speculative/model_drafter.py\", line 476, in process_decoded_tokens\n    generation_logits.squeeze_(0)\nRuntimeError: Inplace update to inference tensor outside InferenceMode is not allowed.You can make a clone to get a normal tensor before doing inplace update.See https://github.com/pytorch/rfcs/pull/17 for more details.\n",
+   "wall_s": 900.13
+  },
+  {
+   "arm": "NULL_trtllm_vllm",
+   "status": "RUNS",
+   "wall_s": 14.36,
+   "model": "target_vllm",
+   "settings": {
+    "S0": {
+     "seq_per_s": 534.6,
+     "n": 100,
+     "out_of_space": 0
+    },
+    "S2": {
+     "seq_per_s": 1012.5,
+     "n": 100,
+     "out_of_space": 0
+    },
+    "G": {
+     "seq_per_s": 1688.5,
+     "n": 100,
+     "out_of_space": 0
+    },
+    "S6": {
+     "seq_per_s": 1281.6,
+     "n": 100,
+     "out_of_space": 0
+    },
+    "spec_counters": {
+     "draft_tokens": 0,
+     "accepted_tokens": 0,
+     "stat_iterations": 15,
+     "available": true
+    }
+   },
+   "engine_options": {
+    "attn_backend": "TRTLLM",
+    "cuda_graphs": "disabled",
+    "overlap_scheduler": "disabled",
+    "flashinfer_sampling": "disabled",
+    "worker": "single-process",
+    "kv_cache_free_gpu_memory_fraction": 0.3,
+    "max_num_tokens": 1024,
+    "max_batch_size": 128,
+    "drafter": null,
+    "sampler_notes": "min_p ignored; per-request seed ignored",
+    "flashinfer_rmsnorm": false,
+    "flashinfer_rope": false,
+    "fp32_hook_patched": [
+     "tensorrt_llm._torch.modules.rms_norm",
+     "tensorrt_llm._torch.modules.rotary_embedding"
+    ]
+   }
+  },
+  {
+   "arm": "TG1_trtllm_vllm",
+   "status": "ERROR",
+   "error": "child exited with code -6 and no result",
+   "settings_done": {},
+   "log_tail": "            0x608852 <runtime>/py312/bin/python() [0x608852]\n67            0x6b50d3 <runtime>/py312/bin/python() [0x6b50d3]\n68            0x6b4e3a _PyRun_SimpleFileObject + 426\n69            0x6b4c6f _PyRun_AnyFileObject + 79\n70            0x6bccd5 Py_RunMain + 949\n71            0x6bc7bd Py_BytesMain + 45\n72      0x7e2a65b771ca /lib/x86_64-linux-gnu/libc.so.6(+0x2a1ca) [0x7e2a65b771ca]\n73      0x7e2a65b7728b __libc_start_main + 139\n74            0x657a05 _start + 37\n[69896574d902:14541] *** Process received signal ***\n[69896574d902:14541] Signal: Aborted (6)\n[69896574d902:14541] Signal code:  (-6)\n[69896574d902:14541] [ 0] /lib/x86_64-linux-gnu/libc.so.6(+0x45330)[0x7e2a65b92330]\n[69896574d902:14541] [ 1] /lib/x86_64-linux-gnu/libc.so.6(pthread_kill+0x11c)[0x7e2a65bebc0c]\n[69896574d902:14541] [ 2] /lib/x86_64-linux-gnu/libc.so.6(gsignal+0x1e)[0x7e2a65b9227e]\n[69896574d902:14541] [ 3] /lib/x86_64-linux-gnu/libc.so.6(abort+0xdf)[0x7e2a65b758ff]\n[69896574d902:14541] [ 4] /lib/x86_64-linux-gnu/libstdc++.so.6(+0xa5ff5)[0x7e2a3e227ff5]\n[69896574d902:14541] [ 5] /lib/x86_64-linux-gnu/libstdc++.so.6(+0xbb0da)[0x7e2a3e23d0da]\n[69896574d902:14541] [ 6] /lib/x86_64-linux-gnu/libstdc++.so.6(__cxa_call_terminate+0x33)[0x7e2a3e2278e6]\n[69896574d902:14541] [ 7] /lib/x86_64-linux-gnu/libstdc++.so.6(__gxx_personality_v0+0x31a)[0x7e2a3e23c8ba]\n[69896574d902:14541] [ 8] /lib/x86_64-linux-gnu/libgcc_s.so.1(+0x22b06)[0x7e2a629eab06]\n[69896574d902:14541] [ 9] /lib/x86_64-linux-gnu/libgcc_s.so.1(_Unwind_RaiseException+0x311)[0x7e2a629eb1f1]\n[69896574d902:14541] [10] /lib/x86_64-linux-gnu/libstdc++.so.6(__cxa_throw+0x44)[0x7e2a3e23d384]\n[69896574d902:14541] [11] <runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/libs/libth_common.so(_ZN12tensorrt_llm3_v16common17throwRuntimeErrorEPKciS3_+0x79)[0x7e283592d9ac]\n[69896574d902:14541] [12] <runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/libs/libtensorrt_llm.so(_ZN12tensorrt_llm3_v16common2op11AttentionOp10initializeEv+0x1895)[0x7e27f697ee05]\n[69896574d902:14541] [13] <runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/libs/libth_common.so(_ZN12tensorrt_llm3_v19torch_ext9attentionEN2at6TensorESt8optionalIS3_ES5_RS3_S5_S5_S3_S3_S3_S3_S3_S3_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_bblllllS4_IlEllllllldlldlSt6vectorIdSaIdEES8_IlSaIlEEbS7_bS7_S7_S7_S7_S7_S7_S5_S5_S8_IS5_SaIS5_EES7_S5_S8_IbSaIbEESE_S5_S5_S5_S5_lS7_S4_IdESH_S5_S5_S5_S5_S5_S5_S5_+0x2ebc)[0x7e2835e2b98c]\n[69896574d902:14541] [14] <runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/bindings.cpython-312-x86_64-linux-gnu.so(+0x4e95f8)[0x7e28487485f8]\n[69896574d902:14541] [15] <runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/bindings.cpython-312-x86_64-linux-gnu.so(+0x4eb5db)[0x7e284874a5db]\n[69896574d902:14541] [16] <runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/bindings.cpython-312-x86_64-linux-gnu.so(+0x50ca6a)[0x7e284876ba6a]\n[69896574d902:14541] [17] <runtime>/py312/bin/python(_PyEval_EvalFrameDefault+0x4cbe)[0x5db2ee]\n[69896574d902:14541] [18] <runtime>/py312/bin/python[0x54cbb4]\n[69896574d902:14541] [19] <runtime>/py312/bin/python(PyObject_Call+0x115)[0x54b1d5]\n[69896574d902:14541] [20] <runtime>/py312/bin/python(_PyEval_EvalFrameDefault+0x4cbe)[0x5db2ee]\n[69896574d902:14541] [21] <runtime>/py312/bin/python[0x54cbb4]\n[69896574d902:14541] [22] <runtime>/py312/bin/python(PyObject_Call+0x115)[0x54b1d5]\n[69896574d902:14541] [23] <runtime>/py312/bin/python(_PyEval_EvalFrameDefault+0x4cbe)[0x5db2ee]\n[69896574d902:14541] [24] <runtime>/py312/bin/python(_PyObject_Call_Prepend+0x18a)[0x54a8ca]\n[69896574d902:14541] [25] <runtime>/py312/bin/python[0x5a3778]\n[69896574d902:14541] [26] <runtime>/py312/bin/python(PyObject_Call+0x6c)[0x54b12c]\n[69896574d902:14541] [27] <runtime>/py312/bin/python(_PyEval_EvalFrameDefault+0x4cbe)[0x5db2ee]\n[69896574d902:14541] [28] <runtime>/py312/bin/python[0x54cbb4]\n[69896574d902:14541] [29] <runtime>/py312/bin/python(PyObject_Call+0x115)[0x54b1d5]\n[69896574d902:14541] *** End of error message ***\n",
+   "wall_s": 17.06
+  },
+  {
+   "arm": "NULL_trtllm_headdim8",
+   "status": "ERROR",
+   "error": "child exited with code -6 and no result",
+   "settings_done": {},
+   "log_tail": "6            0x608852 <runtime>/py312/bin/python() [0x608852]\n67            0x6b50d3 <runtime>/py312/bin/python() [0x6b50d3]\n68            0x6b4e3a _PyRun_SimpleFileObject + 426\n69            0x6b4c6f _PyRun_AnyFileObject + 79\n70            0x6bccd5 Py_RunMain + 949\n71            0x6bc7bd Py_BytesMain + 45\n72      0x7c854d4381ca /lib/x86_64-linux-gnu/libc.so.6(+0x2a1ca) [0x7c854d4381ca]\n73      0x7c854d43828b __libc_start_main + 139\n74            0x657a05 _start + 37\n[69896574d902:14695] *** Process received signal ***\n[69896574d902:14695] Signal: Aborted (6)\n[69896574d902:14695] Signal code:  (-6)\n[69896574d902:14695] [ 0] /lib/x86_64-linux-gnu/libc.so.6(+0x45330)[0x7c854d453330]\n[69896574d902:14695] [ 1] /lib/x86_64-linux-gnu/libc.so.6(pthread_kill+0x11c)[0x7c854d4acc0c]\n[69896574d902:14695] [ 2] /lib/x86_64-linux-gnu/libc.so.6(gsignal+0x1e)[0x7c854d45327e]\n[69896574d902:14695] [ 3] /lib/x86_64-linux-gnu/libc.so.6(abort+0xdf)[0x7c854d4368ff]\n[69896574d902:14695] [ 4] /lib/x86_64-linux-gnu/libstdc++.so.6(+0xa5ff5)[0x7c8525a27ff5]\n[69896574d902:14695] [ 5] /lib/x86_64-linux-gnu/libstdc++.so.6(+0xbb0da)[0x7c8525a3d0da]\n[69896574d902:14695] [ 6] /lib/x86_64-linux-gnu/libstdc++.so.6(__cxa_call_terminate+0x33)[0x7c8525a278e6]\n[69896574d902:14695] [ 7] /lib/x86_64-linux-gnu/libstdc++.so.6(__gxx_personality_v0+0x31a)[0x7c8525a3c8ba]\n[69896574d902:14695] [ 8] /lib/x86_64-linux-gnu/libgcc_s.so.1(+0x22b06)[0x7c854a2abb06]\n[69896574d902:14695] [ 9] /lib/x86_64-linux-gnu/libgcc_s.so.1(_Unwind_RaiseException+0x311)[0x7c854a2ac1f1]\n[69896574d902:14695] [10] /lib/x86_64-linux-gnu/libstdc++.so.6(__cxa_throw+0x44)[0x7c8525a3d384]\n[69896574d902:14695] [11] <runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/libs/libth_common.so(_ZN12tensorrt_llm3_v16common17throwRuntimeErrorEPKciS3_+0x79)[0x7c831d92d9ac]\n[69896574d902:14695] [12] <runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/libs/libtensorrt_llm.so(_ZN12tensorrt_llm3_v16common2op11AttentionOp10initializeEv+0x5e1)[0x7c82de97db51]\n[69896574d902:14695] [13] <runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/libs/libth_common.so(_ZN12tensorrt_llm3_v19torch_ext9attentionEN2at6TensorESt8optionalIS3_ES5_RS3_S5_S5_S3_S3_S3_S3_S3_S3_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_bblllllS4_IlEllllllldlldlSt6vectorIdSaIdEES8_IlSaIlEEbS7_bS7_S7_S7_S7_S7_S7_S5_S5_S8_IS5_SaIS5_EES7_S5_S8_IbSaIbEESE_S5_S5_S5_S5_lS7_S4_IdESH_S5_S5_S5_S5_S5_S5_S5_+0x2ebc)[0x7c831de2b98c]\n[69896574d902:14695] [14] <runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/bindings.cpython-312-x86_64-linux-gnu.so(+0x4e95f8)[0x7c83307485f8]\n[69896574d902:14695] [15] <runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/bindings.cpython-312-x86_64-linux-gnu.so(+0x4eb5db)[0x7c833074a5db]\n[69896574d902:14695] [16] <runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/bindings.cpython-312-x86_64-linux-gnu.so(+0x50ca6a)[0x7c833076ba6a]\n[69896574d902:14695] [17] <runtime>/py312/bin/python(_PyEval_EvalFrameDefault+0x4cbe)[0x5db2ee]\n[69896574d902:14695] [18] <runtime>/py312/bin/python[0x54cbb4]\n[69896574d902:14695] [19] <runtime>/py312/bin/python(PyObject_Call+0x115)[0x54b1d5]\n[69896574d902:14695] [20] <runtime>/py312/bin/python(_PyEval_EvalFrameDefault+0x4cbe)[0x5db2ee]\n[69896574d902:14695] [21] <runtime>/py312/bin/python[0x54cbb4]\n[69896574d902:14695] [22] <runtime>/py312/bin/python(PyObject_Call+0x115)[0x54b1d5]\n[69896574d902:14695] [23] <runtime>/py312/bin/python(_PyEval_EvalFrameDefault+0x4cbe)[0x5db2ee]\n[69896574d902:14695] [24] <runtime>/py312/bin/python(_PyObject_Call_Prepend+0x18a)[0x54a8ca]\n[69896574d902:14695] [25] <runtime>/py312/bin/python[0x5a3778]\n[69896574d902:14695] [26] <runtime>/py312/bin/python(PyObject_Call+0x6c)[0x54b12c]\n[69896574d902:14695] [27] <runtime>/py312/bin/python(_PyEval_EvalFrameDefault+0x4cbe)[0x5db2ee]\n[69896574d902:14695] [28] <runtime>/py312/bin/python[0x54cbb4]\n[69896574d902:14695] [29] <runtime>/py312/bin/python(PyObject_Call+0x115)[0x54b1d5]\n[69896574d902:14695] *** End of error message ***\n",
+   "wall_s": 17.01
+  },
+  {
+   "arm": "TG1_trtllm_headdim8",
+   "status": "ERROR",
+   "error": "child exited with code -6 and no result",
+   "settings_done": {},
+   "log_tail": "6            0x608852 <runtime>/py312/bin/python() [0x608852]\n67            0x6b50d3 <runtime>/py312/bin/python() [0x6b50d3]\n68            0x6b4e3a _PyRun_SimpleFileObject + 426\n69            0x6b4c6f _PyRun_AnyFileObject + 79\n70            0x6bccd5 Py_RunMain + 949\n71            0x6bc7bd Py_BytesMain + 45\n72      0x79fb637361ca /lib/x86_64-linux-gnu/libc.so.6(+0x2a1ca) [0x79fb637361ca]\n73      0x79fb6373628b __libc_start_main + 139\n74            0x657a05 _start + 37\n[69896574d902:14834] *** Process received signal ***\n[69896574d902:14834] Signal: Aborted (6)\n[69896574d902:14834] Signal code:  (-6)\n[69896574d902:14834] [ 0] /lib/x86_64-linux-gnu/libc.so.6(+0x45330)[0x79fb63751330]\n[69896574d902:14834] [ 1] /lib/x86_64-linux-gnu/libc.so.6(pthread_kill+0x11c)[0x79fb637aac0c]\n[69896574d902:14834] [ 2] /lib/x86_64-linux-gnu/libc.so.6(gsignal+0x1e)[0x79fb6375127e]\n[69896574d902:14834] [ 3] /lib/x86_64-linux-gnu/libc.so.6(abort+0xdf)[0x79fb637348ff]\n[69896574d902:14834] [ 4] /lib/x86_64-linux-gnu/libstdc++.so.6(+0xa5ff5)[0x79fb3bc27ff5]\n[69896574d902:14834] [ 5] /lib/x86_64-linux-gnu/libstdc++.so.6(+0xbb0da)[0x79fb3bc3d0da]\n[69896574d902:14834] [ 6] /lib/x86_64-linux-gnu/libstdc++.so.6(__cxa_call_terminate+0x33)[0x79fb3bc278e6]\n[69896574d902:14834] [ 7] /lib/x86_64-linux-gnu/libstdc++.so.6(__gxx_personality_v0+0x31a)[0x79fb3bc3c8ba]\n[69896574d902:14834] [ 8] /lib/x86_64-linux-gnu/libgcc_s.so.1(+0x22b06)[0x79fb605a9b06]\n[69896574d902:14834] [ 9] /lib/x86_64-linux-gnu/libgcc_s.so.1(_Unwind_RaiseException+0x311)[0x79fb605aa1f1]\n[69896574d902:14834] [10] /lib/x86_64-linux-gnu/libstdc++.so.6(__cxa_throw+0x44)[0x79fb3bc3d384]\n[69896574d902:14834] [11] <runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/libs/libth_common.so(_ZN12tensorrt_llm3_v16common17throwRuntimeErrorEPKciS3_+0x79)[0x79f93592d9ac]\n[69896574d902:14834] [12] <runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/libs/libtensorrt_llm.so(_ZN12tensorrt_llm3_v16common2op11AttentionOp10initializeEv+0x5e1)[0x79f8f697db51]\n[69896574d902:14834] [13] <runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/libs/libth_common.so(_ZN12tensorrt_llm3_v19torch_ext9attentionEN2at6TensorESt8optionalIS3_ES5_RS3_S5_S5_S3_S3_S3_S3_S3_S3_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_bblllllS4_IlEllllllldlldlSt6vectorIdSaIdEES8_IlSaIlEEbS7_bS7_S7_S7_S7_S7_S7_S5_S5_S8_IS5_SaIS5_EES7_S5_S8_IbSaIbEESE_S5_S5_S5_S5_lS7_S4_IdESH_S5_S5_S5_S5_S5_S5_S5_+0x2ebc)[0x79f935e2b98c]\n[69896574d902:14834] [14] <runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/bindings.cpython-312-x86_64-linux-gnu.so(+0x4e95f8)[0x79f9487485f8]\n[69896574d902:14834] [15] <runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/bindings.cpython-312-x86_64-linux-gnu.so(+0x4eb5db)[0x79f94874a5db]\n[69896574d902:14834] [16] <runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/bindings.cpython-312-x86_64-linux-gnu.so(+0x50ca6a)[0x79f94876ba6a]\n[69896574d902:14834] [17] <runtime>/py312/bin/python(_PyEval_EvalFrameDefault+0x4cbe)[0x5db2ee]\n[69896574d902:14834] [18] <runtime>/py312/bin/python[0x54cbb4]\n[69896574d902:14834] [19] <runtime>/py312/bin/python(PyObject_Call+0x115)[0x54b1d5]\n[69896574d902:14834] [20] <runtime>/py312/bin/python(_PyEval_EvalFrameDefault+0x4cbe)[0x5db2ee]\n[69896574d902:14834] [21] <runtime>/py312/bin/python[0x54cbb4]\n[69896574d902:14834] [22] <runtime>/py312/bin/python(PyObject_Call+0x115)[0x54b1d5]\n[69896574d902:14834] [23] <runtime>/py312/bin/python(_PyEval_EvalFrameDefault+0x4cbe)[0x5db2ee]\n[69896574d902:14834] [24] <runtime>/py312/bin/python(_PyObject_Call_Prepend+0x18a)[0x54a8ca]\n[69896574d902:14834] [25] <runtime>/py312/bin/python[0x5a3778]\n[69896574d902:14834] [26] <runtime>/py312/bin/python(PyObject_Call+0x6c)[0x54b12c]\n[69896574d902:14834] [27] <runtime>/py312/bin/python(_PyEval_EvalFrameDefault+0x4cbe)[0x5db2ee]\n[69896574d902:14834] [28] <runtime>/py312/bin/python[0x54cbb4]\n[69896574d902:14834] [29] <runtime>/py312/bin/python(PyObject_Call+0x115)[0x54b1d5]\n[69896574d902:14834] *** End of error message ***\n",
+   "wall_s": 17.01
+  }
+ ],
+ "finished": "2026-10-19T02:41:36Z"
+}

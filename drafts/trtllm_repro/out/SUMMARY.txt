@@ -1,0 +1,11 @@
+versions: {"tensorrt_llm": "1.2.1", "torch": "2.9.1+cu130", "gpu": "NVIDIA L4"}
+[T1] base half vs half, 20000 vs 20000 (noise floor; each speculative arm is 20000 vs all 40000 base draws, so its noise is smaller): {"tv": 0.00899999999999998, "chi2": 15.860386358283332, "dof": 20, "p": 0.7252470074417174}
+[T1] spec vs base: {"tv": 0.01685, "chi2": 174.48640489669765, "dof": 20, "p": 1.1594294563207877e-26}
+[T1] spec verifications: 59894, with fewer draft-logits rows than draft tokens: 59894, K/R: {"K3/R1": 20000, "K3/R2": 39894}, drafts accepted with no draft-logits row: 0 (in 0 verifications), accepted draft tokens with target probability 0: 0 (in 0 verifications)
+[T1] spec_keeplast vs base: {"tv": 0.013324999999999958, "chi2": 213.69289341579125, "dof": 21, "p": 7.179203516998844e-34}
+[T1] spec_keeplast verifications: 59870, with fewer draft-logits rows than draft tokens: 20000, K/R: {"K3/R2": 20000, "K3/R3": 39870}, drafts accepted with no draft-logits row: 0 (in 0 verifications), accepted draft tokens with target probability 0: 0 (in 0 verifications)
+[topk3] base half vs half, 20000 vs 20000 (noise floor; each speculative arm is 20000 vs all 40000 base draws, so its noise is smaller): {"tv": 0.009300000000000024, "chi2": 12.645292133141961, "dof": 15, "p": 0.6296742982617776}
+[topk3] spec vs base: {"tv": 0.99985, "chi2": 59986.50233882928, "dof": 15, "p": 0.0}
+[topk3] spec verifications: 20006, with fewer draft-logits rows than draft tokens: 20006, K/R: {"K3/R1": 20000, "K3/R2": 6}, drafts accepted with no draft-logits row: 0 (in 0 verifications), accepted draft tokens with target probability 0: 19997 (in 19997 verifications)
+[topk3] spec_keeplast vs base: {"tv": 0.9999, "chi2": 59991.00247184839, "dof": 15, "p": 0.0}
+[topk3] spec_keeplast verifications: 20004, with fewer draft-logits rows than draft tokens: 20000, K/R: {"K3/R2": 20000, "K3/R3": 4}, drafts accepted with no draft-logits row: 0 (in 0 verifications), accepted draft tokens with target probability 0: 19998 (in 19998 verifications)

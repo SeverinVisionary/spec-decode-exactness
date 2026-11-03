@@ -1,0 +1,648 @@
+<runtime>/py312/lib/python3.12/site-packages/modelopt/torch/__init__.py:36: UserWarning: transformers version 4.57.3 is incompatible with nvidia-modelopt and may cause issues. Please install recommended version with `pip install nvidia-modelopt[hf]` if working with HF models.
+  _warnings.warn(
+[TensorRT-LLM] TensorRT LLM version: 1.2.1
+[10/22/2026-16:18:11] [TRT-LLM] [I] Using LLM with PyTorch backend
+[10/22/2026-16:18:11] [TRT-LLM] [W] Using default gpus_per_node: 1
+[10/22/2026-16:18:11] [TRT-LLM] [I] neither checkpoint_format nor checkpoint_loader were provided, checkpoint_format will be set to HF.
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+You are using a model of type llama to instantiate a model of type . This is not supported for all configurations of models and can yield errors.
+`torch_dtype` is deprecated! Use `dtype` instead!
+<runtime>/py312/lib/python3.12/site-packages/tensorrt_llm/serve/openai_protocol.py:104: UserWarning: Field name "schema" in "ResponseFormat" shadows an attribute in parent "OpenAIBaseModel"
+  class ResponseFormat(OpenAIBaseModel):
+
+Loading safetensors weights in parallel:   0%|          | 0/1 [00:00<?, ?it/s]
+Loading safetensors weights in parallel: 100%|██████████| 1/1 [00:00<00:00, 681.00it/s]
+
+Loading weights concurrently:   0%|          | 0/52 [00:00<?, ?it/s]
+Loading weights concurrently: 100%|██████████| 52/52 [00:00<00:00, 5077.97it/s]
+Model init total -- 0.03s
+
+Loading safetensors weights in parallel:   0%|          | 0/1 [00:00<?, ?it/s]
+Loading safetensors weights in parallel: 100%|██████████| 1/1 [00:00<00:00, 979.29it/s]
+
+Loading weights concurrently:   0%|          | 0/52 [00:00<?, ?it/s]
+Loading weights concurrently: 100%|██████████| 52/52 [00:00<00:00, 6511.34it/s]
+[TensorRT-LLM][INFO] Max KV cache blocks per sequence: 1 [window size=67], tokens per block=1024, primary blocks=128, secondary blocks=0, max sequence length=67
+[TensorRT-LLM][INFO] Number of tokens per block: 1024.
+[TensorRT-LLM][INFO] [MemUsageChange] Allocated 0.12 GiB for max tokens in paged KV cache (131072).
+[TensorRT-LLM][INFO] Max KV cache blocks per sequence: 1 [window size=67], tokens per block=1024, primary blocks=128, secondary blocks=0, max sequence length=67
+[TensorRT-LLM][INFO] Number of tokens per block: 1024.
+[TensorRT-LLM][INFO] [MemUsageChange] Allocated 0.12 GiB for max tokens in paged KV cache (131072).
+Model init total -- 0.02s
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00,  4.93it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00,  4.91it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 30.19it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.33it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 32.20it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.30it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.92it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 32.18it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.69it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 15.50it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 15.09it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.57it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 15.99it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.40it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 10.75it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 16.21it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.70it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 30.90it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.25it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.94it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 15.92it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.39it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 30.68it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 27.50it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 26.42it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.84it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s][TensorRT-LLM][WARNING] [kv cache manager] storeContextBlocks: Can not find sequence for request 153
+
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 149.19it/s][TensorRT-LLM][WARNING] [kv cache manager] storeContextBlocks: Can not find sequence for request 153
+
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.93it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 32.05it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 32.68it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 32.50it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.32it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 10.58it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.84it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.36it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 15.97it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.66it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 32.19it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.34it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.68it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.87it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.54it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s][TensorRT-LLM][WARNING] [kv cache manager] storeContextBlocks: Can not find sequence for request 169
+
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 148.35it/s]
+[TensorRT-LLM][WARNING] [kv cache manager] storeContextBlocks: Can not find sequence for request 169
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.29it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.45it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 10.71it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.84it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.71it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.74it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 32.01it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 32.41it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 32.00it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.85it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.89it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 15.33it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.14it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 30.93it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.88it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 32.47it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.85it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.80it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 30.47it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.55it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 15.98it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.49it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 15.96it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.71it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 32.30it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 16.07it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.32it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.79it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.12it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.65it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.72it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 32.19it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.62it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.51it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.04it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 29.94it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 30.32it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 30.42it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.79it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.19it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.80it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.20it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.46it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 29.66it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 30.04it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 29.35it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.68it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 32.03it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.14it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.81it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 32.27it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 32.29it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 32.25it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.35it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 10.68it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 15.65it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 30.02it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 32.14it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 30.20it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 30.35it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.37it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 16.11it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 32.02it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 32.07it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 32.09it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 29.45it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 15.20it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 32.87it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 165.20it/s]
+[TensorRT-LLM][WARNING] [kv cache manager] storeContextBlocks: Can not find sequence for request 238
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s][TensorRT-LLM][WARNING] [kv cache manager] storeContextBlocks: Can not find sequence for request 238
+
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.80it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 173.06it/s]
+[TensorRT-LLM][WARNING] [kv cache manager] storeContextBlocks: Can not find sequence for request 240
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s][TensorRT-LLM][WARNING] [kv cache manager] storeContextBlocks: Can not find sequence for request 240
+
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.92it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 32.69it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 10.82it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 32.64it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.42it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.69it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.35it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 32.16it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 32.31it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.55it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 32.14it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.57it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.17it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 29.64it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 30.76it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.49it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.60it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 32.27it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 16.18it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.86it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.51it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 10.59it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 32.25it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 32.24it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.61it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.59it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.84it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 32.14it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 16.22it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 32.47it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.94it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 32.20it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.82it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.94it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 32.33it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 15.75it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 30.96it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 15.60it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.90it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.22it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 10.61it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.43it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 32.24it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 32.03it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 32.38it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 32.19it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 30.10it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 32.73it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 16.20it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 32.63it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 32.44it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 32.55it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.68it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 32.63it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.61it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 32.28it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 32.34it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.79it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 10.34it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 143.45it/s][TensorRT-LLM][WARNING] [kv cache manager] storeContextBlocks: Can not find sequence for request 300
+
+[TensorRT-LLM][WARNING] [kv cache manager] storeContextBlocks: Can not find sequence for request 300
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 30.61it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.39it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.62it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 32.31it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 32.20it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 32.17it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 32.23it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 32.07it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 150.27it/s][TensorRT-LLM][WARNING] [kv cache manager] storeContextBlocks: Can not find sequence for request 309
+[TensorRT-LLM][WARNING] [kv cache manager] storeContextBlocks: Can not find sequence for request 309
+
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.58it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 32.05it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.72it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 16.17it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.52it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 144.20it/s]
+[TensorRT-LLM][WARNING] [kv cache manager] storeContextBlocks: Can not find sequence for request 315
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s][TensorRT-LLM][WARNING] [kv cache manager] storeContextBlocks: Can not find sequence for request 315
+
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 29.72it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 10.70it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.97it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.88it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.69it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.94it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 32.20it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.51it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s][TensorRT-LLM][WARNING] [kv cache manager] storeContextBlocks: Can not find sequence for request 324
+
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 161.36it/s]
+[TensorRT-LLM][WARNING] [kv cache manager] storeContextBlocks: Can not find sequence for request 324
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 15.35it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.62it/s]
+
+Processed requests:   0%|          | 0/1 [00:00<?, ?it/s]
+Processed requests: 100%|██████████| 1/1 [00:00<00:00, 31.83it/s]

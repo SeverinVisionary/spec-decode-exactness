@@ -1,0 +1,12 @@
+== check fa01
+trtllm: 4 cells to draw; gate REFERENCE_UNRESOLVED: none; 0 listed
+exit 0
+== check fa23
+trtllm: 4 cells to draw; gate REFERENCE_UNRESOLVED: none; 0 listed
+exit 0
+== check fbs0
+trtllm: 2 cells to draw; gate REFERENCE_UNRESOLVED: none; 0 listed
+exit 0
+== check fbs2
+trtllm: 2 cells to draw; gate REFERENCE_UNRESOLVED: none; 0 listed
+exit 0

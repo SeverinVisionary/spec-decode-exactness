@@ -1,0 +1,323 @@
+[
+ {
+  "fixture": "FA",
+  "method": "SG1@fit",
+  "record": {
+   "smoke": {
+    "FA/SG1@fit/S0": {
+     "seq_per_s": 1.7,
+     "spec": {
+      "spec_verify_ct": 162,
+      "spec_num_correct_drafts": 153,
+      "spec_num_proposed_drafts": 486
+     },
+     "random_seed": 591554070,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    }
+   },
+   "engine_options": {
+    "attention_backend": "triton",
+    "cuda_graphs": "disabled",
+    "fused_op_backend": "torch"
+   }
+  },
+  "acceptance": 0.3148148148148148,
+  "in_band": true
+ },
+ {
+  "fixture": "FA",
+  "method": "SG1@fitflat",
+  "record": {
+   "smoke": {
+    "FA/SG1@fitflat/S0": {
+     "seq_per_s": 69,
+     "spec": {
+      "spec_verify_ct": 163,
+      "spec_num_correct_drafts": 143,
+      "spec_num_proposed_drafts": 489
+     },
+     "random_seed": 756550694,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    }
+   },
+   "engine_options": {
+    "attention_backend": "triton",
+    "cuda_graphs": "disabled",
+    "fused_op_backend": "torch"
+   }
+  },
+  "acceptance": 0.29243353783231085,
+  "in_band": false
+ },
+ {
+  "fixture": "FA",
+  "method": "SG2@fit",
+  "record": {
+   "smoke": {
+    "FA/SG2@fit/S0": {
+     "seq_per_s": 4.7,
+     "spec": {
+      "spec_verify_ct": 136,
+      "spec_num_correct_drafts": 180,
+      "spec_num_proposed_drafts": 680
+     },
+     "random_seed": 211825949,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    }
+   },
+   "engine_options": {
+    "attention_backend": "triton",
+    "cuda_graphs": "disabled",
+    "fused_op_backend": "torch"
+   }
+  },
+  "acceptance": 0.2647058823529412,
+  "tree": {
+   "verifies": 9,
+   "distinct_depth1_nodes": [
+    1,
+    7,
+    8,
+    13,
+    14,
+    19,
+    20,
+    25,
+    26,
+    31,
+    37,
+    38,
+    43,
+    44,
+    49,
+    55,
+    61,
+    62,
+    67,
+    68,
+    73,
+    74,
+    79,
+    85,
+    91,
+    92,
+    97,
+    103,
+    104,
+    110,
+    115,
+    116,
+    121,
+    122,
+    127,
+    128,
+    133,
+    134,
+    139,
+    140,
+    145,
+    146,
+    151,
+    157,
+    158,
+    163,
+    164,
+    169,
+    170,
+    175,
+    176,
+    181,
+    182,
+    187,
+    193,
+    194,
+    199,
+    206,
+    211,
+    217,
+    223,
+    229,
+    230,
+    235,
+    241,
+    247,
+    253,
+    259,
+    265,
+    271,
+    277,
+    283,
+    284
+   ],
+   "exercised": true,
+   "hook_error": null
+  },
+  "in_band": false
+ },
+ {
+  "fixture": "FA",
+  "method": "SG2@fitflat",
+  "record": {
+   "smoke": {
+    "FA/SG2@fitflat/S0": {
+     "seq_per_s": 33,
+     "spec": {
+      "spec_verify_ct": 139,
+      "spec_num_correct_drafts": 159,
+      "spec_num_proposed_drafts": 695
+     },
+     "random_seed": 209312015,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    }
+   },
+   "engine_options": {
+    "attention_backend": "triton",
+    "cuda_graphs": "disabled",
+    "fused_op_backend": "torch"
+   }
+  },
+  "acceptance": 0.22877697841726619,
+  "tree": {
+   "verifies": 8,
+   "distinct_depth1_nodes": [
+    1,
+    2,
+    7,
+    8,
+    13,
+    14,
+    19,
+    20,
+    25,
+    26,
+    31,
+    37,
+    43,
+    44,
+    49,
+    56,
+    61,
+    67,
+    68,
+    73,
+    74,
+    79,
+    80,
+    85,
+    91,
+    97,
+    98,
+    103,
+    109,
+    115,
+    121,
+    122,
+    127,
+    128,
+    133,
+    140,
+    146,
+    151,
+    157,
+    158,
+    164,
+    169,
+    170,
+    175,
+    176,
+    181,
+    187,
+    188,
+    193,
+    205,
+    211,
+    217,
+    223,
+    229,
+    235,
+    236,
+    241,
+    247,
+    248,
+    253,
+    260,
+    265,
+    271,
+    272,
+    277,
+    283
+   ],
+   "exercised": true,
+   "hook_error": null
+  },
+  "in_band": false
+ },
+ {
+  "fixture": "FB",
+  "method": "SG1@fit",
+  "record": {
+   "smoke": {
+    "FB/SG1@fit/S0": {
+     "seq_per_s": 54.3,
+     "spec": {
+      "spec_verify_ct": 323,
+      "spec_num_correct_drafts": 244,
+      "spec_num_proposed_drafts": 969
+     },
+     "random_seed": 924771457,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    }
+   },
+   "engine_options": {
+    "attention_backend": "triton",
+    "cuda_graphs": "disabled",
+    "fused_op_backend": "torch"
+   }
+  },
+  "acceptance": 0.2518059855521156,
+  "in_band": false
+ },
+ {
+  "fixture": "FB",
+  "method": "SG1@fitflat",
+  "record": {
+   "smoke": {
+    "FB/SG1@fitflat/S0": {
+     "seq_per_s": 61.3,
+     "spec": {
+      "spec_verify_ct": 330,
+      "spec_num_correct_drafts": 244,
+      "spec_num_proposed_drafts": 990
+     },
+     "random_seed": 563236113,
+     "n": 100,
+     "out_of_space": 0,
+     "raw_malformed": 0,
+     "count_ok": true
+    }
+   },
+   "engine_options": {
+    "attention_backend": "triton",
+    "cuda_graphs": "disabled",
+    "fused_op_backend": "torch"
+   }
+  },
+  "acceptance": 0.24646464646464647,
+  "in_band": false
+ }
+]

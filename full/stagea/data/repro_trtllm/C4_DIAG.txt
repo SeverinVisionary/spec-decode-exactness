@@ -1,0 +1,13 @@
+A1/S0/u0 events=60
+  row0: median 1.11e-01 max 1.41e-01 best {'none<=1e-3': 60}
+A1/S0/u1 events=60
+  row0: median 1.11e-01 max 1.48e-01 best {'none<=1e-3': 60}
+A1/S2/u0 events=60
+  row0: median 1.11e-01 max 1.48e-01 best {'none<=1e-3': 60}
+A1/S2/u1 events=60
+  row0: median 1.11e-01 max 1.48e-01 best {'none<=1e-3': 60}
+A2/S2/u1 events=60
+  row0: median 1.11e-01 max 1.12e-01 best {'none<=1e-3': 60}
+A3/S2/u1 events=60
+  row0: median 1.11e-01 max 1.12e-01 best {'none<=1e-3': 60}
+  row1: median 5.50e-02 max 1.29e-01 best {'none<=1e-3': 60}

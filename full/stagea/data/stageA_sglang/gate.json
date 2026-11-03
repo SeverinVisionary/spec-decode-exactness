@@ -1,0 +1,108 @@
+{
+ "gpu": "NVIDIA L4",
+ "built": "2026-10-19T23:49:33Z",
+ "environment": {
+  "python": "3.13.15",
+  "platform": "Linux-6.6.122+-x86_64-with-glibc2.39",
+  "gpu": "NVIDIA L4, 580.82.07, 23034 MiB",
+  "compute_cap": "8.9",
+  "cuda": "Build cuda_13.0.r13.0/compiler.36424714_0",
+  "harness_git": "91c5ee111f8f8c428b55da3696b7c01014778584",
+  "torch": "2.13.0",
+  "transformers": "5.12.1",
+  "vllm": "not installed",
+  "sglang": "0.5.21",
+  "tensorrt_llm": "not installed",
+  "numpy": "2.1.3",
+  "pyarrow": "23.0.1",
+  "TRITON_F32_DEFAULT": "ieee"
+ },
+ "verdicts": {
+  "FA/S0": {
+   "passed": true,
+   "delta_num": 1.9109821371328384e-07,
+   "mde": 0.0026910819133657633,
+   "bound": 4.485136522276272e-05,
+   "reports": 1,
+   "failed_reports": 0
+  },
+  "FA/S1": {
+   "passed": true,
+   "delta_num": 2.1282207736213394e-07,
+   "mde": 0.001480457163932594,
+   "bound": 2.4674286065543234e-05,
+   "reports": 1,
+   "failed_reports": 0
+  },
+  "FA/S2": {
+   "passed": false,
+   "delta_num": null,
+   "mde": 0.0011055487622132077,
+   "bound": 1.8425812703553462e-05,
+   "reports": 0,
+   "failed_reports": 0
+  },
+  "FA/S3": {
+   "passed": false,
+   "delta_num": null,
+   "mde": 0.004340160939456664,
+   "bound": 7.233601565761108e-05,
+   "reports": 0,
+   "failed_reports": 0
+  }
+ },
+ "results": [
+  {
+   "arm": "gate_FA_S0",
+   "status": "RUNS",
+   "wall_s": 63.26,
+   "reference": {
+    "FA/S0/default": {
+     "delta_num": 1.9109821371328384e-07,
+     "finite": true,
+     "argmax_prefix": 23,
+     "support_mismatch": 0,
+     "row_sum_dev": 1.639085522864292e-07,
+     "rows": 10000,
+     "prefixes": 400,
+     "copy_dev": 2.2611901639990606e-07,
+     "path": "logprob"
+    }
+   }
+  },
+  {
+   "arm": "gate_FA_S1",
+   "status": "RUNS",
+   "wall_s": 40.27,
+   "reference": {
+    "FA/S1/default": {
+     "delta_num": 2.1282207736213394e-07,
+     "finite": true,
+     "argmax_prefix": 369,
+     "support_mismatch": 0,
+     "row_sum_dev": 1.484309244403903e-07,
+     "rows": 10000,
+     "prefixes": 400,
+     "copy_dev": 2.908253355915491e-07,
+     "path": "logprob"
+    }
+   }
+  },
+  {
+   "arm": "gate_FA_S2",
+   "status": "ERROR",
+   "error": "child exited with code -9 and no result",
+   "settings_done": {},
+   "log_tail": "988, in event_loop_overlap\n    batch_result = self.run_batch(batch)\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/observability/scheduler_stage_metrics.py\", line 155, in wrapper\n    return profiled_func(self, *args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/utils/nvtx_utils.py\", line 109, in wrapper\n    return func(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/managers/scheduler.py\", line 4415, in run_batch\n    batch_result = self.model_worker.forward_batch_generation(\n        batch, **fwd_kwargs\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/managers/tp_worker.py\", line 686, in forward_batch_generation\n    batch_result.next_token_ids = self.model_runner.sample(\n                                  ~~~~~~~~~~~~~~~~~~~~~~~~^\n        logits_output, forward_batch\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/model_executor/model_runner.py\", line 2017, in sample\n    next_token_ids = self.sampler(\n        logits_output,\n    ...<9 lines>...\n        ),\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1778, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1789, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/layers/sampler.py\", line 269, in forward\n    batch_next_token_ids, sampling_mask_capture = self._sample_from_probs(\n                                                  ~~~~~~~~~~~~~~~~~~~~~~~^\n        probs,\n        ^^^^^^\n    ...<2 lines>...\n        simple_sampling_case,\n        ^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/layers/sampler.py\", line 414, in _sample_from_probs\n    filtered_probs = top_k_renorm_prob(\n        capture_probs, capture_top_ks\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/sgl_kernel/sampling.py\", line 59, in top_k_renorm_probs\n    return _flashinfer_sampling.top_k_renorm_probs(probs, top_k)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/api_logging.py\", line 2333, in _auto_dump_wrapper\n    return _inner(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/sampling.py\", line 1899, in top_k_renorm_probs\n    return get_sampling_module().top_k_renorm_probs(\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^\n        probs, *_to_tensor_scalar_tuple(top_k), row_states_buffer\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/sampling.py\", line 531, in top_k_renorm_probs\n    module.top_k_renorm_probs(\n    ~~~~~~~~~~~~~~~~~~~~~~~~~^\n        probs,\n        ^^^^^^\n    ...<3 lines>...\n        row_states_buffer,\n        ^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"python/tvm_ffi/cython/function.pxi\", line 968, in tvm_ffi.core.Function.__call__\n  File \"<unknown>\", line 0, in __tvm_ffi_top_k_renorm_probs\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/data/csrc/renorm.cu\", line 64, in void top_k_renorm_probs(tvm::ffi::TensorView, tvm::ffi::TensorView, tvm::ffi::Optional<tvm::ffi::TensorView>, int64_t, tvm::ffi::TensorView)\n    CHECK_INPUT(probs);\n    \nRuntimeError: Check failed: (probs.IsContiguous()) is false: probs must be contiguous\n\n[2026-10-19 23:48:39] SIGQUIT received. signum=None, frame=None. It usually means one child failed.\n[rank0]:[W1019 23:48:41.911849992 ProcessGroupNCCL.cpp:1624] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())\n[2026-10-19 23:48:44] No live scheduler processes found; skipping py-spy and CUDA coredump.\n",
+   "wall_s": 151.42
+  },
+  {
+   "arm": "gate_FA_S3",
+   "status": "ERROR",
+   "error": "child exited with code -9 and no result",
+   "settings_done": {},
+   "log_tail": "988, in event_loop_overlap\n    batch_result = self.run_batch(batch)\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/observability/scheduler_stage_metrics.py\", line 155, in wrapper\n    return profiled_func(self, *args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/utils/nvtx_utils.py\", line 109, in wrapper\n    return func(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/managers/scheduler.py\", line 4415, in run_batch\n    batch_result = self.model_worker.forward_batch_generation(\n        batch, **fwd_kwargs\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/managers/tp_worker.py\", line 686, in forward_batch_generation\n    batch_result.next_token_ids = self.model_runner.sample(\n                                  ~~~~~~~~~~~~~~~~~~~~~~~~^\n        logits_output, forward_batch\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/model_executor/model_runner.py\", line 2017, in sample\n    next_token_ids = self.sampler(\n        logits_output,\n    ...<9 lines>...\n        ),\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1778, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1789, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/layers/sampler.py\", line 269, in forward\n    batch_next_token_ids, sampling_mask_capture = self._sample_from_probs(\n                                                  ~~~~~~~~~~~~~~~~~~~~~~~^\n        probs,\n        ^^^^^^\n    ...<2 lines>...\n        simple_sampling_case,\n        ^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/sglang/srt/layers/sampler.py\", line 414, in _sample_from_probs\n    filtered_probs = top_k_renorm_prob(\n        capture_probs, capture_top_ks\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/sgl_kernel/sampling.py\", line 59, in top_k_renorm_probs\n    return _flashinfer_sampling.top_k_renorm_probs(probs, top_k)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/api_logging.py\", line 2333, in _auto_dump_wrapper\n    return _inner(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/sampling.py\", line 1899, in top_k_renorm_probs\n    return get_sampling_module().top_k_renorm_probs(\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^\n        probs, *_to_tensor_scalar_tuple(top_k), row_states_buffer\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/sampling.py\", line 531, in top_k_renorm_probs\n    module.top_k_renorm_probs(\n    ~~~~~~~~~~~~~~~~~~~~~~~~~^\n        probs,\n        ^^^^^^\n    ...<3 lines>...\n        row_states_buffer,\n        ^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"python/tvm_ffi/cython/function.pxi\", line 968, in tvm_ffi.core.Function.__call__\n  File \"<unknown>\", line 0, in __tvm_ffi_top_k_renorm_probs\n  File \"/usr/local/lib/python3.13/dist-packages/flashinfer/data/csrc/renorm.cu\", line 64, in void top_k_renorm_probs(tvm::ffi::TensorView, tvm::ffi::TensorView, tvm::ffi::Optional<tvm::ffi::TensorView>, int64_t, tvm::ffi::TensorView)\n    CHECK_INPUT(probs);\n    \nRuntimeError: Check failed: (probs.IsContiguous()) is false: probs must be contiguous\n\n[2026-10-19 23:49:28] SIGQUIT received. signum=None, frame=None. It usually means one child failed.\n[rank0]:[W1019 23:49:29.756961138 ProcessGroupNCCL.cpp:1624] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())\n[2026-10-19 23:49:33] No live scheduler processes found; skipping py-spy and CUDA coredump.\n",
+   "wall_s": 48.83
+  }
+ ]
+}
