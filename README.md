@@ -1,6 +1,6 @@
 # Draft-model speculative decoding can emit zero-probability tokens
 
-Data and code for the paper of the same title (Hanyu Yang).
+Data and code for the paper of the same title (Hanyu Yang), https://doi.org/10.5281/zenodo.23908669.
 
 The study tests whether the speculative-decoding paths of five inference engines sample from the same distribution
 as the engine itself with speculation off. Two tiny random Llama fixtures make that distribution exact: F-A
@@ -38,7 +38,7 @@ they affect. It was kept in a private working repository. This repository is a s
 those dates; they rest on that private history. The `harness_git` fields in the run records name commits of the
 same private repository: Stage A ran at `91c5ee1` and Stage B at `9943e75`. The Stage A and B draw code shipped in
 `full/` and `code/` (`full/stagea.py`, `full/p0b_*.py`, `full/d40_trtllm_fp32.py` and the modules they import) is
-byte-identical to the Stage B commit; the Phase 0 and extension records name other commits of the same repository. At the Stage A commit two files differed, `full/stagea.py` and
+identical to the Stage B commit apart from the path rewrites described below; the Phase 0 and extension records name other commits of the same repository. At the Stage A commit two files differed, `full/stagea.py` and
 `full/p0b_common.py` (Stage B options added later); their Stage A versions are in `full/at_stageA/`.
 
 Each `[…]` in it marks text removed from the public copy: names of the tools and advisers that reviewed or drafted
@@ -88,7 +88,9 @@ transformers 5.18.0 for the HF arms. Each run's `env.json` records what it used.
 - Anything about the 65 grid cells that did not run, listed with reasons in the paper's appendix, or about tree
   drafting.
 - Anything from the supplementary extensions about the grid. The E2 mutation cells reject by design, and in the E4
-  ablation the arms F0 and F3 fail and F12 fails its calibration test at T = 1; none of these is a grid cell.
+  ablation the arms F0 and F3 fail. F12's calibration test at T = 1 records one impossible draw, which the saved
+  rows (rounded to six decimals) cannot tell from a valid draw of a token below 5·10^-7, so it is not evidence against
+  F12. None of these is a grid cell.
 
 ## Licence
 
