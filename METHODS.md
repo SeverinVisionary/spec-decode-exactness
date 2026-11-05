@@ -1,8 +1,45 @@
 # Methods details
 
-Details of the tests, the grid, the fix ablation and the EAGLE-3 supplementary cells for the paper
+Details of the defect trace, the tests, the grid, the fix ablation and the EAGLE-3 supplementary cells for the paper
 "Draft-Model Speculative Decoding Can Emit Zero-Probability Tokens" (https://doi.org/10.5281/zenodo.23908668).
 The paper's appendix keeps the fixtures, the reference, the gate and the detection limit.
+
+## Defect trace details
+
+In the 192 rounds that start with a context forward, the verifier receives R = 1 draft row, and row 0 holds the
+distribution d₁ was drawn from.
+In the 38 rounds that start with a generation forward, R = 2; rows 0 and 1 are aligned and d₂'s row is missing.
+The sampler sets the accepted count to K and checks only R rows, so when none of them rejects, K − R tokens are never
+tested.
+With the acceptance coin fixed at u = 1 at S2, 105 of 251 verifications emitted unchecked tokens.
+For a token outside the top 3 of both the target and the misplaced draft row, the acceptance ratio p(d)/q(d) is 0/0,
+and the comparison u > NaN is false, so the token is kept.
+
+Replacing our inference-mode hook with an out-of-place squeeze still left unverified acceptances in 76 of 278
+verifications and zero-probability acceptances in 75.
+The bf16 reproduction runs without the fp32 hook.
+Its one change to the engine works around a second defect, an in-place `squeeze_` on an inference tensor that crashes
+outside `torch.inference_mode()` and came in with TensorRT-LLM pull request 9079
+(https://github.com/NVIDIA/TensorRT-LLM/pull/9079).
+There no draft is accepted past the last row, so the misplaced row alone is enough.
+
+The drafter is built with `exclude_last_generation_logits=True`.
+Keeping that last logits chunk adds one row but only moves the F-A distance at T = 1 from 0.497 to 0.432 (10⁵ draws).
+In the ablation below, the patch's first part alone passes at T = 1 and top-k 3 (p = 0.56 and 0.85).
+
+## Power and planted defects
+
+In simulation at S0 and S2 against eight defect classes, each firing in at least 10% of rounds, the F-A test has power
+at least 0.99 at N_A, with two exceptions at S0.
+A bonus token drawn from the draft instead of the target is caught with power 0.64, and skipped logits processors
+cannot be caught at all, because at T = 1 they do nothing.
+
+We planted five verifier mutations inside real engines, each replacing the engine's verification function at run time
+on its own draft tokens and rows.
+They were a missing last row, shifted rows with and without the 0/0 case, a residual drawn from the wrong distribution
+and rows from a stale prefix.
+We ran them in Hugging Face Transformers on CPU and in vLLM, at S0 and S2 with 5×10⁴ draws per cell, and the χ² test
+caught all five while passing the unmutated cells.
 
 ## Tests
 
