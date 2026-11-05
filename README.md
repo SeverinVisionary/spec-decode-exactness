@@ -1,6 +1,6 @@
 # Draft-model speculative decoding can emit zero-probability tokens
 
-Data and code for the paper of the same title (Hanyu Yang), https://doi.org/10.5281/zenodo.23908669.
+Data and code for the paper of the same title (Hanyu Yang), https://doi.org/10.5281/zenodo.23908668 (all versions).
 
 The study tests whether the speculative-decoding paths of five inference engines sample from the same distribution
 as the engine itself with speculation off. Two tiny random Llama fixtures make that distribution exact: F-A
@@ -15,6 +15,7 @@ and at top-k and top-p it draws sequences that the engine's own processed distri
 
 | Path | Contents |
 | --- | --- |
+| `METHODS.md` | Test details, the 118 cells and the 65 that did not run, the fix ablation, and the EAGLE-3 supplementary cells. |
 | `PREREGISTRATION.md` | The preregistration with its dated amendments (FR1 to FR22). See below for what was removed. |
 | `PREREGISTRATION_REDACTIONS.md` | One line per removal in `PREREGISTRATION.md`, with its reason. |
 | `code/` | Fixture, fp64 reference sampler, statistics and the HF and llama.cpp arms that the full study imports. |
